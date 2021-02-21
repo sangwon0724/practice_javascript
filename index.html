@@ -15,6 +15,8 @@
     <span>알림 출력 : alert('알림');</span>
     <span>콘솔 출력 : console.log('콘솔');</span>
     <span>값 입력받기 : prompt('아무 값이나 입력해주세요!');</span>
+    <span>Html 파일에 글 추가 : documnet.write("아무 문자");</span>
+    <span>형변환 (숫자 → 문자) : String(3); //맨앞이 대문자</span>
 
     <hr>
 
@@ -94,6 +96,36 @@
         else {
             alert('else 결과');
         }
+
+        switch ( condition ) {
+            case value1:
+              statement1;
+              break;
+            case value2:
+              statement2;
+              break;
+            ...
+            default:
+              statement3;
+          }
+
+          //예시
+          var test="test";
+          switch ( test ) {
+            case "test":
+              console.log("test입니다.");
+              break;
+            case "notTest":
+              console.log("notTest입니다.");
+              break;
+            case "whyTest":
+              console.log("whyTest입니다.");
+              break;
+            default:
+              console.log("default입니다.");
+              break;
+          }
+          //출력 : test입니다.
         </pre>
     </span>
     <span>true나 false 대신에 1과 0을 쓸 수는 있지만 ==와 ===같은 것을 보면 실전에서는 그냥 true나 false를 쓰는 것이 낫다.</span>
@@ -101,7 +133,49 @@
 
     <hr>
 
-    
+    <span><b>반복문 영역</b></span>
+    <span>
+        <pre>
+            for(초기화; 반복조건; 반복이 될 때마다 실행되는 코드){
+                반복할 문장;
+            }
+            
+            //예시
+            for(var i = 0; i < 10; i++){
+                document.write(i+' ');
+            }
+
+            while(조건)}{
+                반복할 문장;
+            }
+
+            //예시
+            var i = 0;
+            while(i < 10){
+                document.write(i+' ');
+                i++;
+            }
+
+            //무한 반복
+            while(ture){
+                반복할 문장;
+            }
+
+            //반복 제어 - 반복 중지
+            for(var i = 0; i < 10; i++){
+                if(i===5){break;}//반복을 중지시키고 for문을 빠져나온다.
+
+                document.write(i+' ');
+            }
+
+            //반복 제어 - 넘기기
+            for(var i = 0; i < 10; i++){
+                if(i===5){continue;}//i가 5일 때 반복을 한번 생략하고 다음 반복 (i가 6인 경우)을 진행한다.
+
+                document.write(i+' ');
+            }
+        </pre>
+    </span>
     <script src="index.js"></script>
 </body>
 </html>
