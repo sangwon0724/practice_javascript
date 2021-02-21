@@ -5,8 +5,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        b {font-size: 20px;}
+        span {display: block; margin: 20px 0;}
+    </style>
 </head>
 <body>
+    <span><b>기본 영역</b></span>
+    <span>알림 출력 : alert('알림');</span>
+    <span>콘솔 출력 : console.log('콘솔');</span>
+    <span>값 입력받기 : prompt('아무 값이나 입력해주세요!');</span>
+
+    <hr>
+
+    <span><b>숫자 및 문자열 영역</b></span>
+    <span>수의 연산 :<br>
+        Math.pow(3,2);       //출력 : 9,   3의 2승<br>
+        Math.round(10.6);    //출력 : 11,  10.6을 반올림<br>
+        Math.ceil(10.2);     //출력 : 11,  10.2를 올림<br>
+        Math.floor(10.6);    //출력 : 10,  10.6을 내림<br>
+        Math.sqrt(9);        //출력 : 3,   3의 제곱근<br>
+        Math.random();       //출력 : 0부터 1.0 사이의 랜덤한 숫자 (소수점 포함)<br>
+        Math.round(100*Math.random()+1);       //출력 : 1부터 100 사이의 랜덤한 숫자 (정수)
+    </span>
+    <span>자료형 확인 : alert(typeof [변수명 또는 숫자 또는 문자열]); //출력 예시 : string 또는 number</span>
+    <span>문자열 더하기 : alert("Hello"+" World"); //출력 : Hello World</span>
+    <span>문자열 길이 : "Hello World".length//출력 : 11</span>
+    <span>문자 위치 구하기 : "code".indexof("c"); //출력 : 0</span>
+
+    <hr>
+
+    <span><b>변수 영역</b></span>
+    <span>변수 선언 : <br>
+        var f="te"; var b="st"; 또는 var f="te", b="st";<br>
+        사용 => alert(f+b); //출력 : test
+    </span>
+    <span>변수 입력 받기 : <br>
+        var name=prompt('당신의 이름은 무엇인가요?');//test 입력
+        alert(name);    //출력 : test
+    </span>
+
+    <hr>
+
+    <span><b>연산자 영역</b></span>
+    <span>== 연산자 사용 (값만 같으면 됨) : <br>
+        alert(1 == 2)             //출력 : false<br>
+        alert(1 == 1)             //출력 : true<br><br>
+        alert("one" == "two")     //출력 : false<br>
+        alert("one" == "one")     //출력 : true
+    </span>
+    <span>=== 연산자 사용 (조건을 엄격하게 하여 비교 => 값과 자료형이 모두 같아야 됨) : <br>
+        alert(1 == '1');          //출력 : true<br>
+        alert(1 === '1');         //출력 : false<br><br>
+        alert(null == undefined); //출력 : true<br>
+        alert(null === undefined);//출력 : false<br><br>
+        alert(true == 1);         //출력 : true<br>
+        alert(true === 1);        //출력 : false<br>
+        alert(true == '1');       //출력 : true<br>
+        alert(true === '1');      //출력 : false<br><br>
+        alert(0 === -0);          //출력 : true<br>
+        alert(NaN === NaN);       //출력 : false<br>
+    </span>
+    <span>같지 않음을 비교하는 ==와 ===처럼 같지 않음을 비교하는 !=와 !==가 존재한다.<br>
+        alert(1 != '1');          //출력 : false<br>
+        alert(1 !== '1');         //출력 : true
+    </span>
+    <span>And를 의미하는 &&와 Or을 의미하는 ||가 있다.</span>
+
+    <hr>
+
+    <span><b>조건문 영역</b></span>
+    <span>
+        <pre>
+        if(true){
+            alert('result : true');
+        }
+
+        if(false){
+            alert('result : true');
+        }
+
+        if(조건1){
+            alert('if 결과');
+        }
+        else if(조건2){
+            alert('else if 결과');
+        }
+        else {
+            alert('else 결과');
+        }
+        </pre>
+    </span>
+    <span>true나 false 대신에 1과 0을 쓸 수는 있지만 ==와 ===같은 것을 보면 실전에서는 그냥 true나 false를 쓰는 것이 낫다.</span>
+    <span>조건에 변수명을 넣으면 만약 해당 변수가 비어있지 않다면 true를 비어있다면 false를 반환한다.</span>
+
+    <hr>
+
     
     <script src="index.js"></script>
 </body>
