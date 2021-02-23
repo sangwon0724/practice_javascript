@@ -912,7 +912,7 @@
                     
                 }
                 test();
-            ▶ Function.aplly => 메소드명.(현재 객체로 사용될 객체명, 전달될 인수들로 이루어진 배열)
+            ▶ Function.apply => 메소드명.(함수를 호출하는데 제공될 this의 값 (객체명), 전달될 인수들로 이루어진 배열)
                 만약 function sum(a,b) { return a+b; }라는 함수가 있다면
                 기본적으로는 sum(1,3);으로 호출하겠지만
                 Function의 메소드인 apply를 사용해서
@@ -1006,7 +1006,7 @@
                     'info' :  function(){console.log('grade : ' + this.grade + 'class : ' + this.class);}//key-value 형식으로 할 때에는 세미 콜론(;)을 붙이지 않아도 된다.
                 };
 
-                //this를 명시하면 해당 객체 내부의 변수를 가르킨다. ( )= 객체 자기 자신이 가지고 있는 것을 가르키는 것)
+                //this를 명시하면 해당 객체 내부의 변수를 가리킨다. ( )= 객체 자기 자신이 가지고 있는 것을 가리키는 것)
         </pre>
     </span>
     <span>생성자 (constructor) : 객체를 만드는 역할을 하는 함수
@@ -1049,6 +1049,107 @@
                 window.test();로도 실행시킬수 있다.
                 왜냐하면 전역 함수는 window의 프로퍼티이기 때문이다.
                 평소에 window를 쓰지 않아도 호출이 가능한 것은 window를 명시하지 않아도 전역 변수와 전역 함수는 암시적으로 window의 프로퍼티로 인식되기 때문이다.
+        </pre>
+    </span>
+
+    <hr>
+
+    <span><bold>객체 지향 - this</bold></span>
+    <span>함수와 this
+        <pre>
+            ● this는 함수 내에서 함수 호출 맥락(context)를 가리킨다.
+            ● 맥락이란 것은 상황에 따라 달라지기 떄문에, 함수를 어떻게 호출하느냐에 따라서 this가 가리키는 대상이 달라진다.
+        
+            예시)
+                function test(){
+                    if(window === this){
+                        console.log("window === this");
+                    }
+                    else{
+                        console.log("window !== this");
+                    }
+                }
+                test(); //출력 : window === this;
+        </pre>
+    </span>
+    <span>메소드와 this
+        <pre>
+            ● 객체의 소속인 this는 그 객체를 가리킨다.
+
+            예시)
+                var t={
+                    test : function (){
+                        if(t === this){
+                            console.log("t === this");
+                        }
+                        else{
+                            console.log("t !== this");
+                        }
+                    }
+                }
+                t.test(); //출력 : t === this;
+        </pre>
+    </span>
+    <span>생성자와 this
+        <pre>
+            var funcThis = null; 
+ 
+            function Func(){
+                funcThis = this;
+            }
+
+            var A = Func();
+            if(funcThis === window){
+                console.log('window');
+            }//출력 : window
+            
+            var B = new Func();
+            if(funcThis === B){
+                console.log('B');
+            }//출력 : B
+
+            ● new를 붙이지 않으면 window의 전역 함수이기 때문에 window가 this가 된다.
+            ● new를 붙이면 객체를 리턴하기 때문에 해당 객체가 this가 된다.
+        </pre>
+    </span>
+    <span>객체로서의 함수
+        <pre>
+            기본적으로 함수를 만들때에는
+            function sum(x, y){return x+y;}처럼 만든다.
+
+            하지만 이것은 사실
+            var sum = new Function('x', 'y', 'return x+y;');처럼
+            new를 통해서 Function이라는 생성자 함수를 불러내서 만드는 것이다.
+
+            그렇지만 이런 식으로 모든 인자와 본문 내용을 저렇게 표현하면 길고 복잡한 코드를 사용할 때 문제가 커지기 때문에
+            이렇게 만드는 방식 대신에 특정한 것 (함수나 배열 등)을 문법적으로 표현할 수 있도록 해주는 것을
+            리터럴이라고 한다.
+        </pre>
+    </span>
+    <span>apply와 this
+        <pre>
+            var a = {}
+            var b = {}
+            function test(){
+                switch(this){
+                    case a:
+                        console.log('a');
+                        break;
+                    case b:
+                        console.log('b');
+                        break;
+                    case window:
+                        console.log('window');
+                        break;          
+                }
+            }
+
+            test();         //출력 : window
+            test.apply(a);  //출력 : a
+            test.apply(b);  //출력 : b
+            
+            //해설
+            //Function.apply => 메소드명.(함수를 호출하는데 제공될 this의 값 (객체명), 전달될 인수들로 이루어진 배열)
         </pre>
     </span>
     <script src="studyJavaScript.js"></script>
