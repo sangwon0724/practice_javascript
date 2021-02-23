@@ -142,7 +142,7 @@
                         win = window.open('popup.html', 'name_is_popup', 'width=300px, height=500px');
                         break;
                     case 'message':
-                        win.document.write(parent.document.getElementById('message').value);
+                        win.document.getElementById('message').innerText=parent.document.getElementById('message').value;
                         break;
                     case 'close':
                         win.close();
