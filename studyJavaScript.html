@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-    <span>▶ 기본 영역</span>
+    <span><bold>기본</bold></span>
     <span>알림 출력 : alert('알림');</span>
     <span>콘솔 출력 : console.log('콘솔');</span>
     <span>값 입력받기 : prompt('아무 값이나 입력해주세요!');</span>
@@ -20,7 +20,7 @@
 
     <hr>
 
-    <span><bold>숫자 및 문자열 영역</bold></span>
+    <span><bold>숫자 및 문자열</bold></span>
     <span>수의 연산 :<br>
         Math.pow(3,2);       //출력 : 9,   3의 2승<br>
         Math.round(10.6);    //출력 : 11,  10.6을 반올림<br>
@@ -37,7 +37,7 @@
 
     <hr>
 
-    <span><bold>변수 영역</bold></span>
+    <span><bold>변수</bold></span>
     <span>변수 선언 : <br>
         var f="te"; var b="st"; 또는 var f="te", b="st";<br>
         사용 => alert(f+b); //출력 : test<br><br>
@@ -49,7 +49,7 @@
 
     <hr>
 
-    <span><bold>연산자 영역</bold></span>
+    <span><bold>연산자</bold></span>
     <span>== 연산자 사용 (값만 같으면 됨) : <br>
         alert(1 == 2)             //출력 : false<br>
         alert(1 == 1)             //출력 : true<br><br>
@@ -76,7 +76,7 @@
 
     <hr>
 
-    <span><bold>조건문 영역</bold></span>
+    <span><bold>조건문</bold></span>
     <span>
         <pre>
         if(true){
@@ -133,7 +133,7 @@
 
     <hr>
 
-    <span><bold>반복문 영역</bold></span>
+    <span><bold>반복문</bold></span>
     <span>
         <pre>
             for(초기화; 반복조건; 반복이 될 때마다 실행되는 코드){
@@ -179,7 +179,7 @@
 
     <hr>
 
-    <span><bold>함수 영역</bold></span>
+    <span><bold>함수</bold></span>
     <span>함수 : 하나의 로직을 재실행할 수 있도록 하는 것</span>
     <span>함수의 특징 : <br>
         1. 코드의 재사용성을 높여준다.
@@ -213,7 +213,7 @@
 
     <hr>
 
-    <span><bold>배열 영역</bold></span>
+    <span><bold>배열</bold></span>
     <span>배열 (Array) : 연관된 데이터를 모아서 한꺼번에 관리하기 위해서 사용하는 데이터 타입</span>
     <span>선언 방법 1 (배열 선언과 동시에 초기화): 
         <pre>
@@ -349,7 +349,7 @@
     
     <hr>
     
-    <span><bold>객체 영역</bold></span>
+    <span><bold>객체</bold></span>
     <span>
         객체 : index 번호로 요소를 꺼내오던 배열과 다르게<br>
         key 값이라는 문자열을 통하여 값을 꺼내오는 연관된 데이터들을 한꺼번에 관리하기 위해 사용하는 데이터형
@@ -405,7 +405,7 @@
 
     <hr>
 
-    <span><bold>모듈 영역</bold></span>
+    <span><bold>모듈</bold></span>
     <span>모듈화 : 하나의 코드를 여러 개의 파일로 분리하는 작업<br>
         <pre>
             1. 자주 사용되는 코드를 별도의 파일로 만들어서 필요할 때마다 재활용이 가능하다.
@@ -437,7 +437,7 @@
     
     <hr>
 
-    <span><bold>정규 표현식 영역</bold></span>
+    <span><bold>정규 표현식</bold></span>
     <span>정규 표현식 : 문자열에서 특정한 문자를 찾아내는 도구</span>
     <span>정규 표현식을 사용하기 위한 편의성을 제공해주는 사이트 목록 :
         <pre>
@@ -552,7 +552,7 @@
 
     <hr>
 
-    <span><bold>함수 지향 - 유효 범위 영역</bold></span>
+    <span><bold>함수 지향 - 유효 범위</bold></span>
     <span>변수의 유효 범위
         <pre>
             ▶ 전역 변수 : 에플리케이션 전역에서 접근이 가능한 변수
@@ -665,7 +665,7 @@
 
     <hr>
 
-    <span><bold>함수 지향 - 값으로서의 함수와 콜백 함수 영역</bold></span>
+    <span><bold>함수 지향 - 값으로서의 함수와 콜백 함수</bold></span>
     <span>값으로서의 함수 : JavaScript에서는 함수도 객체이기 떄문에 일종의 값이 될 수 있음을 의미한다.
         <pre>
             function test(){}는 var test = function(){};와 같다.
@@ -957,7 +957,7 @@
 
     <hr>
 
-    <span><bold>객체 지향 프로그래밍 영역</bold></span>
+    <span><bold>객체 지향 프로그래밍</bold></span>
     <span>객체 지향 프로그래밍 : 프로그래밍 로직을 상태와 동작으로 이루어진 객체로 만들어서, 객체들을 조합하여 프로그램을 만드는 것<br>
         <pre>
             ● 상태 => 변수
@@ -996,14 +996,14 @@
             ▶ 객체 생성 기본 방법 1
                 var student = {};
                 student.grade = 3;
-                student.class = 11;
-                student.info = function(){console.log('grade : ' + this.grade + 'class : ' + this.class);};
+                student.classNo = 11;
+                student.info = function(){console.log('grade : ' + this.grade + 'class : ' + this.classNo);};
 
             ▶ 객체 생성 기본 방법 1
                 var student = {
                     'grade' : 3,
-                    'class' : 11,
-                    'info' :  function(){console.log('grade : ' + this.grade + 'class : ' + this.class);}//key-value 형식으로 할 때에는 세미 콜론(;)을 붙이지 않아도 된다.
+                    'classNo' : 11,
+                    'info' :  function(){console.log('grade : ' + this.grade + 'class : ' + this.classNo);}//key-value 형식으로 할 때에는 세미 콜론(;)을 붙이지 않아도 된다.
                 };
 
                 //this를 명시하면 해당 객체 내부의 변수를 가리킨다. ( )= 객체 자기 자신이 가지고 있는 것을 가리키는 것)
@@ -1016,8 +1016,8 @@
 
                 var s = new Student();//객체 생성
                 s.grade = 3;
-                s.class = 11;
-                s.info = function(){console.log('grade : ' + this.grade + 'class : ' + this.class);
+                s.classNo = 11;
+                s.info = function(){console.log('grade : ' + this.grade + 'class : ' + this.classNo);
 
             //함수 호출 시 new를 붙이면 새로운 객체를 만든 후에 이를 리턴한다.
 
@@ -1026,10 +1026,10 @@
             //그렇기 때문에 this를 사용해서 좀 더 효율적으로 바꾼다.
 
             ▶ this와 함께 사용
-                function Student(grade, class){
+                function Student(grade, classNo){
                     this.name = name;
-                    this.class = class;
-                    this.info = function(){console.log('grade : ' + this.grade + 'class : ' + this.class);
+                    this.classNo = classNo;
+                    this.info = function(){console.log('grade : ' + this.grade + 'class : ' + this.classNo);
                 }
         </pre>
     </span>
@@ -1152,6 +1152,82 @@
             //Function.apply => 메소드명.(함수를 호출하는데 제공될 this의 값 (객체명), 전달될 인수들로 이루어진 배열)
         </pre>
     </span>
+
+    <hr>
+
+    <span><bold>객체 지향 - 상속</bold></span>
+    <span>상속 (inheritance) : 특정 개체의 로직을 그대로 물려받는 또 다른 객체를 만들수 있는 기능
+        <pre>
+            ● 단순히 물려받는 것은 의미가 없기 때문에 기존의 로직을 수정해서 파생된 새로운 객체를 만들 수 있게 해준다.
+
+            //기본적인 함수 코드
+            function Student(grade, classNo){
+                this.grade = grade;
+                this.classNo = classNo;
+                this.info = function(){console.log('grade : ' + this.grade + ' class : ' + this.classNo)};
+            }
+            var s = new Student(3, 11);
+            s.info();
+
+            //상속을 위한 코드 변경
+            function Student(grade, classNo){
+                this.grade = grade;
+                this.classNo = classNo;
+            }
+            Student.prototype.grade = null;     //protype 초기화
+            Student.prototype.classNo = null;   //protype 초기화
+            Student.prototype.info = function(){console.log('grade : ' + this.grade + ' class : ' + this.classNo)}; //protype 초기화
+            var s = new Student(3, 11);
+            s.info();
+
+            //상속 받기
+            function Student_Inheritance(grade, classNo){
+                this.grade = grade;
+                this.classNo = classNo;
+            }
+            Student_Inheritance.prototype = new Student();  //Student_Inheritance의 protype을 통해서 Student를 상속을 받음
+            var si = new Student_Inheritance(3, 10);
+            si.info();
+
+            //상속을 받은 뒤의 기능 추가
+            Student_Inheritance.prototype.hobbyInput = function(){
+                var hobbyInfo = prompt('이 사람의 취미는 무엇입니까?');
+                this.hobby = hobbyInfo;
+                console.log('이 사람의 취미는 ' + this.hobby + '입니다.');
+            };
+            si.hobbyInput();            //입력 : 게임
+            console.log(si.hobby);      //출력 : 게임
+        </pre>
+    </span>
+    <span>JavaScript의 prototype : JavaScript에서 상속을 할 때 사용되는 구체적인 수단
+        <pre>
+            function GrandParent(){};
+            GrandParent.prototype.locationText = 'GrandParent\'s locationText';
+
+            function Parent(){};
+            Parent.prototype = new GrandParent();
+
+            function Children(){};
+            Children.prototype = new Parent();
+
+            var c = new Children();
+            console.log(c.locationText);    //출력 : GrandParent's locationText
+        </pre>
+    </span>
+    <span>prototype chain : 특정 개체의 값을 사용하려 했는데 해당 값이 정의되어 있지 않다면 상속 받은 prototype들을 점점 거슬러 올라가면서 해당 값을 찾아내는 것
+        <pre>
+            방금 전의 코드를 통해서 console.log(c.locationText);가 실행된 과정을 알아보자.
+
+            1. 우선 c.locationText이기 때문에 c라는 객체에서 locationText라는 값이 정의되있는가를 찾아본다.
+            2. c.locationText가 없다면 c의 원형인 Children의 prototype에서 locationText 값이 정의되있는가를 찾아본다.
+            3. Children의 prototype에도 locationText이 정의 되어있지 않다면 Children이 상속받은 Parent의 prototype에서 locationText 값이 정의되있는가를 찾아본다.
+            4. Parent의 prototype에도 locationText이 정의되어 있지 않다면 Parent가 상속받은 GrandParent의 prototype에서 locationText 값이 정의되있는가를 찾아본다.
+            5. GrandParent의 prototype에 locationText가 정의되어 있기 때문에 그 값을 리턴한다.
+
+            이렇게 차례대로 연관되어 거슬러 올라가며 상속받은 protype들을 찾는 것이 prototype chain이다.
+        </pre>
+    </span>
+    
     <script src="studyJavaScript.js"></script>
 </body>
 </html>
