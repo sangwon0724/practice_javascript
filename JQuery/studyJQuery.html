@@ -7,14 +7,15 @@
     <title>J-Query 공부</title>
     <style>
         bold {font-size: 25px; font-weight: bold;}
-        span {display: block; margin: 20px 0;}
+        span {display: block; margin: 10px 0;}
+        hr {margin: 20px 0;}
     </style>
 </head>
 <body>
     <span><bold>j-Query</bold></span>
-    <span>jQuery : JavaScript의 DOM을 내부에 감추고, 웹 페이지를 보다 쉽게 조작할 수 있도록 해주는 도구</span>
-    <span>라이브러리 : 자주 사용하는 로직을 재사용할 수 있도록 고안된 소프트웨어</span>
-    <span>기본 환경 세팅
+    <span>▶ jQuery : JavaScript의 DOM을 내부에 감추고, 웹 페이지를 보다 쉽게 조작할 수 있도록 해주는 도구</span>
+    <span>▶ 라이브러리 : 자주 사용하는 로직을 재사용할 수 있도록 고안된 소프트웨어</span>
+    <span>▶ 기본 환경 세팅
         <pre>
             1. Google에 jQuery CDN를 입력해서 j-Query 공식 홈페이지로 이동한다.
             2. 사용할 j-Query 버전에 맞는 코드를 클릭해서 확인한다. 
@@ -35,15 +36,15 @@
     <hr>
 
     <span><bold>j-Query의 기본</bold></span>
-    <span>j-Query의 객체 탐색 : j-Query는 css 선택자를 통해서 객체를 탐색한다.</span>
-    <span>$('선택자') 함수
+    <span>▶ j-Query의 객체 탐색 : j-Query는 css 선택자를 통해서 객체를 탐색한다.</span>
+    <span>▶ $('선택자') 함수
         <pre>
             ● j-Query의 기초가 되는 문법이다.
             ● css 선택자를 전달하면 해당 객체를 탐색하여 jQuery 객체를 리턴한다.
                 예시) $('span').css('color', 'red');
         </pre>
     </span>
-    <span>j-Query 객체 : jQuery 함수를 이용해서 선택한 엘리먼트들에 대해서 프로퍼티를 가지고 있는 객체
+    <span>▶ j-Query 객체 : jQuery 함수를 이용해서 선택한 엘리먼트들에 대해서 프로퍼티를 가지고 있는 객체
         <pre>
             ● 암시적 반복 : 암시적 반복은 값을 설정할 때만 동작한다.
                 예시 1) $('#test').css('color');        //해당 속성에 대한 정보를 가져온다.
@@ -61,13 +62,60 @@
                 <a href="https://api.jquery.com">https://api.jquery.com</a>
         </pre>
     </span>
+    <span>▶ attr & prop: jQuery에서 엘리멘트를 제어하는 API
+        <pre>
+            ● attr ( = attribute )
+                (1) attr('name') => Element.getAttribute
+                (2) attr('name', 'value') => Element.setAttribute
+                (3) removeAttr('name') => Element.removeAttribute
+
+                예시 - attr)
+                    &lt;a href="../index.html" id="aTag">index.html&lt;/a>
+                    var aTag = $('#aTag');
+                    console.log(aTag.attr('href')); //../index.html
+                    aTag.attr('title', 'index'); //title 속성 값 설정
+                    aTag.removeAttr('title'); //title 속성 제거
+
+            ● prop ( = property )
+                (1) prop('name') => Element.getAttribute
+                (2) prop('name', 'value') => Element.setAttribute
+                (3) removeProp('name') => Element.removeAttribute
+
+                예시)
+                    &lt;a href="../index.html" id="aTag">index.html&lt;/a>
+                    var aTag = $('#aTag');
+                    console.log(aTag.prop('href')); //../index.html
+                    aTag.prop('title', 'index'); //title 속성 값 설정
+                    aTag.removeProp('title'); //title 속성 제거
+
+            ● attr과 prop의 차이
+                [1] attr
+                    ○ 해당 엘리멘트에서 특정 속성에 대해서 명시되어있는 값을 조회한다.
+                    ○ 찾으려는 속성이 태그에 명시되어있지 않으면 undefined가 뜬다.
+                    ○ style이나 src같은 설정 값에 대해 작업할 때 사용하는 것이 좋다.
+                [2] prop
+                    ○ 해당 엘리멘트에서 특정 속성에 대해서 실제로 사용되는 값을 조회한다.
+                    ○ checked나 selected같은 변화하는 값에 대해 작업할 때 사용하는 것이 좋다.
+        </pre>
+    </span>
+    <span>▶ 조회 범위 제한
+        <pre>
+            ● 기존 JavaScript 방식
+                var test = document.getElementById('#test');
+                var innerTest = test.querySelectorAll('.innerTest');
+            ● jQuery 방식 : 첫 번째 인자는 가져올 엘리먼트들 나타내고, 두번째 인자는 첫번째 인자를 감싸고 있는 영역을 css 선택자로 나타낸다.
+                (1) $() 함수 방식 : 엘리멘트를 한 번에 가져올 때 사용
+                    예시 1) $('.innerTest', '#test').css("background-color", "red");
+                    예시 2) $("li", "ul>li>ul").css( "background-color", "red");
+                (2) find() 함수 방식 : 체인을 끊지 않고 작업의 대상을 변경하고 싶을 때 사용
+                    예시  ) $("ul>li#findPoint").css( "background-color", "blue").find("ul>li").css( "background-color", "red");
+        </pre>
+    </span>
 
 
 
 
-
-
-
+    
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

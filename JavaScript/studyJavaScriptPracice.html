@@ -7,12 +7,13 @@
     <title>JavaScript 실전 공부</title>
     <style>
         bold {font-size: 25px; font-weight: bold;}
-        span {display: block; margin: 20px 0;}
+        span {display: block; margin: 10px 0;}
+        hr {margin: 20px 0;}
     </style>
 </head>
 <body>
     <span><bold>BOM (Browser Object Model)</bold></span>
-    <span>BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
+    <span>▶ BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
         <pre>
             ● Document 객체 : 현재문서에 대한 정보
             ● History 객체 : 현재의 브라우저가 접근했던 URL history
@@ -22,7 +23,7 @@
             ● Window 객체 : 최상위 객체(= 전역 객체)로, 각 프레임별로 하나씩 존재
         </pre>
     </span>
-    <span>Window 객체</span>
+    <span>▶ Window 객체</span>
     <span>
         <pre>
             ● b = 1;은 window.b = 1;과 같다.
@@ -31,7 +32,7 @@
             즉, 전역 변수와 전역 함수는 window 객체의 프로퍼티나 메소드가 되는 것이다.
         </pre>
     </span>
-    <span>사용자와의 커뮤니케이션</span>
+    <span>▶ 사용자와의 커뮤니케이션</span>
     <span>
         <pre>
             ● alert("문자열" 또는 변수명);  => 알림을 띄우는 기능
@@ -53,7 +54,7 @@
                 [테스트] <button onclick="BOM_Communication_prompt()">실행</button>
         </pre>
     </span>
-    <span>Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
+    <span>▶ Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
         <pre>
             ● 현재 윈도우의 문서가 위치하는 URL 알아보기
                 document.write("location.toString() => ", location.toString(), "&lt;br/&gt;");
@@ -83,7 +84,7 @@
                [테스트] <button onclick="BOM_Location_location_reload()">실행</button>
         </pre>
     </span>
-    <span>Navigator 객체 : 브라우저의 정보를 알려주는 객체
+    <span>▶ Navigator 객체 : 브라우저의 정보를 알려주는 객체
         <pre>
             ● appName : 웹 브라우저의 이름. (IE => Microsoft Internet Explorer / 파이어폭스, 크롬 등 => Nescape)
             ● appVersion : 브라우저의 버전
@@ -99,7 +100,7 @@
             [테스트] <button onclick="BOM_Navigator_navigatorInfo()">실행</button>
         </pre>
     </span>
-    <span>창 제어
+    <span>▶ 창 제어
         <pre>
             ● window.open(URL, Window_Name, option)
                 (1) URL : 새 창에 로드할 문서의 URL이다. 인자를 생략하면 이름이 붙지 않은 새 창이 만들어진다.
@@ -158,13 +159,13 @@
     </span>
 
     <span><bold>DOM (Document Object Model)</bold></span>
-    <span>DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
+    <span>▶ DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
         <pre>
             ● window 객체의 document 프로퍼티를 통해서 사용
             ● Document 객체는 윈도우에 로드된 문서를 의미
         </pre>
     </span>
-    <span>제어 대상 찾기
+    <span>▶ 제어 대상 찾기
         <pre>
             1. getElementsByTagName('태그명') : 인자로 전달한 태그명에 해당되는 객체들을 찾아서 그 리스트를 NodeList라는 유사 배열에 담아서 반환한다.
                 예시) var divList = document.getElementsByTagName('div');
@@ -178,7 +179,7 @@
                 예시 3) var test = document.querySelector('.test'); //클래스 선택자를 통해서 객체 탐색, 아이디는 # 이용
         </pre>
     </span>
-    <span>HTML Element & HTML Collection
+    <span>▶ HTML Element & HTML Collection
         <pre>
             ● getElementBy[xxx] 메소드나 querySelector/querySelectorAll을 통해서 객체를 조회했다면
               이 객체들을 대상으로 구체적인 작업을 처리해야 한다.
@@ -189,21 +190,23 @@
             ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 복수(유사 배열을 통해 반환)라면 HTML Collection이 된다.
         </pre>
     </span>
-    <span>HTML Element
+    <span>▶ HTML Element
         <pre>
-            ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement,HTMLAnchroElement 등등)
+            ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement, HTMLAnchroElement 등등)
             ● HTML Element의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037" target="_blank">HTML Element</a>
             ● HTML Element의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLElement" target="_blank">HTMLElement - Web API | MDN - Mozilla</a>
         </pre>
     </span>
-    <span>HTML Collection
+    <span>▶ HTML Collection
         <pre>
             ● HTML Collection의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-75708506" target="_blank">HTML Collection</a>
             ● HTML Collection의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLCollection" target="_blank">HTMLCollection - Web API | MDN - Mozilla</a>
         </pre>
     </span>
-    <span>DOM Tree (돔 트리)
+    <span>▶ DOM Tree (돔 트리)
         <pre>
+            예시) Node → Element → HTMLElement → HTMLLIElement, HTMLAnchroElement 등등
+
             1. 모든 엘리먼트는 HTMLElement의 자식이다.
             2. 따라서 HTMLElement의 프로퍼티를 똑같이 가지고 있다.
             3. 동시에 엘리먼트의 성격에 따라서 자신만의 프로퍼티를 가지고 있는데 이것은 엘리먼트의 성격에 따라서 달라진다.
@@ -212,6 +215,85 @@
             6. Element은 Element의 Node의 자식이다.
             7. 이렇게 자신의 부모가 되는 객체의 프로퍼티나 메소드를 차례대로 자식 객체들이 물려받는 구조를 DOM Tree라고 한다.
     </span>
+
+    <hr>
+
+    <span><bold>Element 객체 : 엘리먼트를 추상화한 객체</bold></span>
+    <span>▶ 주요 기능
+        <pre>
+            ● 식별자 : 문서내에서 특정한 엘리먼트를 식별하기 위한 용도로 사용되는 API
+                ○ Element.classList
+                ○ Element.className
+                ○ Element.id
+                ○ Element.tagName
+            ● 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
+                ○ Element.getElementsByClassName
+                ○ Element.getElementsByTagName
+                ○ Element.querySelector
+                ○ Element.querySelectorAll
+            ● 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
+                ○ Element.getAttribute(name)
+                ○ Element.setAttribute(name, value)
+                ○ Element.hasAttribute(name);
+                ○ Element.removeAttribute(name);
+
+            ■ 사용법 : 객체.xxx(...);
+        </pre>
+    </span>
+    <span>▶ 식별자 : id나 clas같은 식별자를 가져오고 변경하는 기능
+        <pre>
+            ● Element.classList => class명의 목록을 가져온다. 변경 가능. Element.className보다 좀 더 발전한 API
+                예시)
+                    var test = document.getElementById('test');
+                    test.classList.add('example');      //클래스 추가
+                    for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
+                    test.classList.remove('example');   //클래스 삭제
+                    for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
+            ● Element.className => class명을 가져온다. 변경 가능
+                예시)
+                    var test = document.getElementById('test');
+                    test.className = "test1";
+                    console.log(test.className);
+                    test.className += " test2"
+                    console.log(test.className);
+            ● Element.id => id명을 가져온다. 변경 가능
+            ● Element.tagName => 태그명을 가져온다. 읽기 전용
+        </pre>
+    </span>
+    <span>▶ 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
+        <pre>
+            ● Element.getElementsByClassName
+            ● Element.getElementsByTagName
+            ● Element.querySelector
+            ● Element.querySelectorAll
+        </pre>
+    </span>
+    <span>▶ 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
+        <pre>
+            ● Element.getAttribute(name)            //해당 속성의 값을 조회
+            ● Element.setAttribute(name, value);    //해당 속성의 값 변경
+            ● Element.hasAttribute(name);           //해당 속성의 존재 여부 확인
+            ● Element.removeAttribute(name);        //해당 속성의 존재를 삭제
+
+            예시)
+                &lt;a href="https://www.naver.com/" id="aTag">Naver&lt;/a>
+
+                var aTag = document.getElementById('aTag');
+                console.log(aTag.getAttribute('href')); //https://www.naver.com/
+
+                aTag.setAttribute('title', 'naver'); // title 속성값 설정
+                console.log(aTag.hasAttribute('title')); //출력 : true
+
+                aTag.removeAttribute('title'); // title 속성을 제거한다.
+                console.log(aTag.hasAttribute('title')); //출력 : false
+        </pre>
+    </span>
+
+
+
+
+
+
 
     <script src="BOM.js"></script>
     <script src="DOM.js"></script>
