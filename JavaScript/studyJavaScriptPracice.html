@@ -289,7 +289,7 @@
 
     <br>
 
-    <section class="Node_Element">
+    <section class="Node_Object">
         <span><bold>Node 객체 : DOM의 시조같은 역할</bold></span>
         <span>▶ 주요 기능
             <pre>
@@ -301,31 +301,51 @@
         </span>
         <span>▶ 관계
             <pre>
-                ● Node.childNodes
-                ● Node.firstChild
-                ● Node.lastChild
-                ● Node.nextSibling
-                ● Node.previousSibling
-                ●  Node.contains()
-                ●  Node.hasChildNodes()
+                ● Node.childNodes : 자식 노드들을 유사 배열에 담아서 반환한다.
+                ● Node.firstChild : 첫번째 자식 노드를 반환한다.
+                ● Node.lastChild : 마지막 자식 노드를 반환한다.
+                ● Node.nextSibling : 다음 형제 노드를 반환한다.
+                ● Node.previousSibling : 이전 형제 노드를 반환한다.
+                ● Node.contains('객체명') : 주어진 인자가 Node의 자손인지에 대한 true/false 값을 반환한다.
+                ● Node.hasChildNodes() : Node가 자손을 갖고 있는 지에 대한 true/false 값을 반환한다.
+
+                ※ 주의점 : Node.firstChild를 사용할 때 줄바꿈 문자가 첫번째 자식으로 들어갈 수도 있으니 조심해야 한다.
             </pre>
         </span>
         <span>▶ 노드의 종류
             <pre>
-                ● Node.nodeType
-                ● Node.nodeName
+                ● Node.nodeType : Node의 타입을 반환한다.
+                    for(var name in Node){
+                        console.log(name, Node[name]);
+                    }
+                ● Node.nodeName : Node의 이름을 반환한다. ( = 태그명 )
             </pre>
         </span>
-        <span>
+        <span>▶ 값
             <pre>
-                ●  Node.nodeValue
-                ● Node.textContent
+                ● Node.nodeValue : Node의 종류마다 각각 다른 값을 반환한다.
+                    ○ 요소 노드(element node) : undefined
+                    ○ 속성 노드(attribute node) : 해당 속성의 속성값
+                    ○ 텍스트 노드(text node) : 해당 텍스트 문자열
+                ● Node.textContent : Node가 가지고 있는 문자열을 반환한다.
             </pre>
         </span>
         <span>▶ 자식 관리
             <pre>
-                ● Node.appendChild()
-                ● Node.removeChild()
+                ● Node.appendChild(child) : 노드의 마지막 자식으로 주어진 엘리먼트 추가
+                    var ul = document.getElementsByTagName('ul');
+                    var li = document.createElement('li'); //Documnet 객체의 기능
+                    ul.appendChild(li); //ul에 li 추가
+                ● insertBefore(newElement, referenceElement) : appendChild와 사용법은 동일하나 newElement 노드를 referenceElement 앞에 추가한다.
+                ● Node.replaceChild(newChild, oldChild) : 노드 변경
+                    var parent = document.getElementById('#parent');    //parent 노드 설정
+                    var oldChild = document.createElement('div');  //oldChild 노드 생성
+                    parent.appendChild(oldChild); //parent 노드에 oldChild 노드를 자식 노드로 추가
+                    var newChild = document.createElement('span');  //newChild 노드 생성
+                    parent.replaceChild(newChild, oldChild); //parent 노드의 자식 노드인 oldChild 노드를 제거하고 그 자리에 newChild 노드를 새로 자식 노드로 연결한다.
+                ● Node.removeChild() : 노드의 마지막 자식으로 있는 엘리먼트 삭제
+                    var li = document.getElementsByTagName('li');
+                    li.parentNode.removeChild(li);
             </pre>
         </span>
     </section>
