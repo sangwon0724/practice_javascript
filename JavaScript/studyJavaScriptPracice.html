@@ -178,6 +178,40 @@
                 예시 3) var test = document.querySelector('.test'); //클래스 선택자를 통해서 객체 탐색, 아이디는 # 이용
         </pre>
     </span>
+    <span>HTML Element & HTML Collection
+        <pre>
+            ● getElementBy[xxx] 메소드나 querySelector/querySelectorAll을 통해서 객체를 조회했다면
+              이 객체들을 대상으로 구체적인 작업을 처리해야 한다.
+            ● 객체들에 대한 작업을 하기 위해서는 휙득한 객체가 무엇인지 정확히 알고 있어야지
+               적절한 메소드나 프로퍼티를 사용할 수 있다.
+            ● 휙득한 객체에 대한 정보는 console.log(객체.constructor.name);를 하면 알 수 있다.
+            ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 단수라면 HTML Element가 된다.
+            ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 복수(유사 배열을 통해 반환)라면 HTML Collection이 된다.
+        </pre>
+    </span>
+    <span>HTML Element
+        <pre>
+            ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement,HTMLAnchroElement 등등)
+            ● HTML Element의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037" target="_blank">HTML Element</a>
+            ● HTML Element의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLElement" target="_blank">HTMLElement - Web API | MDN - Mozilla</a>
+        </pre>
+    </span>
+    <span>HTML Collection
+        <pre>
+            ● HTML Collection의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-75708506" target="_blank">HTML Collection</a>
+            ● HTML Collection의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLCollection" target="_blank">HTMLCollection - Web API | MDN - Mozilla</a>
+        </pre>
+    </span>
+    <span>DOM Tree (돔 트리)
+        <pre>
+            1. 모든 엘리먼트는 HTMLElement의 자식이다.
+            2. 따라서 HTMLElement의 프로퍼티를 똑같이 가지고 있다.
+            3. 동시에 엘리먼트의 성격에 따라서 자신만의 프로퍼티를 가지고 있는데 이것은 엘리먼트의 성격에 따라서 달라진다.
+            4. HTMLElement은 Element의 자식이다.
+            5. 따라서 Element의 프로퍼티를 똑같이 가지고 있다.
+            6. Element은 Element의 Node의 자식이다.
+            7. 이렇게 자신의 부모가 되는 객체의 프로퍼티나 메소드를 차례대로 자식 객체들이 물려받는 구조를 DOM Tree라고 한다.
+    </span>
 
     <script src="BOM.js"></script>
     <script src="DOM.js"></script>

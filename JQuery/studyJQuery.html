@@ -12,11 +12,70 @@
 </head>
 <body>
     <span><bold>j-Query</bold></span>
-    <span>jQuery : JavaScript의 DOM을 내부에 감추고, 웹 페이지를 보다 쉽게 조작할 수 있도록 해주는 도구
+    <span>jQuery : JavaScript의 DOM을 내부에 감추고, 웹 페이지를 보다 쉽게 조작할 수 있도록 해주는 도구</span>
+    <span>라이브러리 : 자주 사용하는 로직을 재사용할 수 있도록 고안된 소프트웨어</span>
+    <span>기본 환경 세팅
         <pre>
-            ● 
+            1. Google에 jQuery CDN를 입력해서 j-Query 공식 홈페이지로 이동한다.
+            2. 사용할 j-Query 버전에 맞는 코드를 클릭해서 확인한다. 
+                [a] uncompressed 버전 : 압축되지 않은 버전 (공백, 줄바꿈, 들여쓰기 등이 되어있음)
+                [b] minified 버전 : 압축되어 있는 버전 (공백, 줄바꿈, 들여쓰기 등을 최대한 적게 사용하여 용량 최소화함)
+            3. 해당 코드를 복사해서 j-Query를 사용할 html 파일에 명시해준다.
+                예시)
+                &lt;script
+                    src="https://code.jquery.com/jquery-3.5.1.js"
+                    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+                    crossorigin="anonymous">
+                &lt;/script>
+            4. 테스트 해보기
+                예시) jQuery(document).ready(function($){ $('body').prepend('&lt;h1>Hello World&lt;/h1>'); });  //body에 ''Hello World' 추가
         </pre>
     </span>
-    
+
+    <hr>
+
+    <span><bold>j-Query의 기본</bold></span>
+    <span>j-Query의 객체 탐색 : j-Query는 css 선택자를 통해서 객체를 탐색한다.</span>
+    <span>$('선택자') 함수
+        <pre>
+            ● j-Query의 기초가 되는 문법이다.
+            ● css 선택자를 전달하면 해당 객체를 탐색하여 jQuery 객체를 리턴한다.
+                예시) $('span').css('color', 'red');
+        </pre>
+    </span>
+    <span>j-Query 객체 : jQuery 함수를 이용해서 선택한 엘리먼트들에 대해서 프로퍼티를 가지고 있는 객체
+        <pre>
+            ● 암시적 반복 : 암시적 반복은 값을 설정할 때만 동작한다.
+                예시 1) $('#test').css('color');        //해당 속성에 대한 정보를 가져온다.
+                예시 2) $('#test').css('color', 'red'); //해당 속성에 대한 설정을 한다.
+            ● 체이닝(chainig) : 선택된 엘리먼트에 대해서 연속적으로 작업을 처리할 수 있는 방법
+                예시) $('#test').css('color', 'red').css('text-decoration', 'underline');
+            ● 객체명.map() : jQuery 객체의 엘리먼트를 하나씩 순회하면서 첫번째 인자로 전달된 함수가 호출되는데,
+                             첫번째 인자로 엘리먼트의 인덱스, 두번째 인자로 엘리먼트 객체(DOM)가 자동으로 전달된다.
+                             var li = $('li');
+                             li.map(function(index, elem){
+                                 console.log(index, elem);
+                                 $(elem).css('color', 'red');
+                             });
+            ● j-Query 객체 API
+                <a href="https://api.jquery.com">https://api.jquery.com</a>
+        </pre>
+    </span>
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        //body에 ''Hello World' 추가
+        /*jQuery(document).ready(function($){
+            $('body').prepend('<h1>Hello World</h1>');
+        });*/
+    </script>
 </body>
 </html>
