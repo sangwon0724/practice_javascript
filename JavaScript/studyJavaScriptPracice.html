@@ -6,288 +6,329 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript 실전 공부</title>
     <style>
+        body {background-color: #eeeeee;}
+        section {background-color: white;}
         bold {font-size: 25px; font-weight: bold;}
         span {display: block; margin: 10px 0;}
-        hr {margin: 20px 0;}
+        br {margin: 20px 0;}
     </style>
 </head>
 <body>
-    <span><bold>BOM (Browser Object Model)</bold></span>
-    <span>▶ BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
-        <pre>
-            ● Document 객체 : 현재문서에 대한 정보
-            ● History 객체 : 현재의 브라우저가 접근했던 URL history
-            ● Location 객체 : 현재 URL에 대한 정보, 브라우저에서 사용자가 요청하는 URL
-            ● Navigator 객체 : 브라우저명과 버전정보를 속성으로 가짐
-            ● Screen 객체 : 브라우저의 외부환경에 대한 정보를 제공
-            ● Window 객체 : 최상위 객체(= 전역 객체)로, 각 프레임별로 하나씩 존재
-        </pre>
-    </span>
-    <span>▶ Window 객체</span>
-    <span>
-        <pre>
-            ● b = 1;은 window.b = 1;과 같다.
-            ● alert("알림!")과 window.alert("알림");은 같다.
+    <section id="BOM">
+        <span><bold>BOM (Browser Object Model)</bold></span>
+        <span>▶ BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
+            <pre>
+                ● Document 객체 : 현재문서에 대한 정보
+                ● History 객체 : 현재의 브라우저가 접근했던 URL history
+                ● Location 객체 : 현재 URL에 대한 정보, 브라우저에서 사용자가 요청하는 URL
+                ● Navigator 객체 : 브라우저명과 버전정보를 속성으로 가짐
+                ● Screen 객체 : 브라우저의 외부환경에 대한 정보를 제공
+                ● Window 객체 : 최상위 객체(= 전역 객체)로, 각 프레임별로 하나씩 존재
+            </pre>
+        </span>
+        <span>▶ Window 객체</span>
+        <span>
+            <pre>
+                ● b = 1;은 window.b = 1;과 같다.
+                ● alert("알림!")과 window.alert("알림");은 같다.
 
-            즉, 전역 변수와 전역 함수는 window 객체의 프로퍼티나 메소드가 되는 것이다.
-        </pre>
-    </span>
-    <span>▶ 사용자와의 커뮤니케이션</span>
-    <span>
-        <pre>
-            ● alert("문자열" 또는 변수명);  => 알림을 띄우는 기능
-            ● confirm("문자열"); => 확인/취소를 띄우는 선택창을 띄우는 기능, 값은 true/false 반환
-                if(confirm("confirm 테스트")){
-                    alert("확인 버튼  클릭")
-                }
-                else {
-                    alert("취소 버튼 클릭");
-                }
-                [테스트] <button onclick="BOM_Communication_confirm()">실행</button>
-            ● prompt("문자열"); => 입력을 받아서 그 값을 저장해주는 형태
-                if(prompt("\"BB 바른 한 래퍼가 내게 말을 건다 ~\"\n\n이것은 누구의 노래인가요?")==="조광일"){
-                    alert("정답입니다.")
-                }
-                else {
-                    alert("오답입니다.");
-                }
-                [테스트] <button onclick="BOM_Communication_prompt()">실행</button>
-        </pre>
-    </span>
-    <span>▶ Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
-        <pre>
-            ● 현재 윈도우의 문서가 위치하는 URL 알아보기
-                document.write("location.toString() => ", location.toString(), "&lt;br/&gt;");
-                document.write("location.href => ", location.href, "&lt;br/>");
+                즉, 전역 변수와 전역 함수는 window 객체의 프로퍼티나 메소드가 되는 것이다.
+            </pre>
+        </span>
+        <span>▶ 사용자와의 커뮤니케이션</span>
+        <span>
+            <pre>
+                ● alert("문자열" 또는 변수명);  => 알림을 띄우는 기능
+                ● confirm("문자열"); => 확인/취소를 띄우는 선택창을 띄우는 기능, 값은 true/false 반환
+                    if(confirm("confirm 테스트")){
+                        alert("확인 버튼  클릭")
+                    }
+                    else {
+                        alert("취소 버튼 클릭");
+                    }
+                    [테스트] <button onclick="BOM_Communication_confirm()">실행</button>
+                ● prompt("문자열"); => 입력을 받아서 그 값을 저장해주는 형태
+                    if(prompt("\"BB 바른 한 래퍼가 내게 말을 건다 ~\"\n\n이것은 누구의 노래인가요?")==="조광일"){
+                        alert("정답입니다.")
+                    }
+                    else {
+                        alert("오답입니다.");
+                    }
+                    [테스트] <button onclick="BOM_Communication_prompt()">실행</button>
+            </pre>
+        </span>
+        <span>▶ Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
+            <pre>
+                ● 현재 윈도우의 문서가 위치하는 URL 알아보기
+                    document.write("location.toString() => ", location.toString(), "&lt;br/&gt;");
+                    document.write("location.href => ", location.href, "&lt;br/>");
+                    document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
+
+                    [테스트] <button onclick="BOM_Location_locationInfo()">실행</button>
+
+                ● URL Parsing : URL에 있는 요소의 정보를 나타낸다.
+                    document.write("location.protocol => ", location.protocol, "&lt;br/>");
+                    document.write("location.host => ", location.host, "&lt;br/>");
+                    document.write("location.port => ", location.port, "&lt;br/>");
+                    document.write("location.pathname => ", location.pathname, "&lt;br/>");
+                    document.write("location.search => ", location.search, "&lt;br/>");
+                    document.write("location.hash => ", location.hash, "&lt;br/>");
+                    document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
+
+                    [테스트] <button onclick="BOM_Location_urlParsing()">실행</button>
+
+                ● location.href : 주소 이동하기
+                location.href = "https://www.naver.com/"; 또는 location = "https://www.naver.com/";
+
+                [테스트] <button onclick="BOM_Location_location_href()">실행</button>
+
+                ● location.reload(); => 새로고침
+
+                [테스트] <button onclick="BOM_Location_location_reload()">실행</button>
+            </pre>
+        </span>
+        <span>▶ Navigator 객체 : 브라우저의 정보를 알려주는 객체
+            <pre>
+                ● appName : 웹 브라우저의 이름. (IE => Microsoft Internet Explorer / 파이어폭스, 크롬 등 => Nescape)
+                ● appVersion : 브라우저의 버전
+                ● userAgent : 브라우저가 서버측으로 전송하는 USER-AGENT HTTP 헤더의 내용 () appVersion과 비슷함)
+                ● platform : 브라우저가 동작하고 있는 운영체제에 대한 정보
+
+                document.write("navigator.appName => ", navigator.appName, "&lt;br/>");
+                document.write("navigator.appVersion => ", navigator.appVersion, "&lt;br/>");
+                document.write("navigator.userAgent => ", navigator.userAgent, "&lt;br/>");
+                document.write("navigator.platform => ", navigator.platform, "&lt;br/>");
                 document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
 
-                [테스트] <button onclick="BOM_Location_locationInfo()">실행</button>
+                [테스트] <button onclick="BOM_Navigator_navigatorInfo()">실행</button>
+            </pre>
+        </span>
+        <span>▶ 창 제어
+            <pre>
+                ● window.open(URL, Window_Name, option)
+                    (1) URL : 새 창에 로드할 문서의 URL이다. 인자를 생략하면 이름이 붙지 않은 새 창이 만들어진다.
+                            [테스트] <button onclick="BOM_Window_Open('basic')">window.open('popup.html');</button>
 
-            ● URL Parsing : URL에 있는 요소의 정보를 나타낸다.
-                document.write("location.protocol => ", location.protocol, "&lt;br/>");
-                document.write("location.host => ", location.host, "&lt;br/>");
-                document.write("location.port => ", location.port, "&lt;br/>");
-                document.write("location.pathname => ", location.pathname, "&lt;br/>");
-                document.write("location.search => ", location.search, "&lt;br/>");
-                document.write("location.hash => ", location.hash, "&lt;br/>");
-                document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
+                    (2) Window_Name : 새 창의 이름
+                        [a] '_self' : 스크립트가 실행되는 탭
+                            [테스트] <button onclick="BOM_Window_Open('_self')">window.open('popup.html', '_self');</button>
 
-                [테스트] <button onclick="BOM_Location_urlParsing()">실행</button>
+                        [b] '_blank' : 새 탭
+                            [테스트] <button onclick="BOM_Window_Open('_blank')">window.open('popup.html', '_blank');</button>
 
-            ● location.href : 주소 이동하기
-               location.href = "https://www.naver.com/"; 또는 location = "https://www.naver.com/";
+                        [c] '이름' : 이름 정의, open을 재실행시 동일한 이름의 탭이나 창이 있다면 그 곳으로 로드
+                            [테스트] <button onclick="BOM_Window_Open('name')">window.open('popup.html', 'name_is_popup');</button>
 
-               [테스트] <button onclick="BOM_Location_location_href()">실행</button>
+                    (3) option : 옵션을 지정해서 부여, 옵션이 여러개일 때는 쉼표로 연결, 옵션을 지정하면 새 탭이 아니라 새 창이 띄워진다.
+                        [01] width=n : 팝업 창의 가로 길이
+                        [02] height=n : 팝업 창의 세로 길이
+                        [03] toolbar=yes/no : 단축 도구창 (=툴바) 표시 여부
+                        [04] menubar=yes/no : 메뉴창 (=메뉴바) 표시 여부
+                        [05] location=yes/no : 주소창 표시 여부
+                        [06] scrollbars=yes/no : 스크롤바의 표시 여부
+                        [07] status=yes/no : 아래 상태바 창의 표시 여부
+                        [08] resizable=yes/no : 창의 크기 변형 가능 여부
+                        [09] fullscreen=yes/no : 전체화면 여부
+                        [10] channelmode=yes/no : 채널 모드 여부 (F11 키의 기능과 동일)
+                        [11] left=n : (0, ???)에서 (n,???)에 창을 고정
+                        [12] top=n : (???, 0)에서 (???, n)에 창을 고정
 
-            ● location.reload(); => 새로고침
+                            [테스트] <button onclick="BOM_Window_Open('option')">window.open('popup.html', '_blank', 'width=200, height=200, resizable=yes');</button>
+                ● 상호 작용
+                    (1) <input type="button" value="open" onclick="BOM_Window_Controll('open');" /> (2) <input type="text" id="message" onkeypress="BOM_Window_Controll('message')" /> (3) <input type="button" value="close" onclick="BOM_Window_Controll('close');" />
+                    
+                    (1) 새 창 열기 : &lt;input type="button" value="open" onclick="BOM_Window_Controll('open');" />
+                    (2) 새 창에서 열린 html 파일의 내용 변경 : &lt;input type="text" id="message" onkeypress="BOM_Window_Controll('message')" />
+                    (3) 새 창 닫기 : &lt;input type="button" value="close" onclick="BOM_Window_Controll('close');" />
 
-               [테스트] <button onclick="BOM_Location_location_reload()">실행</button>
-        </pre>
-    </span>
-    <span>▶ Navigator 객체 : 브라우저의 정보를 알려주는 객체
-        <pre>
-            ● appName : 웹 브라우저의 이름. (IE => Microsoft Internet Explorer / 파이어폭스, 크롬 등 => Nescape)
-            ● appVersion : 브라우저의 버전
-            ● userAgent : 브라우저가 서버측으로 전송하는 USER-AGENT HTTP 헤더의 내용 () appVersion과 비슷함)
-            ● platform : 브라우저가 동작하고 있는 운영체제에 대한 정보
+                    switch(type){
+                        case 'open':
+                            win = window.open('popup.html', 'name_is_popup', 'width=300px, height=500px');
+                            break;
+                        case 'message':
+                            win.document.getElementById('message').innerText=parent.document.getElementById('message').value;
+                            break;
+                        case 'close':
+                            win.close();
+                            break;
+                    }
+                    
+                ● 보안성
+                    (1) 크롬에서는 로컬파일로 실행시키면 Same-origin policy 때문에 브라우저자체에서 iframe이나 window.open(...)과 통신을 막아 동작하지 않습니다.
+                    (2) 만약 기존의 창과 새로 띄운 창의 도메인이 다른 경우에는 기존의 창에서 새로 띄운 창의 내용을 바꿀 수 있는 작업을 할 수 없다.
+                    (3) 웹 브라우저 제작 회사 측에서 버튼을 클릭한 것이 아니라 스크립트 상에서 window.open(...);으로 바로 띄우는 창같은 경우에는
+                        그것은 사용자의 의지가 아니라고 판단하여 기본적으로 팝업 차단을 해두었다. 만약, 해당 페이지에 대한 팝업 허용을 하면 사용가능하다.
+            </pre>
+        </span>
+    </section>
 
-            document.write("navigator.appName => ", navigator.appName, "&lt;br/>");
-            document.write("navigator.appVersion => ", navigator.appVersion, "&lt;br/>");
-            document.write("navigator.userAgent => ", navigator.userAgent, "&lt;br/>");
-            document.write("navigator.platform => ", navigator.platform, "&lt;br/>");
-            document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
+    <br>
 
-            [테스트] <button onclick="BOM_Navigator_navigatorInfo()">실행</button>
-        </pre>
-    </span>
-    <span>▶ 창 제어
-        <pre>
-            ● window.open(URL, Window_Name, option)
-                (1) URL : 새 창에 로드할 문서의 URL이다. 인자를 생략하면 이름이 붙지 않은 새 창이 만들어진다.
-                        [테스트] <button onclick="BOM_Window_Open('basic')">window.open('popup.html');</button>
+    <section id="DOM">
+        <span><bold>DOM (Document Object Model)</bold></span>
+        <span>▶ DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
+            <pre>
+                ● window 객체의 document 프로퍼티를 통해서 사용
+                ● Document 객체는 윈도우에 로드된 문서를 의미
+            </pre>
+        </span>
+        <span>▶ 제어 대상 찾기
+            <pre>
+                1. getElementsByTagName('태그명') : 인자로 전달한 태그명에 해당되는 객체들을 찾아서 그 리스트를 NodeList라는 유사 배열에 담아서 반환한다.
+                    예시) var divList = document.getElementsByTagName('div');
+                2. getElementsByClassName('클래스명') : 클래스 속성의 값을 기준으로 객체를 찾아서 그 리스트를 유사 배열에 담아 반환한다.
+                    예시) var inputTextList = document.getElementsByClassName('inputText');
+                3. getElementById('아이디명') : 아이디 속성의 값을 기준으로 한 개의 객체를 찾아서 해당 객체를 반환한다.
+                    예시) var email = document.getElementById('email');
+                4. querySelector('선택자') & querySelectorAll('선택자') : css의 선택자 문법을 이용해서 객체 한 개나 리스트를 반환한다.
+                    예시 1) var divOne = document.querySelector('div'); //1개만 반환
+                    예시 2) var divList = document.querySelectorAll('div');     //리스트에 담아서 반환
+                    예시 3) var test = document.querySelector('.test'); //클래스 선택자를 통해서 객체 탐색, 아이디는 # 이용
+            </pre>
+        </span>
+        <span>▶ HTML Element & HTML Collection
+            <pre>
+                ● getElementBy[xxx] 메소드나 querySelector/querySelectorAll을 통해서 객체를 조회했다면
+                이 객체들을 대상으로 구체적인 작업을 처리해야 한다.
+                ● 객체들에 대한 작업을 하기 위해서는 휙득한 객체가 무엇인지 정확히 알고 있어야지
+                적절한 메소드나 프로퍼티를 사용할 수 있다.
+                ● 휙득한 객체에 대한 정보는 console.log(객체.constructor.name);를 하면 알 수 있다.
+                ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 단수라면 HTML Element가 된다.
+                ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 복수(유사 배열을 통해 반환)라면 HTML Collection이 된다.
+            </pre>
+        </span>
+        <span>▶ HTML Element
+            <pre>
+                ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement, HTMLAnchroElement 등등)
+                ● HTML Element의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037" target="_blank">HTML Element</a>
+                ● HTML Element의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLElement" target="_blank">HTMLElement - Web API | MDN - Mozilla</a>
+            </pre>
+        </span>
+        <span>▶ HTML Collection
+            <pre>
+                ● HTML Collection의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-75708506" target="_blank">HTML Collection</a>
+                ● HTML Collection의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLCollection" target="_blank">HTMLCollection - Web API | MDN - Mozilla</a>
+            </pre>
+        </span>
+        <span>▶ DOM Tree (돔 트리)
+            <pre>
+                예시) Node → Element → HTMLElement → HTMLLIElement, HTMLAnchroElement 등등
 
-                (2) Window_Name : 새 창의 이름
-                    [a] '_self' : 스크립트가 실행되는 탭
-                        [테스트] <button onclick="BOM_Window_Open('_self')">window.open('popup.html', '_self');</button>
+                1. 모든 엘리먼트는 HTMLElement의 자식이다.
+                2. 따라서 HTMLElement의 프로퍼티를 똑같이 가지고 있다.
+                3. 동시에 엘리먼트의 성격에 따라서 자신만의 프로퍼티를 가지고 있는데 이것은 엘리먼트의 성격에 따라서 달라진다.
+                4. HTMLElement은 Element의 자식이다.
+                5. 따라서 Element의 프로퍼티를 똑같이 가지고 있다.
+                6. Element은 Element의 Node의 자식이다.
+                7. 이렇게 자신의 부모가 되는 객체의 프로퍼티나 메소드를 차례대로 자식 객체들이 물려받는 구조를 DOM Tree라고 한다.
+        </span>
+    </section>
 
-                    [b] '_blank' : 새 탭
-                        [테스트] <button onclick="BOM_Window_Open('_blank')">window.open('popup.html', '_blank');</button>
+    <br>
 
-                    [c] '이름' : 이름 정의, open을 재실행시 동일한 이름의 탭이나 창이 있다면 그 곳으로 로드
-                        [테스트] <button onclick="BOM_Window_Open('name')">window.open('popup.html', 'name_is_popup');</button>
+    <section id="Element_Object">
+        <span><bold>Element 객체 : 엘리먼트를 추상화한 객체</bold></span>
+        <span>▶ 주요 기능
+            <pre>
+                ● 식별자 : 문서내에서 특정한 엘리먼트를 식별하기 위한 용도로 사용되는 API
+                ● 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
+                ● 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
 
-                (3) option : 옵션을 지정해서 부여, 옵션이 여러개일 때는 쉼표로 연결, 옵션을 지정하면 새 탭이 아니라 새 창이 띄워진다.
-                    [01] width=n : 팝업 창의 가로 길이
-                    [02] height=n : 팝업 창의 세로 길이
-                    [03] toolbar=yes/no : 단축 도구창 (=툴바) 표시 여부
-                    [04] menubar=yes/no : 메뉴창 (=메뉴바) 표시 여부
-                    [05] location=yes/no : 주소창 표시 여부
-                    [06] scrollbars=yes/no : 스크롤바의 표시 여부
-                    [07] status=yes/no : 아래 상태바 창의 표시 여부
-                    [08] resizable=yes/no : 창의 크기 변형 가능 여부
-                    [09] fullscreen=yes/no : 전체화면 여부
-                    [10] channelmode=yes/no : 채널 모드 여부 (F11 키의 기능과 동일)
-                    [11] left=n : (0, ???)에서 (n,???)에 창을 고정
-                    [12] top=n : (???, 0)에서 (???, n)에 창을 고정
+                ■ 사용법 : 객체.xxx(...);
+            </pre>
+        </span>
+        <span>▶ 식별자 : id나 clas같은 식별자를 가져오고 변경하는 기능
+            <pre>
+                ● Element.classList => class명의 목록을 가져온다. 변경 가능. Element.className보다 좀 더 발전한 API
+                    예시)
+                        var test = document.getElementById('test');
+                        test.classList.add('example');      //클래스 추가
+                        for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
+                        test.classList.remove('example');   //클래스 삭제
+                        for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
+                ● Element.className => class명을 가져온다. 변경 가능
+                    예시)
+                        var test = document.getElementById('test');
+                        test.className = "test1";
+                        console.log(test.className);
+                        test.className += " test2"
+                        console.log(test.className);
+                ● Element.id => id명을 가져온다. 변경 가능
+                ● Element.tagName => 태그명을 가져온다. 읽기 전용
+            </pre>
+        </span>
+        <span>▶ 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
+            <pre>
+                ● Element.getElementsByClassName
+                ● Element.getElementsByTagName
+                ● Element.querySelector
+                ● Element.querySelectorAll
+            </pre>
+        </span>
+        <span>▶ 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
+            <pre>
+                ● Element.getAttribute(name)            //해당 속성의 값을 조회
+                ● Element.setAttribute(name, value);    //해당 속성의 값 변경
+                ● Element.hasAttribute(name);           //해당 속성의 존재 여부 확인
+                ● Element.removeAttribute(name);        //해당 속성의 존재를 삭제
 
-                        [테스트] <button onclick="BOM_Window_Open('option')">window.open('popup.html', '_blank', 'width=200, height=200, resizable=yes');</button>
-            ● 상호 작용
-                (1) <input type="button" value="open" onclick="BOM_Window_Controll('open');" /> (2) <input type="text" id="message" onkeypress="BOM_Window_Controll('message')" /> (3) <input type="button" value="close" onclick="BOM_Window_Controll('close');" />
-                
-                (1) 새 창 열기 : &lt;input type="button" value="open" onclick="BOM_Window_Controll('open');" />
-                (2) 새 창에서 열린 html 파일의 내용 변경 : &lt;input type="text" id="message" onkeypress="BOM_Window_Controll('message')" />
-                (3) 새 창 닫기 : &lt;input type="button" value="close" onclick="BOM_Window_Controll('close');" />
-
-                switch(type){
-                    case 'open':
-                        win = window.open('popup.html', 'name_is_popup', 'width=300px, height=500px');
-                        break;
-                    case 'message':
-                        win.document.getElementById('message').innerText=parent.document.getElementById('message').value;
-                        break;
-                    case 'close':
-                        win.close();
-                        break;
-                }
-                
-            ● 보안성
-                (1) 크롬에서는 로컬파일로 실행시키면 Same-origin policy 때문에 브라우저자체에서 iframe이나 window.open(...)과 통신을 막아 동작하지 않습니다.
-                (2) 만약 기존의 창과 새로 띄운 창의 도메인이 다른 경우에는 기존의 창에서 새로 띄운 창의 내용을 바꿀 수 있는 작업을 할 수 없다.
-                (3) 웹 브라우저 제작 회사 측에서 버튼을 클릭한 것이 아니라 스크립트 상에서 window.open(...);으로 바로 띄우는 창같은 경우에는
-                    그것은 사용자의 의지가 아니라고 판단하여 기본적으로 팝업 차단을 해두었다. 만약, 해당 페이지에 대한 팝업 허용을 하면 사용가능하다.
-        </pre>
-    </span>
-
-    <span><bold>DOM (Document Object Model)</bold></span>
-    <span>▶ DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
-        <pre>
-            ● window 객체의 document 프로퍼티를 통해서 사용
-            ● Document 객체는 윈도우에 로드된 문서를 의미
-        </pre>
-    </span>
-    <span>▶ 제어 대상 찾기
-        <pre>
-            1. getElementsByTagName('태그명') : 인자로 전달한 태그명에 해당되는 객체들을 찾아서 그 리스트를 NodeList라는 유사 배열에 담아서 반환한다.
-                예시) var divList = document.getElementsByTagName('div');
-            2. getElementsByClassName('클래스명') : 클래스 속성의 값을 기준으로 객체를 찾아서 그 리스트를 유사 배열에 담아 반환한다.
-                예시) var inputTextList = document.getElementsByClassName('inputText');
-            3. getElementById('아이디명') : 아이디 속성의 값을 기준으로 한 개의 객체를 찾아서 해당 객체를 반환한다.
-                예시) var email = document.getElementById('email');
-            4. querySelector('선택자') & querySelectorAll('선택자') : css의 선택자 문법을 이용해서 객체 한 개나 리스트를 반환한다.
-                예시 1) var divOne = document.querySelector('div'); //1개만 반환
-                예시 2) var divList = document.querySelectorAll('div');     //리스트에 담아서 반환
-                예시 3) var test = document.querySelector('.test'); //클래스 선택자를 통해서 객체 탐색, 아이디는 # 이용
-        </pre>
-    </span>
-    <span>▶ HTML Element & HTML Collection
-        <pre>
-            ● getElementBy[xxx] 메소드나 querySelector/querySelectorAll을 통해서 객체를 조회했다면
-              이 객체들을 대상으로 구체적인 작업을 처리해야 한다.
-            ● 객체들에 대한 작업을 하기 위해서는 휙득한 객체가 무엇인지 정확히 알고 있어야지
-               적절한 메소드나 프로퍼티를 사용할 수 있다.
-            ● 휙득한 객체에 대한 정보는 console.log(객체.constructor.name);를 하면 알 수 있다.
-            ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 단수라면 HTML Element가 된다.
-            ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 복수(유사 배열을 통해 반환)라면 HTML Collection이 된다.
-        </pre>
-    </span>
-    <span>▶ HTML Element
-        <pre>
-            ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement, HTMLAnchroElement 등등)
-            ● HTML Element의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037" target="_blank">HTML Element</a>
-            ● HTML Element의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLElement" target="_blank">HTMLElement - Web API | MDN - Mozilla</a>
-        </pre>
-    </span>
-    <span>▶ HTML Collection
-        <pre>
-            ● HTML Collection의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-75708506" target="_blank">HTML Collection</a>
-            ● HTML Collection의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLCollection" target="_blank">HTMLCollection - Web API | MDN - Mozilla</a>
-        </pre>
-    </span>
-    <span>▶ DOM Tree (돔 트리)
-        <pre>
-            예시) Node → Element → HTMLElement → HTMLLIElement, HTMLAnchroElement 등등
-
-            1. 모든 엘리먼트는 HTMLElement의 자식이다.
-            2. 따라서 HTMLElement의 프로퍼티를 똑같이 가지고 있다.
-            3. 동시에 엘리먼트의 성격에 따라서 자신만의 프로퍼티를 가지고 있는데 이것은 엘리먼트의 성격에 따라서 달라진다.
-            4. HTMLElement은 Element의 자식이다.
-            5. 따라서 Element의 프로퍼티를 똑같이 가지고 있다.
-            6. Element은 Element의 Node의 자식이다.
-            7. 이렇게 자신의 부모가 되는 객체의 프로퍼티나 메소드를 차례대로 자식 객체들이 물려받는 구조를 DOM Tree라고 한다.
-    </span>
-
-    <hr>
-
-    <span><bold>Element 객체 : 엘리먼트를 추상화한 객체</bold></span>
-    <span>▶ 주요 기능
-        <pre>
-            ● 식별자 : 문서내에서 특정한 엘리먼트를 식별하기 위한 용도로 사용되는 API
-                ○ Element.classList
-                ○ Element.className
-                ○ Element.id
-                ○ Element.tagName
-            ● 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
-                ○ Element.getElementsByClassName
-                ○ Element.getElementsByTagName
-                ○ Element.querySelector
-                ○ Element.querySelectorAll
-            ● 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
-                ○ Element.getAttribute(name)
-                ○ Element.setAttribute(name, value)
-                ○ Element.hasAttribute(name);
-                ○ Element.removeAttribute(name);
-
-            ■ 사용법 : 객체.xxx(...);
-        </pre>
-    </span>
-    <span>▶ 식별자 : id나 clas같은 식별자를 가져오고 변경하는 기능
-        <pre>
-            ● Element.classList => class명의 목록을 가져온다. 변경 가능. Element.className보다 좀 더 발전한 API
                 예시)
-                    var test = document.getElementById('test');
-                    test.classList.add('example');      //클래스 추가
-                    for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
-                    test.classList.remove('example');   //클래스 삭제
-                    for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
-            ● Element.className => class명을 가져온다. 변경 가능
-                예시)
-                    var test = document.getElementById('test');
-                    test.className = "test1";
-                    console.log(test.className);
-                    test.className += " test2"
-                    console.log(test.className);
-            ● Element.id => id명을 가져온다. 변경 가능
-            ● Element.tagName => 태그명을 가져온다. 읽기 전용
-        </pre>
-    </span>
-    <span>▶ 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
-        <pre>
-            ● Element.getElementsByClassName
-            ● Element.getElementsByTagName
-            ● Element.querySelector
-            ● Element.querySelectorAll
-        </pre>
-    </span>
-    <span>▶ 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
-        <pre>
-            ● Element.getAttribute(name)            //해당 속성의 값을 조회
-            ● Element.setAttribute(name, value);    //해당 속성의 값 변경
-            ● Element.hasAttribute(name);           //해당 속성의 존재 여부 확인
-            ● Element.removeAttribute(name);        //해당 속성의 존재를 삭제
+                    &lt;a href="https://www.naver.com/" id="aTag">Naver&lt;/a>
 
-            예시)
-                &lt;a href="https://www.naver.com/" id="aTag">Naver&lt;/a>
+                    var aTag = document.getElementById('aTag');
+                    console.log(aTag.getAttribute('href')); //https://www.naver.com/
 
-                var aTag = document.getElementById('aTag');
-                console.log(aTag.getAttribute('href')); //https://www.naver.com/
+                    aTag.setAttribute('title', 'naver'); // title 속성값 설정
+                    console.log(aTag.hasAttribute('title')); //출력 : true
 
-                aTag.setAttribute('title', 'naver'); // title 속성값 설정
-                console.log(aTag.hasAttribute('title')); //출력 : true
+                    aTag.removeAttribute('title'); // title 속성을 제거한다.
+                    console.log(aTag.hasAttribute('title')); //출력 : false
+            </pre>
+        </span>
+    </section>
 
-                aTag.removeAttribute('title'); // title 속성을 제거한다.
-                console.log(aTag.hasAttribute('title')); //출력 : false
-        </pre>
-    </span>
+    <br>
+
+    <section class="Node_Element">
+        <span><bold>Node 객체 : DOM의 시조같은 역할</bold></span>
+        <span>▶ 주요 기능
+            <pre>
+                ● 관계 : 각각의 Node가 다른 Node와 연결된 정보를 보여주는 API를 통해서 문서를 프로그래밍적으로 탐색
+                ● 노드의 종류 :  Node 객체 => 모든 구성 요소의 대표격 객체, 각 구성요소의 소속을 알려주는 식별자 제공
+                ● 값 : Node 객체의 값을 제공하는 API
+                ● 자식 관리 : Node 객체의 자식을 추가하는 방법에 대한 API
+            </pre>
+        </span>
+        <span>▶ 관계
+            <pre>
+                ● Node.childNodes
+                ● Node.firstChild
+                ● Node.lastChild
+                ● Node.nextSibling
+                ● Node.previousSibling
+                ●  Node.contains()
+                ●  Node.hasChildNodes()
+            </pre>
+        </span>
+        <span>▶ 노드의 종류
+            <pre>
+                ● Node.nodeType
+                ● Node.nodeName
+            </pre>
+        </span>
+        <span>
+            <pre>
+                ●  Node.nodeValue
+                ● Node.textContent
+            </pre>
+        </span>
+        <span>▶ 자식 관리
+            <pre>
+                ● Node.appendChild()
+                ● Node.removeChild()
+            </pre>
+        </span>
+    </section>
 
 
 
