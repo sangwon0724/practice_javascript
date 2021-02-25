@@ -289,7 +289,7 @@
 
     <br>
 
-    <section class="Node_Object">
+    <section id="Node_Object">
         <span><bold>Node 객체 : DOM의 시조같은 역할</bold></span>
         <span>▶ 주요 기능
             <pre>
@@ -377,7 +377,7 @@
 
     <br>
 
-    <section class="Document_Object">
+    <section id="Document_Object">
         <span><bold>Document 객체 : 문서 전체를 대표하는 객체</bold></span>
         <span>▶ 주요 기능
             <pre>
@@ -405,7 +405,7 @@
 
     <br>
 
-    <section class="Text_Object">
+    <section id="Text_Object">
         <span><bold>Text 객체 : 텍스트 노드에 대한 DOM 객체</bold></span>
         <span>▶ 특징
             <pre>
@@ -438,6 +438,37 @@
         <span>▶ 생성
             <pre>
                 ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
+            </pre>
+        </span>
+    </section>
+
+    <br>
+
+    <section id="document_s_geometric_characteristics">
+        <span><bold>문서의 기하학적 특성</bold></span>
+        <span>▶ 요소의 크기와 위치
+            <pre>
+                ● 객체명.getBoundingClientRect() : 해당 객체가 문서에 가지고 있는 width, height, margin같은 정보를 반환한다.
+                ● 객체명.clientWidth : 해당 객체가 문서에 가지고 있는 width 값을 반환한다.
+                ● 객체명.clientHeight : 해당 객체가 문서에 가지고 있는 height 값을 반환한다.
+                ● 객체명.offsetParent : 해당 객체에 대해서 측정을 할 때, 측정의 기준이 되는 엘리먼트의 태그명을 반환한다.
+                    ※ tr이나 td의 경우에는 측정의 기준이 table이 된다.
+            </pre>
+        </span>
+        <span>▶ Viewport : 문서의 내용 중 사용자에게 보여주는 영역 (= 전체 문서 중에서 브라우저에서 보이는 영역)
+            <pre>
+                ● window.pageXoffset, window.pageYoffset : 뷰포트의 크기를 반환
+            </pre>
+        </span>
+        <span>▶ 스크롤 제어
+            <pre>
+                ● window.scrollTo(x,y) : 페이지의 오프셋을 오른쪽으로 x px, 아래쪽으로 y px만큼 이동(스크롤)한다.
+            </pre>
+        </span>
+        <span>▶ 스크린의 크기
+            <pre>
+                ● window.innerWidth, window.innerHeight : 뷰포트의 크기
+                ● screen.width, screen.height : 사용중인 모니터의 해상도
             </pre>
         </span>
     </section>
