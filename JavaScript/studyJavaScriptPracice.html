@@ -321,7 +321,7 @@
                 ● Node.nodeName : Node의 이름을 반환한다. ( = 태그명 )
             </pre>
         </span>
-        <span>▶ 값
+        <span>▶ 노드의 값
             <pre>
                 ● Node.nodeValue : Node의 종류마다 각각 다른 값을 반환한다.
                     ○ 요소 노드(element node) : undefined
@@ -330,7 +330,7 @@
                 ● Node.textContent : Node가 가지고 있는 문자열을 반환한다.
             </pre>
         </span>
-        <span>▶ 자식 관리
+        <span>▶ 노드의 자식 관리
             <pre>
                 ● Node.appendChild(child) : 노드의 마지막 자식으로 주어진 엘리먼트 추가
                     var ul = document.getElementsByTagName('ul');
@@ -347,6 +347,31 @@
                     var li = document.getElementsByTagName('li');
                     li.parentNode.removeChild(li);
             </pre>
+        </span>
+        <span>▶ 문자열로 노드 제어
+            <pre>
+                조건 1 : (1)&lt;div id="target">(2)content&lt;(3)/div>(4)
+                조건 2 : var target = document.getElementById('target');
+
+                ● Node.innerHTML
+                    ○ 값을 가져올 때에는 Node 내부에 있는 코드의 HTML 태그들까지 모두 가져온다.
+                    ○ 값을 설정할 때에는 Node 내부의 내용을 아예 변경해버린다. HTML 태그는 Parsing 된다.
+
+                ● Node.outerHTML
+                    ○ 값을 가져올 때에는 Node를 포함한 코드의 HTML 태그들까지 모두 가져온다.
+                    ○ 값을 설정할 때에는 Node의 내용을 아예 변경해버린다. HTML 태그는 Parsing 된다.
+
+                ● Node.innerText, Node.outerText, Node.textContent
+                    ○ 모두 동일한 결과가 나온다.
+                    ○ 속도 : textContent (가장 빠름)→ innerText (중간)→ outerText (가장 느림)
+                    ○ 값을 가져올 때에는 지정한 Node 내부에 있는 코드의 문자열만을 가져온다.
+                    ○ 값을 설정할 때에는 Node 내부의 내용을 아예 변경해버린다. HTML 태그는 Parsing 되지 않고 그대로 문자열로 나온다.
+                    
+                ● Node.insertAdjacentHTML('위치', '내용') : 문자열을 이용한 좀 더 정교한 노드 변경시 사용
+                    ○ target.insertAdjacentHTML('beforebegin', '&lt;h1>insertAdjacentHTML test&lt;/h1>') : (1)의 위치에 h1 태그 추가
+                    ○ target.insertAdjacentHTML('afterbegin', '&lt;span>insertAdjacentHTML test&lt;/span>') : (2)의 위치에 span 태그 추가
+                    ○ target.insertAdjacentHTML('beforeend', '&lt;span>insertAdjacentHTML test&lt;/span>') : (3)의 위치에 span 태그 추가
+                    ○ target.insertAdjacentHTML('afterend', '&lt;h1>insertAdjacentHTML test&lt;/h1>') : (4)의 위치에 h1 태그 추가
         </span>
     </section>
 

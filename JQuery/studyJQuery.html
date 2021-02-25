@@ -67,6 +67,10 @@
                     <a href="https://api.jquery.com">https://api.jquery.com</a>
             </pre>
         </span>
+    </section>
+
+    <section id="controll">
+        <span><bold>j-Query - 제어</bold></span>
         <span>▶ attr & prop: jQuery에서 엘리멘트를 제어하는 API
             <pre>
                 ● attr ( = attribute )
@@ -116,9 +120,36 @@
                         예시  ) $("ul>li#findPoint").css( "background-color", "blue").find("ul>li").css( "background-color", "red");
             </pre>
         </span>
+        <span>▶ jQuery의 노드 제어 API <a href="https://api.jquery.com/category/manipulation/">참고</a>
+            <pre>
+                조건 1 : (1)&lt;div id="target">(2)content&lt;(3)/div>(4)
+                조건 2 : &lt;div id="clone">clone test&lt;/div>
+                조건 3 : &lt;div id="append">append test&lt;/div>
+                
+                ● 추가
+                    ○ $('#target').before('내용') : (1)의 위치에 추가
+                    ○ $('#target').prepend('내용') : (2)의 위치에 추가
+                    ○ $('#target').append('내용') : (3)의 위치에 추가
+                    ○ $('#target').after('내용') : (4)의 위치에 추가
+                    
+                ● 삭제
+                    ○ $('#target').remove() : 선택된 엘리먼트 제거
+                    ○ $('#target').empty() : 선택된 엘리먼트의 텍스트 노드 제거
+                
+                ● 교체
+                    ○ $('&lt;div>replace&lt;/div>').replaceAll('#target') : 선택된 엘리먼트를 교체, 교체할 내용을 먼저 작성
+                    ○ $('#target').replaceWith('&lt;div>replace&lt;/div>') : 선택된 엘리먼트를 교체, 교체될 엘리먼트를 먼저 작성
+                    
+                ● 복제
+                    ○ $('#target').clone() : 선택된 엘리먼트를 복사
+                        예시) $('#clone').clone().replaceAll('#target');을 하게 되면  #target의 내용을 #clone을 복제한 엘리멘트로 교체한다.
+                    
+                ● 이동
+                    ○ $('#target').append('이동시킬 엘리멘트') : 먼저 지정한 엘리먼트의 하위 노드로 나중에 지정한 엘리먼트를 이동시킨다.
+                        예시) $('#target').append($('#append'));
+        </span>
     </section>
-
-
+        
 
     
 

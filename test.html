@@ -7,23 +7,35 @@
     <title>test page</title>
 </head>
 <body>
-    <ul>
+    <ul id="target">
+        <li>CSS</li>
+    </ul>
+    <input type="button" onclick="beforebegin();" value="beforebegin" />
+    <input type="button" onclick="afterbegin();" value="afterbegin" />
+    <input type="button" onclick="beforeend();" value="beforeend" />
+    <input type="button" onclick="afterend();" value="afterend" />
 
-    <li class="marked">html</li>
-    <li>css</li>
-    <li id="findPoint">JavaScript
-        <ul>
-            <li>JavaScript Core</li>
-            <li class="marked">DOM</li>
-            <li class="marked">BOM</li>
-        </ul>
-    </li>
-</ul>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script>
-    //$("li", "ul>li>ul").css( "background-color", "red" );
-    $("ul>li#findPoint").css( "background-color", "blue").find("ul>li").css( "background-color", "red");
-</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+       function beforebegin(){
+        var target = document.getElementById('target');
+        target.insertAdjacentHTML('beforebegin','<h1>Client Side</h1>');
+    }
+    function afterbegin(){
+        var target = document.getElementById('target');
+        target.insertAdjacentHTML('afterbegin','<span>HTML</span>');
+    }
+    function beforeend(){
+        var target = document.getElementById('target');
+        target.insertAdjacentHTML('beforeend','<span>JavaScript</span>');
+    }
+    function afterend(){
+        var target = document.getElementById('target');
+        target.insertAdjacentHTML('afterend','<h1>Server Side</h1>');
+    }
+    </script>
 </body>
 </html>
