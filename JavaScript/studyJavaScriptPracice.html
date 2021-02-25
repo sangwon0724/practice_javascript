@@ -366,7 +366,7 @@
                     ○ 속도 : textContent (가장 빠름)→ innerText (중간)→ outerText (가장 느림)
                     ○ 값을 가져올 때에는 지정한 Node 내부에 있는 코드의 문자열만을 가져온다.
                     ○ 값을 설정할 때에는 Node 내부의 내용을 아예 변경해버린다. HTML 태그는 Parsing 되지 않고 그대로 문자열로 나온다.
-                    
+
                 ● Node.insertAdjacentHTML('위치', '내용') : 문자열을 이용한 좀 더 정교한 노드 변경시 사용
                     ○ target.insertAdjacentHTML('beforebegin', '&lt;h1>insertAdjacentHTML test&lt;/h1>') : (1)의 위치에 h1 태그 추가
                     ○ target.insertAdjacentHTML('afterbegin', '&lt;span>insertAdjacentHTML test&lt;/span>') : (2)의 위치에 span 태그 추가
@@ -375,7 +375,31 @@
         </span>
     </section>
 
+    <br>
 
+    <section class="Document_Object">
+        <span><bold>Document 객체 : 문서 전체를 대표하는 객체</bold></span>
+        <span>▶ 주요 기능
+            <pre>
+                ● 노드 생성
+                ● 문서 정보
+            </pre>
+        </span>
+        <span>▶ 노드 생성
+            <pre>
+                ● createElement('태그') : 지정한 태그의 노드 만들기, 속성 지정 가능
+                ● createTextNode('문자열') : 지정한 문자열로 노드 만들기
+            </pre>
+        </span>
+        <span>▶ 문서 정보
+            <pre>
+                ● title
+                ● URL
+                ● referrer
+                ● lastModified
+            </pre>
+        </span>
+    </section>
 
 
 
