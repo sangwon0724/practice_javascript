@@ -387,16 +387,57 @@
         </span>
         <span>▶ 노드 생성
             <pre>
-                ● createElement('태그') : 지정한 태그의 노드 만들기, 속성 지정 가능
-                ● createTextNode('문자열') : 지정한 문자열로 노드 만들기
+                ● document.createElement('태그') : 지정한 태그의 노드 만들기, 속성 지정 가능
+                ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
             </pre>
         </span>
         <span>▶ 문서 정보
             <pre>
-                ● title
-                ● URL
-                ● referrer
-                ● lastModified
+                ● lastModified : HTML 문서의 마지막 갱신 날짜 및 시간을 반환
+                ● referrer : 링크(linking)되어 있는 문서의 URI를 반환
+                ● title : &lt;title> 요소 반환
+                ● URL : HTML 문서의 완전한 URL 주소를 반환
+
+                <a href="http://www.tcpschool.com/javascript/js_dom_document">참고 (TCP School)</a>
+            </pre>
+        </span>
+    </section>
+
+    <br>
+
+    <section class="Text_Object">
+        <span><bold>Text 객체 : 텍스트 노드에 대한 DOM 객체</bold></span>
+        <span>▶ 특징
+            <pre>
+                ● CharcterData 객체를 상속받는다.
+                ● 공백이나 문자열도 객체로 취급한다.
+            </pre>
+        </span>
+        <span>▶ 주요 기능
+            <pre>
+                ● 값
+                ● 조작
+                ● 생성
+            </pre>
+        </span>
+        <span>▶ 값
+            <pre>
+                ● data : 텍스트 노드의 값을 가져오거나 변경
+                ● nodeValue : 텍스트 노드의 값을 가져오거나 변경
+            </pre>
+        </span>
+        <span>▶ 조작
+            <pre>
+                ● Node.appendData('내용') : Node의 기존 내용 뒤에 내용 추가
+                ● Node.deleteData(n, count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 삭제
+                ● Node.insertData(n, '내용') : Node의 기존 내용의 n번 인덱스에 내용 추가
+                ● Node.replaceData(n, count, '내용') : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 삭제한 뒤에 내용을 그 자리에 추가
+                ● Node.subStringData(n. count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 잘라서 반환
+            </pre>
+        </span>
+        <span>▶ 생성
+            <pre>
+                ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
             </pre>
         </span>
     </section>
