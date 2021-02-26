@@ -151,12 +151,76 @@
     </section>
 
     <br>
-
+    
     <section id="event">
         <span><bold>이벤트</bold></span>
-        <span>▶ xxx
+        <span>▶ jQuery API - on : 이벤트 등록
             <pre>
-                ● xxx
+                ● 기본 문법 : on( events [, selector] [, data], handler(eventObject) );
+                    ○ event : 등록하고자 하는 이벤트 타입을 지정한다. (예시 : "click")
+                    ○ selector : 이벤트가 설치된 엘리먼트의 하위 엘리먼트를 이벤트 대상으로 필터링함
+                    ○ data : 이벤트가 실행될 때 핸들러로 전달될 데이터를 설정함
+                    ○ handler : 이벤트 핸들러 함수
+
+                ● on의 장점 : 기존 JavaScript의 addEventListener로 이벤트를 추가하는 것보다 코드가 매우 간결해진다.
+                    예시)
+                        &lt;input type="button" id="jQuery_API_on" value="jQuery API - on" />
+                        $('#jQuery_API_on').on('click', function(event){
+                            alert('jQuery API - on');
+                        })
+
+                ● 필터링 : on의 selector 옵션을 사용하면 on의 대상이 아니라 selector의 대상이 this가 된다.
+                
+                    예시)
+                            &lt;ul>
+                                &lt;li>&lt;a href="#">필터링 테스트&lt;/a>&lt;/li>
+                            &lt;/ul>
+
+                        $('ul').on('click','a, li', function(event){
+                            console.log(this.tagName);  //a 출력 후 li 출력
+                        });
+                
+                ● late binding : JavaScript와 다르게 script 태그를 먼저 선언해도 바인딩을 잘 시키면 이벤트를 나중에 추가시킬 수 있다.
+                    예시)
+                        $('body').on('click','a, li', function(event){
+                            console.log(this.tagName);  //출력 : a와 li를 출력한다.
+                        });
+
+                        &lt;ul>
+                            &lt;li>&lt;a href="#">필터링 테스트&lt;/a>&lt;/li>
+                        &lt;/ul>
+                        
+                ●  다중 바인딩 : 하나의 엘리먼트에 여러개의 이벤트 타입을 동시에 등록하는 것
+                        (1) 여러 종류의 이벤트에 같은 코드 적용
+                            예시)
+                                $('#multi_binding_test').on('focus blur', function(e){
+                                    alert("multi_binding_test focus & blur");
+                                })
+                        (2) 여러 종류의 이벤트에 각각 다른 코드 적용
+                            예시)
+                                $('#multi_binding_test').on({
+                                    'focus' : function(e){
+                                        alert("multi_binding_test focus");
+                                    }, 
+                                    'blur' : function(e){
+                                        alert("multi_binding_test blur");
+                                    }
+                                })
+            </pre>
+        </span>
+        <span>▶ jQuery API - off : 이벤트 삭제
+            <pre>
+                ● 기본 문법 : on( events [, selector] [, data], handler(eventObject) );
+                    ○ event : 등록하고자 하는 이벤트 타입을 지정한다. (예시 : "click")
+                    ○ selector : 이벤트가 설치된 엘리먼트의 하위 엘리먼트를 이벤트 대상으로 필터링함
+                    ○ data : 이벤트가 실행될 때 핸들러로 전달될 데이터를 설정함
+                    ○ handler : 이벤트 핸들러 함수
+
+                ● on의 장점 : 기존 JavaScript의 addEventListener로 이벤트를 추가하는 것보다 코드가 매우 간결해진다.
+                    예시 1)
+                        $('#target').off('click');  //click 대한 이벤트 모두 삭제
+                    예시 2)
+                        $('#target').off('click', handler); //click 대한 이벤트 중 handler라는 메소드의 내용만 제거
             </pre>
         </span>
     </section>
