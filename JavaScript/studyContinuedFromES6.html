@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ES6, ES7, ...</title>
     <style>
-        body {background-color: #eeeeee;}
-        section {background-color: white;}
-        bold {font-size: 25px; font-weight: bold;}
-        span {display: block; margin: 10px 0;}
-        br {margin: 20px 0;}
+        body {
+            background-color: #eeeeee;
+        }
+
+        section {
+            background-color: white;
+        }
+
+        bold {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        span {
+            display: block;
+            margin: 10px 0;
+        }
+
+        br {
+            margin: 20px 0;
+        }
     </style>
 </head>
+
 <body>
     <section id="variable">
-        <span><bold>변수</bold></span>
+        <span>
+            <bold>변수</bold>
+        </span>
         <span>▶ let & const
             <pre>
                 ● let : 기존의 var같은 자료형, 변수 재선언 불가, 변수 재할당 가능
@@ -60,6 +80,65 @@
                     이 경우에는 str은 선언하지 않은 변수라고 에러가 발생하게 된다.
             </pre>
         </span>
+        <span>▶ Block Scope
+            <pre>
+                ● let과 const의 경우에는 블록 내부에서만 사용이 가능하다.
+                    예시)
+                        if(true){ let test = "test";}
+                        console.log(test);  //에러 발생
+                ● var의 경우에는 블록 내부/외부 상관없이 간섭이 가능하다.
+                    예시)
+                        if(true){ var test = "test";}
+                        console.log(test);  //출력 : test;
+                
+                ※ 함수의 경우에는 var도 내부/외부 구분이 가능은 하지만 코딩의 실수로 간섭이 발생할수 있기 때문에
+                   왠만하면 let과 const를 사용하는 것이 낫다.
+            </pre>
+        </span>
+    </section>
+
+    <br>
+
+    <section id="function">
+        <span>
+            <bold>함수</bold>
+        </span>
+        <span>▶ Array.map()
+            <pre>
+                ● map : 각 요소를 읽는 역할을 한다.
+                        인자로 넣은 함수에 각 요소들을 넣으면서 반복한다.
+                        반복하면서 실행된 값들은 다시 배열에 모여서 반환된다.
+                    예시)
+                        const somethings = ['a', 'b', 'c'];
+                        function example(item){return item + "TEST";}
+                        const test = somethings.map(example);//test라는 배열에 실행 값들이 저장된다.
+                        console.log(test);//출력 : ["aTEST", "bTEST", "cTEST"]
+            </pre>
+        </span>
+        <span>▶ Arrow Function
+            <pre>
+                ● 위와 같은 코드를 사용한다고 했을 때 ES6에 추가된 Arrow Function을 사용하면 아래처럼 바뀐다.
+                    예시)
+                        const somethings = ['a', 'b', 'c'];
+                        const test = somethings.map(item => {
+                            return item + "TEST";
+                        });
+                        console.log(test);//출력 : ["aTEST", "bTEST", "cTEST"]
+                
+                ● 하지만 방금의 코드는 기본적인 코드였고, 실제로는 좀 더 간단하게 줄일수 있다. (implicit return : 암시적 리턴)
+                  암시적 리턴의 경우에는 {}가 없어야 실행된다. {}를 할 경우에는 undefined를 반환하기 때문에 return을 명시해줘야 한다.
+                    예시)
+                        const somethings = ['a', 'b', 'c'];
+                        const test = somethings.map(item => item + "TEST");
+                        console.log(test);//출력 : ["aTEST", "bTEST", "cTEST"]
+                ● 또다른 예시 (연산자가 없는 숫자나 문자열로 단순 초기화시 사용, map의 경우)
+                    예시)
+                        const somethings = ['a', 'b', 'c'];
+                        const test = somethings.map(() => item + "TEST");
+                        console.log(test);//출력 : ["aTEST", "bTEST", "cTEST"]
+            </pre>
+        </span>
     </section>
 </body>
+
 </html>
