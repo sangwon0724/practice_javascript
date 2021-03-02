@@ -5,8 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ES6, ES7, ...</title>
+    <style>
+        body {background-color: #eeeeee;}
+        section {background-color: white;}
+        bold {font-size: 25px; font-weight: bold;}
+        span {display: block; margin: 10px 0;}
+        br {margin: 20px 0;}
+    </style>
 </head>
 <body>
-    
+    <section id="variable">
+        <span><bold>변수</bold></span>
+        <span>▶ let & const
+            <pre>
+                ● let : 기존의 var같은 자료형, 변수 재선언 불가, 변수 재할당 가능
+                    예시 - var의 경우)
+                        var str = "test";
+                        var str = "example";//에러 없음
+                    예시 - let의 경우)
+                        let str = "test";
+                        let str = "example";//에러 발생
+                ● const : 변수 재선언 불가, 변수 재할당 특정 상황에 한해서 가능
+                    예시 - 기본적인 변수의 경우)
+                        const str = "test";
+                        const str = "example";//에러 없음
+                        str = "example";//에러 없음
+                    예시 - 객체의 경우)
+                        const str = {
+                            text : "test"
+                        };
+                        str.name = "example";//에러 없음
+
+                ※ 기본적인 변수는 왠만하면 const를 쓰고, 재할당할 변수만 let을 하는게 좋다.
+            </pre>
+        </span>
+        <span>▶ Dead Zone
+            <pre>
+                ● 호이스팅 (Hoisting) : 자바스크립트가 프로그램을 실행하기 전에
+                                       var 선언문이나 function 선언문 등을 해당 스코프의 선두로 옮긴 것처럼 동작하는 특성
+                ● var때문에 생겨나는 호이스팅의 문제점
+                    예시) 만약 아래와 같은 코드가 있다고 했을 때
+                          console.log(str);
+                          var str = "test";
+                        
+                          자바스크립트는 내부에서 다음과 같이 변환한다.
+                          var str;
+                          console.log(str);//출력 : undefined
+                          str = "test";
+
+                          위의 코드에서는 원래 undefined가 나오면 안된다.
+                          원래는 에러가 발생해야 되지만 호이스팅에 의해서 undefined가 발생한다.
+                ● let과 const를 써야 하는 이유 :
+                    let과 const를 쓰면 위의 코드를 똑같이 사용한다 가정했을 떄
+                    이 경우에는 str은 선언하지 않은 변수라고 에러가 발생하게 된다.
+            </pre>
+        </span>
+    </section>
 </body>
 </html>
