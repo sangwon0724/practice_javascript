@@ -355,7 +355,7 @@
             </pre>
         </span>
     </section>
-    <span>▶ 추가적인 문자열 메소드들
+    <span>▶ 문자열 메소드
         <pre>
             ● include("찾을 문자열") : 해당 문자열이 존재하는가 검색
             ● "문자열".repeat(n) : n번만큼 문자열을 반복
@@ -365,8 +365,53 @@
     </span>
 </section>
 
+<br>
+
+<section id="array">
+    <span>
+        <bold>배열 메소드</bold>
+    </span>
+    <span>▶ 배열 메소드
+        <pre>
+            ● Array.of(...) : 넣은 데이터들을 배열로 만들어준다.
+                예시)
+                    const testArray = Array.of(3, true, "what");
+
+            ● Array.from(...) : 넣은 데이터들을 배열로 만들어준다.
+                예시)
+                    //만약 buttonTest라는 class명을 가진 버튼들이 여러개 있다고 헀을 때
+
+                    const buttonArray = document.getElementsByClassName("buttonTest");
+                    Array.from(buttonArray).forEach(button => button.addEventListener("click", () => console.log("test")));
+
+                    //이런식으로 이벤트를 추가해주려고 한다면 에러가 발생한다.
+                    //왜냐하면 forEach는 Array 객체의 메소드인데 코드에 있는 buttonArray는 배열이 아니기 때문이다.
+                    //실제로는 HTML Collection라는 Array-Like Object다.
+                    //그렇기 때문에 코드에 있는 buttonArray에 ForEach를 사용하고 싶다면
+                    //Array.from(buttonArray)를 해줘서 배열로 만들어준 다음에 ForEach를 사용하면 된다.
+
+            ● Array.find(조건) : 배열에 있는 데이터들에 대하여 조건에 맞는 것들만 데이터 중 첫번째 요소의 값을 찾아준다.
+                예시)
+                    const testArray = ["testA", "testB", "testC", "textD", "textE"];
+                    const findStartTextIsTestArray = testArray.find(element => element.startsWith("test"));
+                    console.log(findStartTextIsTestArray);  //출력 : testA
+
+            ● Array.findIndex(조건) : 배열에 있는 데이터들에 대하여 조건에 맞는 것들만 데이터 중 첫번째 요소의 인덱스를 찾아준다.
+                예시)
+                    const testArray = ["testA", "testB", "testC", "textD", "textE"];
+                    const findStartTextIsTestArray = testArray.findIndex(element => element.startsWith("test"));
+                    console.log(findStartTextIsTestArray);  //출력 : 0
+
+            ● Array.fill(문자열, x, y) : 배열의 인덱스 중 x에서 y까지 설정한 문자열로 교체, y 생략시 x에서 마지막 인덱스까지 전부 교체
+                예시) 
+                    const testArray = ["testA", "testB", "testC", "textD", "textE"];    
+                    testArray.fill("###", 3);
+                    console.log(testArray); //출력 : ["testA", "testB", "testC", "###", "###"]
+        </pre>
+    </span>
+
     <!-- 테스트용 -->
-    <div class="" id="testDiv"></div>
+    <div class="" id="testDiv">테스트 영역</div>
 </body>
 
 </html>
