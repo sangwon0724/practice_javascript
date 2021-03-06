@@ -131,6 +131,7 @@
                         const somethings = ['a', 'b', 'c'];
                         const test = somethings.map(item => item + "TEST");
                         console.log(test);//출력 : ["aTEST", "bTEST", "cTEST"]
+
                 ● 또다른 예시 (연산자가 없는 숫자나 문자열로 단순 초기화시 사용, map의 경우)
                     예시)
                         const somethings = ['a', 'b', 'c'];
@@ -146,12 +147,14 @@
                         ()=>{console.log(this);}라고 작성한다면
                         현재 이 리스너가 버튼에 적용된다고 가정했을 때
                         출력은 button 태그가 아니라 window가 찍힌다.
+
                 ● 주의점
                     리스너에서 사용할 때 ()=>{console.log(this);}라고 작성하면
                     this는 window를 가리키지만
                     function ()=>{console.log(this);}로 작성하면
                     그 때는 button 태그를 가리킨다.
                     즉, function 예약어의 유무에 따라 this가 가리키는 위치가 달라진다.
+
                 ● 객체에 대한 Arrow Function
                     예시 1)
                         const test = {
@@ -184,15 +187,18 @@
                     const email = ["test1@naver.com", "test2@gmail.com", "test3@hanmil.net"];
                     const foundMail = email.find(item => item.includes("@gmail.com"));
                     console.log(foundMail); //출력 : test2@gmail.com
+
                 ● 이메일 필터 (filter : 배열 반환)
                     const email = ["test1@naver.com", "test2@gmail.com", "test3@hanmil.net"];
                     const foundMail = email.filter(item => item.includes(".com"));
                     console.log(foundMail); //출력 : ["test1@naver.com", "test2@gmail.com"]
+
                 ● 유저명 저장 (forEach : 반복문)
                     const email = ["test1@naver.com", "test2@gmail.com", "test3@hanmil.net"];
                     email.forEach(
                         test => { console.log(test.split("@")[0]); }
                     );
+                    
                 ● 유저명 저장 (map : forEach 형식으로 반환된 데이터들을 배열에 저장)
                     const email = ["test1@naver.com", "test2@gmail.com", "test3@hanmil.net"];
                     const userNames = email.map(test=>test.split("@")[0]);
@@ -206,14 +212,17 @@
                     예시)
                         function basicFunction(text){ console.log(text);}
                         basicFunction("test message");//출력 : text message
+
                 ● 값이 없을 경우의 임시 값을 추가하는 방법
                     예시)
                         function noneValueTestFunction(text){ console.log((text || "none value"));}
                         noneValueTestFunction();//출력 : none value
+
                 ● Default Value를 사용하는 방법
                     예시)
                         function defaultValueFunction(text = "default value"){ console.log(text);}
                         defaultValueFunction();//출력 : default value
+
                 ● Default Value와 Arrow Function을 함께 사용하는 방법
                     예시)
                         const defualValueAndArrowFunction = (text = "default value & arrow function") => console.log(text);
@@ -223,6 +232,141 @@
             </pre>
         </span>
     </section>
+
+    <br>
+
+    <section id="string">
+        <span>
+            <bold>문자열</bold>
+        </span>
+        <span>▶ Template Literal
+            <pre>
+                ● 기본적인 문자열 합치기
+                    const test = (text = "test") => "execute " + text +" !!!";
+                    console.log(test());    //출력 : execute test !!!
+                    //1. 번거롭다.
+                    //2. 헷갈릴 위험도 크다.
+
+                ● 백틱과 함께 쓰기 - 기본편 (` : 물결표랑 같이 있는 기호)
+                    const test = (text = "test") => `execute ${text} !!!`;
+                    console.log(test());    //출력 : execute test !!!
+
+                ● 백틱과 함께 쓰기 - 응용편 (함수 사용)
+                    const add = (a, b) => a + b;
+                    const test = (text = "test") => `execute ${add(1, 6)} !!!`;
+                    console.log(test());    //출력 : execute 7 !!!
+            </pre>
+        </span>
+        <span>▶ HTML 태그 & Template Literal
+            <pre>
+                ● 사용법
+                    const testDiv = document.getElementById("testDiv");
+                    const span = `&lt;span>This is HTML Tag + Template Literal !!!&lt;/span>`;
+                    testDiv.innerHTML = span;
+
+                ● 응용법
+                    const testArray = ["a", "b", "c"];
+                    const testDiv = document.getElementById("testDiv");
+                    const list =
+                    `&lt;ul>${testArray.map(test => `&lt;li>${test} ★&lt;/li>`).join("")}&lt;/ul>`;
+                    testDiv.innerHTML = list;
+                
+                ※ 백틱(`)은 엔터를 입력하면 엔터도 적용을 시켜준다. ===> &lt;br>을 사용할 필요가 없어진다.
+            </pre>
+        </span>
+        <span>▶ Style을 적용시킨 노드 만들기
+            <pre>
+                ● css를 적용시킨 태그를 반환하는 방법
+                    예시)
+                        const settingStyle = newElement =>{
+                            const newEle = document.createElement(newElement);//신규 태그 생성
+
+                            return args = (text ="test text", styleArray) => {
+                                const settingStyleOptions = styleArray;  //css로 적용할 값들을 불러와서 저장
+                                newEle.style = settingStyleOptions;   //태그에 css 적용
+                                newEle.innerHTML = text;
+                                return newEle;  //태그 반환
+                            };
+                        };
+
+                        const title = settingStyle("h1")("hmm",`
+                            color : white;
+                            background-color : blue;
+                            font-weight : bold;
+                        `);
+                        //해설
+                        //1. settingStyle에 "h1"이라는 인자를 넣어서 실행한다.
+                        //2. 실행될 함수에 한번더 인자를 주게되면 return에서 실행되는 함수에 인자를 준다.
+
+                        document.getElementById("testDiv").append(title);//스타일을 적용시킨 h1 태그를 추가
+                
+                ● 위의 다중 함수 실행에 대한 테스트
+                        예시)
+                            const add1 = (a = 0, b = 0) => {
+                                console.log(`add 1 : ${a} + ${b} = ${a+b}`);
+                                return add2 = (c = 0, d = 0) =>{
+                                    console.log(`add 2 : ${c} + ${d} = ${c+d}`);
+                                    return add3 = (e, f = 0) =>{
+                                        console.log(`add 3 : ${e} + ${f} = ${e+f}`);
+                                    }
+                                }
+                            };
+
+                            add1(1,1)(2,2)(3,3);
+                            //출력 목록
+                            //add 1 : 1 + 1 = 2
+                            //add 2 : 2 + 2 = 4
+                            //add 3 : 3 + 3 = 6
+            </pre>
+        </span>
+        <span>▶ 백틱에 의한 함수 호출 방법
+            <pre>
+                ● 기본편
+                    예시)
+                        위의 add1를 실행할때
+                        add1`1`,(2,2)(3,3);로 실행해도 된다.
+                        대신 이 경우에는 1이 숫자가 아닌 문자열이니 이 부분은 조심해야 한다.
+                        //출력 목록
+                        //add 1 : 1 + 0 = 10
+                        //add 2 : 2 + 2 = 4
+                        //add 3 : 3 + 3 = 6
+
+                ● 응용편
+                    예시)
+                        const test = {
+                            first : "first",
+                            second : "second"
+                        };
+
+                        function amazing(strings, var1, var2){
+                            //인자를 꼬아서 strings를 맨뒤로 보내보면 인자를 어떻게 받는지 알수있다.
+                            console.log(strings);
+                            console.log(var1);
+                            console.log(var2);
+                            return `${strings[0]}${var1}${strings[1]}${var2}${strings[2]}`;
+                        }
+
+                        console.log(amazing`시작-${test.first}-중간-${test.second}-끝`);//출력 : 시작-first-중간-second-끝
+
+                        //해설
+                        //백틱을 사용해서 실행하게 되는 함수는 첫번째 인자에
+                        //백틱에서 사용되었던 ${}를 제외한 문자열들이 배열로 저장되게 된다.
+                        //첫번째 인자 이후의 인자들은 ${}로 사용한 인자들이 차례대로 저장된다. 
+            </pre>
+        </span>
+    </section>
+    <span>▶ 추가적인 문자열 메소드들
+        <pre>
+            ● include("찾을 문자열") : 해당 문자열이 존재하는가 검색
+            ● "문자열".repeat(n) : n번만큼 문자열을 반복
+            ● "문자열".startsWith("찾을 문자열") : 해당 문자열로 시작되는지 확인
+            ● "문자열".endsWith("찾을 문자열") : 해당 문자열로 종료되는지 확인
+        </pre>
+    </span>
+</section>
+
+    <!-- 테스트용 -->
+    <div class="" id="testDiv"></div>
 </body>
 
 </html>
