@@ -6,29 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ES Series</title>
-    <style>
-        body {
-            background-color: #eeeeee;
-        }
-
-        section {
-            background-color: white;
-        }
-
-        bold {
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        span {
-            display: block;
-            margin: 10px 0;
-        }
-
-        br {
-            margin: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/index.css" />
 </head>
 
 <body>
@@ -1234,7 +1212,7 @@
 
     <section id="generator">
         <span>
-            <bold>generator</bold>
+            <bold>제네레이터 (generator)</bold>
         </span>
         <span>▶ Generator
             <pre>
@@ -1292,15 +1270,39 @@
         </span>
     </section>
 
+    <br>
 
+    <section id="es2020">
+        <span>
+            <bold>ES2020</bold>
+        </span>
+        <span>▶ xxx
+            <pre>
+                ● xxx
+            </pre>
+        </span>
+    </section>
 
+    <div id="remote">
+        <section id="remote_setcion">
+            <select id="remote_menu">
+                <option value="variable">변수</option>
+                <option value="function">함수</option>
+                <option value="string">문자열</option>
+                <option value="array">배열 메소드</option>
+                <option value="destructuring">비구조화</option>
+                <option value="restAndSpread">Rest & Spread</option>
+                <option value="forOfLoop">For of Loop</option>
+                <option value="promise">Promise</option>
+                <option value="asyncAndAwait">Async & Await</option>
+                <option value="class">클래스</option>
+                <option value="symbolAndSetAndMap">Symbol & Set & Map</option>
+                <option value="generator">제네레이터</option>
+                <option value="es2020">ES 2020</option>
+            </select>
+        </section>
+    </div>
 
-
-
-
-
-    <!-- 테스트용 -->
-    <div class="" id="testDiv">테스트 영역</div>
+    <script src="../remote.js"></script>
 </body>
-
 </html>

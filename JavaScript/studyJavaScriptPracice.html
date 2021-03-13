@@ -5,13 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript 실전 공부</title>
-    <style>
-        body {background-color: #eeeeee;}
-        section {background-color: white;}
-        bold {font-size: 25px; font-weight: bold;}
-        span {display: block; margin: 10px 0;}
-        br {margin: 20px 0;}
-    </style>
+    <link rel="stylesheet" href="../css/index.css" />
 </head>
 <body>
     <section id="BOM">
@@ -610,6 +604,24 @@
                 ● JSON.stringify('변수명') : 인자로 전달된 자바스크립트의 데이터를 문자열로 변환한다.
             </pre>
     </section>
+
+    <div id="remote">
+        <section id="remote_setcion">
+            <select id="remote_menu">
+                <option value="BOM">BOM (Browser Object Model)</option>
+                <option value="DOM">DOM (Document Object Model)</option>
+                <option value="Element_Object">Element 객체</option>
+                <option value="Node_Object">Node 객체</option>
+                <option value="Document_Object">Document 객체</option>
+                <option value="Text_Object">Text 객체</option>
+                <option value="document_s_geometric_characteristics">문서의 기하학적 특성</option>
+                <option value="event">이벤트</option>
+                <option value="json">JSON </option>
+            </select>
+        </section>
+    </div>
+
+    <script src="../remote.js"></script>
     
     <script src="BOM.js"></script>
     <script src="DOM.js"></script>

@@ -5,13 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript 개념 공부</title>
-    <style>
-        body {background-color: #eeeeee;}
-        section {background-color: white;}
-        bold {font-size: 25px; font-weight: bold;}
-        span {display: block; margin: 10px 0;}
-        br {margin: 20px 0;}
-    </style>
+    <link rel="stylesheet" href="../css/index.css" />
 </head>
 <body>
     <section id="basic">
@@ -35,7 +29,7 @@
 
     <br>
 
-    <section id="MathAndString">
+    <section id="mathAndString">
         <span><bold>숫자 및 문자열</bold></span>
         <span>수의 연산 :
             <pre>
@@ -598,8 +592,8 @@
 
     <br>
 
-    <section class="functionOriented">
-        <span><bold>함수 지향 - 유효 범위</bold></span>
+    <section id="functionOriented">
+        <span><bold>함수 지향</bold></span>
         <span>변수의 유효 범위
             <pre>
                 ▶ 전역 변수 : 에플리케이션 전역에서 접근이 가능한 변수
@@ -1486,5 +1480,27 @@
             </pre>
         </span>
     </section>
+
+    <div id="remote">
+        <section id="remote_setcion">
+            <select id="remote_menu">
+                <option value="basic">기본</option>
+                <option value="mathAndString">숫자 및 문자열</option>
+                <option value="variable">변수</option>
+                <option value="operator">연산자</option>
+                <option value="ifElse">조건문</option>
+                <option value="loop">반복문</option>
+                <option value="function">함수</option>
+                <option value="array">배열</option>
+                <option value="object">객체</option>
+                <option value="module">모듈</option>
+                <option value="regularExpression">정규 표현식</option>
+                <option value="functionOriented">함수 지향</option>
+                <option value="objectOriented">객체 지향</option>
+            </select>
+        </section>
+    </div>
+
+    <script src="../remote.js"></script>
 </body>
 </html>
