@@ -10,39 +10,57 @@
 <body>
     <section id="date">
         <span><bold>날짜</bold></span>
-        <span>s1
+        <span>
             <pre>
-                s1
+                const date = new Date();
+                const minutes = date.getMinutes();
+                const hours = date.getHours();
+                const seconds = date.getSeconds();
             </pre>
         </span>
     </section>
 
     <br>
+
     <section id="localStorage">
         <span><bold>로컬 스토리지</bold></span>
-        <span>s2
+        <span>
             <pre>
-                s2
+                localStorage.setItem(USER_LS, text);    //값 설정
+                localStorage.getItem(USER_LS);          //값 가져오기
             </pre>
         </span>
     </section>
 
     <br>
+
     <section id="cookie">
         <span><bold>쿠키</bold></span>
-        <span>s3
+        <span>
             <pre>
                 s3
             </pre>
         </span>
     </section>
-
+    
     <br>
+
     <section id="session">
         <span><bold>세션</bold></span>
-        <span>s4
+        <span>
             <pre>
                 s4
+            </pre>
+        </span>
+    </section>
+    
+    <br>
+    
+    <section id="event">
+        <span><bold>이벤트</bold></span>
+        <span>
+            <pre>
+                event.preventDefault(); //이벤트 실행 막기, 예시) form의 submit()
             </pre>
         </span>
     </section>
@@ -54,6 +72,7 @@
                 <option value="localStorage">로컬 스토리지</option>
                 <option value="cookie">쿠키</option>
                 <option value="session">세션</option>
+                <option value="event">이벤트</option>
             </select>
         </section>
     </div>
