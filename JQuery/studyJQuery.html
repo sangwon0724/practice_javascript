@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J-Query 공부</title>
     <link rel="stylesheet" href="../css/index.css" />
+    <style>
+        .animation_btn_flex{
+            width: 50vw;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #aniTarget{
+            width: 100px;
+            height: 100px;
+            background-color: lightskyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <section id="jquery">
@@ -36,7 +53,7 @@
     <section id="basic">
         <span><bold>j-Query의 기본</bold></span>
         <span>▶ j-Query의 객체 탐색 : j-Query는 css 선택자를 통해서 객체를 탐색한다.</span>
-        <span>▶ $('선택자') 함수
+        <span>▶ $('선택자') 함수 => wrapper라고도 표현한다.
             <pre>
                 ● j-Query의 기초가 되는 문법이다.
                 ● css 선택자를 전달하면 해당 객체를 탐색하여 jQuery 객체를 리턴한다.
@@ -204,7 +221,7 @@
         </span>
         <span>▶ jQuery API - off : 이벤트 삭제
             <pre>
-                ● 기본 문법 : on( events [, selector] [, data], handler(eventObject) );
+                ● 기본 문법 : off( events [, selector] [, data], handler(eventObject) );
                     ○ event : 등록하고자 하는 이벤트 타입을 지정한다. (예시 : "click")
                     ○ selector : 이벤트가 설치된 엘리먼트의 하위 엘리먼트를 이벤트 대상으로 필터링함
                     ○ data : 이벤트가 실행될 때 핸들러로 전달될 데이터를 설정함
@@ -219,6 +236,46 @@
         </span>
     </section>
 
+    <br>
+    
+    <section id="class">
+        <span><bold>클래스</bold></span>
+        <span>▶ 클래스 제어
+            <pre>
+                ● 클래스 추가
+                    $("#target").addClass("test");
+                ● 클래스 삭제
+                    $("#target").removeClass("test");
+                ● 클래스 토글
+                    $("#target").toggleClass("test");
+                ● 클래스 보유 여부 확인
+                    $("#target").hasClass("test");
+            </pre>
+        </span>
+    </section>
+
+    <br>
+    
+    <section id="animation">
+        <span><bold>애니메이션</bold></span>
+        <span>▶ 애니메이션 제어
+            <pre>
+                    <div class="animation_btn_flex">
+                        <input type="button" id="fadeout" value="fade out" />
+                        <input type="button" id="fadein" value="fade in" />
+                        <input type="button" id="hide" value="hide" />
+                        <input type="button" id="show" value="show" />
+                        <input type="button" id="slidedown" value="slide down" />
+                        <input type="button" id="slideup" value="slide up" />
+                        <input type="button" id="mix" value="mix" />
+                    </div>
+                    <div id="aniTarget">
+                        <span>aniTarget</span>
+                    </div>
+            </pre>
+        </span>
+    </section>
+
     <div id="remote">
         <section id="remote_setcion">
             <select id="remote_menu">
@@ -226,6 +283,8 @@
                 <option value="basic">j-Query의 기본</option>
                 <option value="controll">j-Query - 제어</option>
                 <option value="event">이벤트</option>
+                <option value="class">클래스</option>
+                <option value="animation">애니메이션</option>
             </select>
         </section>
     </div>
@@ -238,10 +297,32 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script>
-        //body에 ''Hello World' 추가
-        /*jQuery(document).ready(function($){
-            $('body').prepend('<h1>Hello World</h1>');
-        });*/
+        $('input[type="button"]').click( function(e) {
+                var $this = $(e.target);
+                switch($this.attr('id')) {
+                    case 'fadeout':
+                        $('#aniTarget').fadeOut('slow');
+                        break;
+                    case 'fadein':
+                        $('#aniTarget').fadeIn('slow');
+                        break;
+                    case 'hide':
+                        $('#aniTarget').hide();
+                        break;
+                    case 'show':
+                        $('#aniTarget').show();
+                        break;
+                    case 'slidedown':
+                        $('#aniTarget').slideDown('slow');
+                        break;
+                    case 'slideup':
+                        $('#aniTarget').slideUp('slow');
+                        break;
+                    case 'mix':
+                        $('#aniTarget').fadeOut('slow').fadeIn('slow').delay(1000).slideUp().slideDown('slow', function(){alert('end')});
+                        break;
+                }
+            }) 
     </script>
 </body>
 </html>
