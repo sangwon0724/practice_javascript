@@ -26,8 +26,11 @@
         <span><bold>로컬 스토리지</bold></span>
         <span>
             <pre>
-                localStorage.setItem(USER_LS, text);    //값 설정
-                localStorage.getItem(USER_LS);          //값 가져오기
+                ● 로컬스토리지 값 설정하기
+                    localStorage.setItem(USER_LS, text);
+
+                ● 로컬스토리지 값 가져오기
+                    localStorage.getItem(USER_LS);
             </pre>
         </span>
     </section>
@@ -38,7 +41,27 @@
         <span><bold>쿠키</bold></span>
         <span>
             <pre>
-                s3
+                ● 쿠키 설정하기
+                    //setCookie(변수이름, 변수값, 기간);
+                    var setCookie = function(name, value, exp) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + exp*24*60*60*1000);
+                        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+                    };
+
+
+                ● 쿠키 가져오기
+                    //getCookie(변수이름)
+                    var getCookie = function(name) {
+                        var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+                        return value? value[2] : null;
+                    };
+
+                ● 쿠키 삭제하기
+                    //deleteCookie(변수이름)
+                    var deleteCookie = function(name) {
+                        document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+                    }
             </pre>
         </span>
     </section>
@@ -49,7 +72,23 @@
         <span><bold>세션</bold></span>
         <span>
             <pre>
-                s4
+                ● 세션스토리지에 세션 값 저장하기
+                    sessionStorage.setItem("testSession", "test value" );
+
+                ● 세션스토리지에 세션 값 가져오기
+                    sessionStorage.getItem("testSession");
+
+                ● 세션스토리지에 저장된 데이터의 개수 가져오기
+                    sessionStorage.length;
+                
+                ● 세션스토리지에서 특정 순서(index)의 키 이름을 가져온다. (0번부터 존재)
+                    sessionStorage.key(0);
+
+                ● 세션스토리지에서 특정한 key 값의 데이터를 삭제한다. 
+                    sessionStorage.removeItem("testSession");
+
+                ● 세션스토리지 비우기 ( = 전체삭제 )
+                    sessionStorage.clear();
             </pre>
         </span>
     </section>
