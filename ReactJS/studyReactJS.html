@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <section class="start">
+    <section id="start" tag="기초정보 기초 시작 디렉터리 디렉토리 jsx">
         <span><bold>기초정보</bold></span>
             <span>리액트의 시작</span>
             <pre>
@@ -49,7 +49,7 @@
 
     <br>
 
-    <section class="component">
+    <section id="component" tag="컴포넌트 정보보내기 보내기 클래스 클래스컴포넌트">
         <span><bold>컴포넌트</bold></span>
             <span>기초 정보</span>
             <pre>
@@ -58,6 +58,8 @@
                 ● 새로운 기능을 추가할 때에는 App.js에 추가한다.
                 ● 컴포넌트는 &lt;App/>처럼 html코드처럼 사용되지만 엄연한 하나의 함수다.
                 ● 리액트는 컴포넌트를 가져와서 브라우저가 이해할 수 있는 평범한 일반 html로 만든다.
+                ● 리액트의 컴포넌트에 key 속성을 부여해서 각 속성값이 유일하도록 만든다.
+                    이유 : 실제 값이 달라도 리액트가 스마트하지않게 작동해서 오류를 일으킨다.
             </pre>
             <span>컴포넌트 기본 사용법</span>
             <pre>
@@ -76,6 +78,96 @@
 
                 3. 그럼 다음에 console.log로 props를 출력해보면 해당 컴포넌트가 가지고 있는 속성들에 대한 정보를 알 수 있다.
             </pre>
+            <span>클래스 컴포넌트</span>
+            <pre>
+                ● 함수 컴포넌트는 뭔가를 return하고 screen에 표시된다.
+                ● 클래스 컴포넌트는 클래스여야 하지만 리액트 컴포넌트로부터 확장되고 screen에 표시된다.
+
+                ★ 리액트는 자동적으로 모든 클래스 컴포넌트에 있는 render 메소드를 자동으로 실행한다.
+
+                ● 기본 선언 방법
+                    class Ap extends React.Component{
+                        render(){
+                        return <h1>Hello</h1>;
+                        }
+                    }
+
+                ● 클래스 컴포넌트에서 값 부여하기
+                    class App extends React.Component {
+                        state = {
+                        count: 0
+                        };
+                        add = () => {
+                        this.setState(current => ({ count: current.count + 1 }));
+                        };
+                        minus = () => {
+                        this.setState(current => ({ count: current.count - 1 }));
+                        };
+                        render() {
+                        return (
+                            &lt;div>
+                                &lt;h1>The number is: {this.state.count}&lt;/h1>
+                                &lt;button onClick={this.add}>Add&lt;/button>
+                                &lt;button onClick={this.minus}>Minus&lt;/button>
+                            &lt;/div>
+                        );
+                        }
+                    }
+
+                    ※ state 속성과 setState 함수를 사용해서 속성의 값을 수정한다.
+                    ※ setState 함수를 쓰게되면 함수가 실행될때마다 자동으로 랜더링되서 값이 변경된다.
+            </pre>
+    </section>
+
+    <br>
+
+    <section id="grammer" tag="문법">
+        <span><bold>리액트 문법</bold></span>
+            <span>App()의 return 안에서 javascript 쓰기</span>
+            <pre>
+                ※ 그냥 쓰면 html이고, {}를 통해서 사용하면 javascript다.
+
+                function Whatever({prop}){
+                    return &lt;h1>● {prop}&lt;/h1>&lt;br>;
+                }
+
+                function ArrayTest(element){
+                    return &lt;Whatever prop={element.prop} />;
+                }
+
+                function App(){
+                    return {
+                        &lt;div>
+                            {whatevetArray.map(ArrayTest)}
+                        &lt;/div>
+                    };
+                }
+            </pre>
+    </section>
+
+    <br>
+
+    <section id="propTypes" tag="프로토타입 프로프타입 기본 prototype propType propTypes">
+        <span><bold>프로프타입</bold></span>
+        <span>필요 이유</span>
+        <pre>
+            ● 프로그래머도 사람이기 때문에 실수가 생길수 있으니 속성명을 잘못 명시하는 등의 실수를 방지하기 위해서 사용한다.
+        </pre>
+        <span>설치방법</span>
+        <pre>
+            ● npm i prop-types을 통해서 설치한다.
+        </pre>
+        <span>사용방법</span>
+        <pre>
+            ● App.js에 import PropTypes from "prop-types";를 통해서 import한다.
+            ● WhatEverProtoType.propTypes = {
+                name: PropTypes.string.isRequired,
+                picture: PropTypes.string.isRequired,
+                rating: PropTypes.number
+              };처럼 선언한다.
+            ● isRequired는 값이 반드시 필요함을 의미한다.
+            ● isRequired를 사용하지 않으면 값이 없거나 타입이 맞지 않아도 에러가 발생하지 않는다.
+        </pre>
     </section>
 
     <div id="remote">
@@ -83,6 +175,8 @@
             <select id="remote_menu">
                 <option value="start">기초정보</option>
                 <option value="component">컴포넌트</option>
+                <option value="grammer">리액트 문법</option>
+                <option value="propTypes">프로토타입</option>
             </select>
         </section>
     </div>
