@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-Query 공부</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <style>
+        .animation_btn_flex{
+            width: 50vw;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #aniTarget{
+            width: 100px;
+            height: 100px;
+            background-color: lightskyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<section id="start">
+    <span>기본 시작</span>
+    <pre>
+        1. 설치 후 버전 확인 : node -v
+        2. vscode의 터미널에서 npm install npx -g을 실행하여 np 설치
+    </pre>
+</section>
+    
+<div id="remote">
+    <section id="remote_setcion">
+        <select id="remote_menu">
+            <option value="start">시작</option>
+        </select>
+    </section>
+</div>
+
+<script src="../remote.js"></script>
+    
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+    $('input[type="button"]').click( function(e) {
+            var $this = $(e.target);
+            switch($this.attr('id')) {
+                case 'fadeout':
+                    $('#aniTarget').fadeOut('slow');
+                    break;
+                case 'fadein':
+                    $('#aniTarget').fadeIn('slow');
+                    break;
+                case 'hide':
+                    $('#aniTarget').hide();
+                    break;
+                case 'show':
+                    $('#aniTarget').show();
+                    break;
+                case 'slidedown':
+                    $('#aniTarget').slideDown('slow');
+                    break;
+                case 'slideup':
+                    $('#aniTarget').slideUp('slow');
+                    break;
+                case 'mix':
+                    $('#aniTarget').fadeOut('slow').fadeIn('slow').delay(1000).slideUp().slideDown('slow', function(){alert('end')});
+                    break;
+            }
+        }) 
+</script>
+</body>
+</html>
