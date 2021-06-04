@@ -60,6 +60,10 @@
                 ● 리액트는 컴포넌트를 가져와서 브라우저가 이해할 수 있는 평범한 일반 html로 만든다.
                 ● 리액트의 컴포넌트에 key 속성을 부여해서 각 속성값이 유일하도록 만든다.
                     이유 : 실제 값이 달라도 리액트가 스마트하지않게 작동해서 오류를 일으킨다.
+                ● 리액트에서 class는 js의 클래스를 가리키기 떄문에 return에서 사용되는 html 태그내의 class 속성은
+                  class가 아닌 className으로 명시해야 한다.
+                ● 리액트에서 for는 js의 반복문을 가리키기 떄문에 return에서 사용되는 label 태그내의 for 속성은
+                  for가 아닌 htmlFor으로 명시해야 한다.
             </pre>
             <span>컴포넌트 기본 사용법</span>
             <pre>
@@ -116,6 +120,18 @@
 
                     ※ state 속성과 setState 함수를 사용해서 속성의 값을 수정한다.
                     ※ setState 함수를 쓰게되면 함수가 실행될때마다 자동으로 랜더링되서 값이 변경된다.
+                    ※ setState 함수를 사용할 때 state 안에 없는 속성을 명시해도 오류는 생기지 않는다.
+
+                ● 클래스 컴포넌트의 빌드 순서 (첫 빌드시)
+                    (1) constructor (내부에 super()가 반드시 필요)
+                    (2) render
+                    (3) componentDidMount
+
+                ● 클래스 컴포넌트의 빌드 순서 (업데이트시 = setState 함수 실행시)
+                    (1) render
+                    (2) componentDidUpdate
+
+                ★ return 할 때 ()로 묶는다.
             </pre>
     </section>
 
@@ -170,6 +186,28 @@
         </pre>
     </section>
 
+    <br>
+
+    <section id="axios" tag="axios fetch 패치 악시오스 읽기">
+        <span><bold>axios</bold></span>
+        <span>필요 이유</span>
+        <pre>
+            ● 데이터를 읽기 위해 사용하는 fetch 대신에 사용하는 API
+        </pre>
+        <span>설치방법</span>
+        <pre>
+            ● npm install axios를 통해서 설치한다.
+        </pre>
+        <span>사용방법</span>
+        <pre>
+            ● App.js에 import axios from "axios";를 통해서 import한다.
+            ● getMovies = async () => {
+                const movies
+                    = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+            }처럼 사용한다.
+        </pre>
+    </section>
+
     <div id="remote">
         <section id="remote_setcion">
             <select id="remote_menu">
@@ -177,6 +215,7 @@
                 <option value="component">컴포넌트</option>
                 <option value="grammer">리액트 문법</option>
                 <option value="propTypes">프로토타입</option>
+                <option value="axios">axios</option>
             </select>
         </section>
     </div>
