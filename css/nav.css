@@ -1,12 +1,43 @@
 #nav {
+  width: 100vw;
+  height: 7vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+}
+
+#sidebar {
   width: 15vw;
-  height: 100vh;
-  border-right: 1px solid black;
+  height: auto;
+  min-height: 93vh;
+  border-right: 5px solid black;
   background-color: white;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 7vh;
+  padding-left: 10px;
 }
 
-#nav > li {
+#sidebar > li {
   margin-top: 15px;
+}
+
+#openbtn,
+#remoteBtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+#openbtn:hover,
+#remoteBtn:hover {
+  background-color: #444;
 }

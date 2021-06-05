@@ -13,6 +13,11 @@
 </head>
 <body id="main_body">
     <nav id="nav">
+        <button id="openbtn" onclick="changeSidebar()">☰ Close Sidebar</button>
+        <button id="remoteBtn" onclick="changeRemote()">☰ Close Remote</button>
+    </nav>
+
+    <nav id="sidebar">
         <span href="./JavaScript/studyJavaScriptBase.html">JavaScript 이론 공부</span>
         <span href="./JavaScript/studyJavaScriptPracice.html">JavaScript 기본 공부</span>
         <span href="./JavaScript/studyJavaScriptESseries.html">JavaScript ES 시리즈 공부</span>
@@ -26,11 +31,38 @@
     </section>
     <script>
         $(document).ready(function(){
-            $("#nav>span").on("click", (e) =>{
-                console.log(e);
+            $("#sidebar>span").on("click", (e) =>{
                 $("#note_body").load($(e.target).attr("href"));
             });
-    });
+        });
+
+        function changeSidebar(){
+            const text = $("#openbtn").text();
+            if(text === "☰ Close Sidebar"){
+                $("#sidebar").css("width","0");
+                $("#note_body").css("width","100vw");
+                $("#note_body").css("padding-left","7vw");
+                $("#openbtn").text("☰ Open Sidebar");
+            }
+            else if(text === "☰ Open Sidebar"){
+                $("#sidebar").css("width","15vw");
+                $("#note_body").css("width","85vw");
+                $("#note_body").css("padding-left","0");
+                $("#openbtn").text("☰ Close Sidebar");
+            }
+        }
+
+        function changeRemote(){
+            const text = $("#remoteBtn").text();
+            if(text === "☰ Close Remote"){
+                $("#remote").css("visibility","hidden");
+                $("#remoteBtn").text("☰ Open Remote");
+            }
+            else if(text === "☰ Open Remote"){
+                $("#remote").css("visibility","");
+                $("#remoteBtn").text("☰ Close Remote");
+            }
+        }
     </script>
 </body>
 </html>

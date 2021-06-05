@@ -8,6 +8,14 @@
 #note_body {
   width: 85vw;
   height: auto;
-  min-height: 100vh;
-  background-color: red;
+  min-height: 93vh;
+  position: absolute;
+  top: 7vh;
+  right: 0;
+  background-color: #eeeeee;
+}
+
+#note_body > section {
+  width: 95%;
+  margin: 0 auto;
 }
