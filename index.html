@@ -33,6 +33,7 @@
         $(document).ready(function(){
             $("#sidebar>span").on("click", (e) =>{
                 $("#note_body").load($(e.target).attr("href"));
+                $("#remoteBtn").text("☰ Close Remote");
             });
         });
 
