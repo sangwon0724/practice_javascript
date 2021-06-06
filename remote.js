@@ -2,7 +2,9 @@
 function move_section(event){
     var section_id = event.target.value;
     //location.href = "#" + section_id;
-    document.querySelector("#note_body > #"+section_id).scrollIntoView({behavior: 'smooth'});
+    document.getElementById(section_id).scrollIntoView({behavior: 'smooth'});
 }
 
-document.querySelector("#note_body > #remote_menu").addEventListener("change", move_section);
+//document.getElementById("remote_menu").addEventListener("change", move_section);
+
+$("#note_body > #remote> #remote_setcion > #remote_menu").on("change",move_section)

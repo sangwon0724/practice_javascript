@@ -7,7 +7,6 @@
     <title>메인 화면</title>
     <link rel="stylesheet" href="./css/index.css">
     <script src="./jquery-3.5.1.js"></script>
-    <script src="/remote.js"></script>
     <style>
         a {display: block; margin-bottom: 20px;}
     </style>
@@ -32,12 +31,22 @@
 
     </section>
     <script>
+        //리모콘 작동
+        function move_section(event){
+            var section_id = event.target.value;
+            //location.href = "#" + section_id;
+            document.querySelector("#note_body > #"+section_id).scrollIntoView({behavior: 'smooth'});
+        }
+
         $(document).ready(function(){
-            $("#sidebar>span").on("click", (e) =>{
+            $("#sidebar>span").on("click", function(e){
                 $("#note_body").load($(e.target).attr("href"));
                 $("#remoteBtn").text("☰ Close Remote");
             });
         });
+
+        
+        $("#note_body > #remote> #remote_setcion > #remote_menu").on("change",move_section)
 
         function changeSidebar(){
             const text = $("#openbtn").text();
