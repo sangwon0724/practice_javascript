@@ -45,7 +45,7 @@
         2. Node가 설치된 폴더에가서 npm과 npx에 임의의 이름 붙이기
         3. cmd를 관리자 권한으로 실행한 다음에 npm install -g npm 실행
     </pre>
-</section>https://bigcode.tistory.com/40
+</section>
     
 <div id="remote">
     <section id="remote_setcion">
@@ -64,32 +64,6 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script>
-    $('input[type="button"]').click( function(e) {
-            var $this = $(e.target);
-            switch($this.attr('id')) {
-                case 'fadeout':
-                    $('#aniTarget').fadeOut('slow');
-                    break;
-                case 'fadein':
-                    $('#aniTarget').fadeIn('slow');
-                    break;
-                case 'hide':
-                    $('#aniTarget').hide();
-                    break;
-                case 'show':
-                    $('#aniTarget').show();
-                    break;
-                case 'slidedown':
-                    $('#aniTarget').slideDown('slow');
-                    break;
-                case 'slideup':
-                    $('#aniTarget').slideUp('slow');
-                    break;
-                case 'mix':
-                    $('#aniTarget').fadeOut('slow').fadeIn('slow').delay(1000).slideUp().slideDown('slow', function(){alert('end')});
-                    break;
-            }
-        }) 
 </script>
 </body>
 </html>
