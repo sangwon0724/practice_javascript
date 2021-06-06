@@ -5,4 +5,4 @@ function move_section(event){
     document.querySelector("#note_body > #"+section_id).scrollIntoView({behavior: 'smooth'});
 }
 
-document.getElementById("remote_menu").addEventListener("change", move_section);
+document.querySelector("#note_body > #remote_menu").addEventListener("change", move_section);
