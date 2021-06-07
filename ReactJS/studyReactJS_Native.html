@@ -70,7 +70,7 @@
 
 
     
-    <section id="structure" tag="structure 스트럭처 구조 view 뷰">
+    <section id="structure" tag="structure 스트럭처 구조 view 뷰 statusBar status 스테이터스 스테이터스바">
         <span><bold>구조</bold></span>
             <span>View</span>
             <pre>
@@ -79,7 +79,13 @@
             <span>새 파일에서 [함수/클래스] 내보내기</span>
             <pre>
                 ● 애초에 함수를 만들 때 처음부터 export default [함수명/클래스명]을 하면 된다.
-            </pre> 
+            </pre>
+            <span>스테이터스바 사용하기</span>
+            <pre>
+                ● "react-native";의 import에 StatusBar를 추가한다.
+                ● &lt;StatusBar/> 태그를 선언한다.
+                ● &lt;StatusBar> 태그의 barStyle 속성에 "light-content" 또는 "dark-content"를 선언한다.
+            </pre>
     </section>
 
 
@@ -123,6 +129,17 @@
             </pre>
     </section>
 
+
+
+    <section id="alert" tag="alert 알림 알림기능">
+        <span><bold>알림기능</bold></span>
+            <span>사용하기</span>
+            <pre>
+                (1) App.js의 최상단에 import {Alert} from "react-navite";를 명시해서 import한다.
+                (2) 사용하고 싶은 위치에 가서 Alert.alert("알림 내용")을 작성하면 된다.
+            </pre>
+    </section>
+
     
 
     <section id="expo_location" tag="expo_location 지역 api">
@@ -143,6 +160,85 @@
                 (3) 원하는 타이밍의 함수에 getLocation을 실행한다.
                      예시) componentDidMount
             </pre>
+            <span>Location.requestPermissionsAsync</span>
+            <pre>
+                ● Location.requestPermissionsAsync()는 사용자에게 위치에 대한 권한을 부여하도록 요청한다.
+            </pre>
+            <span>Location.getCurrentPositionAsync</span>
+            <pre>
+                ● Location.getCurrentPositionAsync()는 사용자의 현재 위치에 대한 일회성 전송을 요청한다.
+                    ○ coords 객체는 좌표를 의미한다.
+                    ○ coords 객체의 latitude는 위도를 의미한다.
+                    ○ coords 객체의 longitude는 경도를 의미한다.
+            </pre>
+    </section>
+
+
+
+    <section id="open_weacher" tag="날씨 api API 날씨api 날씨API">
+        <span><bold>날씨 API</bold></span>
+            <span>사용하는법</span>
+            <pre>
+                (1) 읽어들이는 기능을 위해서 npm install axios를 통해서 axios를 설치한다.
+                (2) App.js에 import axios from "axios";를 통해서 import한다.
+                (3) https://openweathermap.org/api/one-call-api?gclid=EAIaIQobChMIjcWjk5Kc6wIVRaSWCh339AlUEAAYASAAEgJhuPD_BwE로 이동해서 회원가입을 한다.
+                (4) 로그인한 후에 just...를 누른 뒤에 My API key를 클릭해서 keys 페이지로 이동한다.
+                (5) 내 API key값을 복사해서 App.js에 임의의 변수명을 선언해서 추가한다. 예시) API_KEY
+                (6) class에 다음의 함수를 추가한다.
+                    getWeather = async (latitude, longitude) => {
+                        const { data } = await axios.get(
+                        `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}`
+                        );
+                        console.log(data);
+                    };
+            </pre>
+            <span>온도 표시</span>
+            <pre>
+                ● 섭씨 : url에 &units=metric을 추가한다.
+                ● 화씨 : url에 &units=imperial을 추가한다.
+            </pre>
+    </section>
+
+
+    
+
+    <section id="icon_API" tag="error 오류 문제 발생 오류발생">
+        <span><bold>아이콘 API</bold></span>
+            <span>사용법</span>
+            <pre>
+                (1) https://icons.expo.fyi/에 가서 사용할 아이콘의 이름과 소속된 그룹명을 확인한다.
+                (2) 작성중인 js파일의 최상단에 import { [아이콘그룹명] } from "@expo/vector-icons";를 작성해서 import한다.
+                    예시) import { MaterialCommunityIcons } from "@expo/vector-icons";
+                (3) &lt;[아이콘그룹명] size={숫자} name="[아이콘명]" />처럼 사용한다.
+                    예시) &lt;MaterialCommunityIcons size={96} name="weather-lightning-rainy" />
+            </pre>
+    </section>
+
+    
+
+    <section id="gradient_API" tag="gradient 그라데이션 api 배경">
+        <span><bold>그라데이션 API</bold></span>
+            <span>설치하기</span>
+            <pre>
+                ● 터미널에서 expo install expo-linear-gradient를 실행한다.
+            </pre>
+            <span>사용하기</span>
+            <pre>
+                (1) App.js의 최상단에 import { LinearGradient } from "expo-linear-gradient";를 명시해서 import한다.
+                (2) &lt;LinearGradient> 태그를 선언한다.
+                (3) &lt;LinearGradient> 태그의 colors 속성에 {[x,y,...]}를 지정한다.
+            </pre>
+    </section>
+
+
+    
+
+    <section id="error" tag="error 오류 문제 발생 오류발생">
+        <span><bold>오류</bold></span>
+            <span>오류 방지하는 법</span>
+            <pre>
+                ● 작성중인 함수에 try {} catch(error){ console.log(error);}를 실행한다.
+            </pre>
     </section>
 
     <div id="remote">
@@ -152,7 +248,12 @@
                 <option value="point">특징</option>
                 <option value="structure">구조</option>
                 <option value="style">style</option>
+                <option value="alert">알림기능</option>
                 <option value="expo_location">지역정보 API</option>
+                <option value="open_weacher">날씨 API</option>
+                <option value="icon_API">아이콘 API</option>
+                <option value="gradient_API">그라데이션 API</option>
+                <option value="error">오류</option>
             </select>
         </article>
     </div>
