@@ -134,7 +134,8 @@
             <span>사용하기</span>
             <pre>
                 (1) App.js의 최상단에 import * as Location from "expo-location";를 명시해서 import한다.
-                (2) App.js의 App()에
+                (2) export default class extends React.Component {}로 클래스를 만든다.
+                (3) 만든 클래스에 가서
                     getLocation = async () => {
                     const location = await Location.getCurrentPositionAsync();
                     console.log(location);
