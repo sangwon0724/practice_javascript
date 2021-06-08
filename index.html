@@ -14,18 +14,18 @@
 <body id="main_body">
     <nav id="nav">
         <button id="openbtn" onclick="changeSidebar()">☰ Close Sidebar</button>
-        <button id="remoteBtn" onclick="changeRemote()">☰ Close Remote</button>
+        <!--<button id="remoteBtn" onclick="changeRemote()">☰ Close Remote</button>-->
     </nav>
 
     <nav id="sidebar">
-        <span href="./JavaScript/studyJavaScriptBase.html">JavaScript 기초 공부</span>
-        <span href="./JavaScript/studyJavaScriptPracice.html">JavaScript 기본 공부</span>
-        <span href="./JavaScript/studyJavaScriptESseries.html">JavaScript 심화 공부<br>(ES Series)</span>
-        <span href="./JavaScript/studyJavaScriptAdditionalFeatures.html">JavaScript를 통한<br>추가 기능 모음집</span>
-        <span href="./JQuery/studyJQuery.html">J-Query 공부</span>
-        <span href="./NodeJS/studyNodeJS.html">Node JS 공부</span>
-        <span href="./ReactJS/studyReactJS.html">React JS 공부</span>
-        <span href="./ReactJS/studyReactJS_Native.html">React Native 공부</span>
+        <button href="./JavaScript/studyJavaScriptBase.html">JavaScript 기초 공부</button>
+        <button href="./JavaScript/studyJavaScriptPracice.html">JavaScript 기본 공부</button>
+        <button href="./JavaScript/studyJavaScriptESseries.html">JavaScript 심화 공부<br>(ES Series)</button>
+        <button href="./JavaScript/studyJavaScriptAdditionalFeatures.html">JavaScript를 통한<br>추가 기능 모음집</button>
+        <button href="./JQuery/studyJQuery.html">J-Query 공부</button>
+        <button href="./NodeJS/studyNodeJS.html">Node JS 공부</button>
+        <button href="./ReactJS/studyReactJS.html">React JS 공부</button>
+        <button href="./ReactJS/studyReactJS_Native.html">React Native 공부</button>
     </nav>
     <section id="note_body">
 
@@ -39,9 +39,15 @@
         }
 
         $(document).ready(function(){
-            $("#sidebar>span").on("click", function(e){
+            $("#sidebar>button").on("click", function(e){
                 $("#note_body").load($(e.target).attr("href"));
                 $("#remoteBtn").text("☰ Close Remote");
+
+                var tablinks = document.querySelectorAll("#sidebar > button");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                e.currentTarget.className += " active";
             });
         });
 
@@ -51,14 +57,14 @@
         function changeSidebar(){
             const text = $("#openbtn").text();
             if(text === "☰ Close Sidebar"){
-                $("#sidebar").css("width","0");
+                $("#sidebar").css("display","none");
                 $("#note_body").css("width","100vw");
                 $("#note_body").css("padding-left","7vw");
                 $("#openbtn").text("☰ Open Sidebar");
             }
             else if(text === "☰ Open Sidebar"){
-                $("#sidebar").css("width","13vw");
-                $("#note_body").css("width","87vw");
+                $("#sidebar").css("display","flex");
+                $("#note_body").css("width","85vw");
                 $("#note_body").css("padding-left","0");
                 $("#openbtn").text("☰ Close Sidebar");
             }
