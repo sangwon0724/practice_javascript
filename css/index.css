@@ -10,14 +10,6 @@ section {
   background-color: white;
   margin-top: 30px;
 }
-bold {
-  font-size: 25px;
-  font-weight: bold;
-}
-span {
-  display: block;
-  margin: 10px 0;
-}
 br {
   margin: 20px 0;
 }
