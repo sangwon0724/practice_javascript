@@ -89,9 +89,41 @@
 
     <section id="event">
         <span><bold>이벤트</bold></span>
-        <span>
+        <span>이벤트 막기
             <pre>
                 event.preventDefault(); //이벤트 실행 막기, 예시) form의 submit()
+            </pre>
+        </span>
+    </section>
+
+    <section id="className">
+        <span><bold>이벤트</bold></span>
+        <span>클래스명 제어
+            <pre>
+                객체명.classList.toggle("클래스명");
+            </pre>
+        </span>
+    </section>
+
+    <section id="timer">
+        <span><bold>타이밍 제어</bold></span>
+        <span>
+            <pre>
+                ● setTimeout(함수명, 시간) => 명시된 시간이 지나면 해당 함수를 한 번 실행하는 리스너
+                    예시) setTimeout(sayHi, 1000); //(실행될 함수명, 단위 : 1/1000초)
+
+                ● clearTimeout(setTimeout 변수명) => setTimeout을 제거하는 리스너
+                    예시)
+                        var timer = setTimeout(alertStr, 3000);
+                        clearTimeout(timer);
+
+                ● setInterval(함수명, 시간) => 명시된 시간마다 해당 함수를 실행하는 리스너
+                    예시) setInterval(getTime, 1000); //(실행될 함수명, 단위 : 1/1000초)
+
+                ● clearInterval(setInterval 변수명) => setInterval을 제거하는 리스너
+                    예시)
+                        var temp = etInterval(getTime, 1000);
+                        setTimeout(temp);
             </pre>
         </span>
     </section>
@@ -104,6 +136,8 @@
                 <option value="cookie">쿠키</option>
                 <option value="session">세션</option>
                 <option value="event">이벤트</option>
+                <option value="className">클래스명 제어</option>
+                <option value="timer">타이밍 제어</option>
             </select>
         </article>
     </div>
