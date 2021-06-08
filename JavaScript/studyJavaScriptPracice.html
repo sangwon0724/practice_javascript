@@ -178,6 +178,8 @@
                     예시 1) var divOne = document.querySelector('div'); //1개만 반환
                     예시 2) var divList = document.querySelectorAll('div');     //리스트에 담아서 반환
                     예시 3) var test = document.querySelector('.test'); //클래스 선택자를 통해서 객체 탐색, 아이디는 # 이용
+
+                ※ getElementById는 querySelector 대비 약 169.86배 빠르고, querySelector는 jQuery대비 약 12.16배 빠르다
             </pre>
         </span>
         <span>▶ HTML Element & HTML Collection
@@ -498,11 +500,23 @@
                 3. addEventListener 방식 : 객체에 특정 상황에 대한 이벤트를 등록하는 방식
                     &lt;input type="button" id="addListenerTest" value="propertyListenerTest" />
                     var target = document.getElementById('addListenerTest');
+
+                    방법 1 :
+                    fucntion whatever(event){ alert('addEventListenerTest success, '+event.target.value); }
+                    target.addEventListener('click', whatever);
+
+                    방법 2 :
                     target.addEventListener('click', function(event){
                         alert('addEventListenerTest success, '+event.target.value);
                     });
 
                     테스트 : <input type="button" id="addListenerTest" value="addListenerTest" />
+
+                    ※ 주의점 :
+                        방법 1에서  함수명을 명시할때 [ 함수명() ]가 아니라 [ 함수명 ]로 적어야지 맞는 방식이다.
+                        왜냐하면 ()를 붙이면 바로 호출해버리기 때문에 우리가 원하는 이벤트때 호출되는게 아닌
+                        홈페이지 로드시 바로 호출되버리기 때문이다.
+
             </pre>
         </span>
         <span>▶ 이벤트 전파 방법
@@ -616,7 +630,7 @@
                 <option value="Text_Object">Text 객체</option>
                 <option value="document_s_geometric_characteristics">문서의 기하학적 특성</option>
                 <option value="event">이벤트</option>
-                <option value="json">JSON </option>
+                <option value="json">JSON</option>
             </select>
         </article>
     </div>

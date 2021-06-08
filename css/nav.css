@@ -12,7 +12,6 @@
   width: 15vw;
   height: auto;
   min-height: 93vh;
-  border-right: 5px solid black;
   background-color: white;
   display: flex;
   flex-direction: column;
