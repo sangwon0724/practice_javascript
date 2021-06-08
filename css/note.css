@@ -12,10 +12,11 @@
   position: absolute;
   top: 7vh;
   right: 0;
-  background-color: #eeeeee;
+  background-color: #ddd;
 }
 
 #note_body > section {
   width: 95%;
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
+  background-color: white;
 }

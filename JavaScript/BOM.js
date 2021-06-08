@@ -60,19 +60,19 @@ function BOM_Navigator_navigatorInfo(){
 function BOM_Window_Open(type){
     switch(type){
         case 'basic':
-            window.open('popup.html');
+            window.open('/Javascript/popup.html');
             break;
         case '_self':
-            window.open('popup.html', '_self');
+            window.open('/Javascript/popup.html', '_self');
             break;
         case '_blank':
-            window.open('popup.html', '_blank');
+            window.open('/Javascript/popup.html', '_blank');
             break;
         case 'name':
-            window.open('popup.html', 'name_is_popup');
+            window.open('/Javascript/popup.html', 'name_is_popup');
             break;
         case 'option':
-            window.open('popup.html', '_blank', 'width=200, height=200, resizable=yes');
+            window.open('/Javascript/popup.html', '_blank', 'width=200, height=200, resizable=yes');
             break;
     }
 }
@@ -80,7 +80,7 @@ function BOM_Window_Open(type){
 function BOM_Window_Controll(type){
     switch(type){
         case 'open':
-            win = window.open('popup.html', 'name_is_popup', 'width=300px, height=500px');
+            win = window.open('/Javascript/popup.html', 'name_is_popup', 'width=300px, height=500px');
             break;
         case 'message':
             win.document.getElementById('message').innerText=parent.document.getElementById('message').value;
