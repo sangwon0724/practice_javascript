@@ -25,272 +25,279 @@
 </head>
 <body>
     <section id="jquery">
-        <span><bold>j-Query</bold></span>
-        <span>▶ jQuery : JavaScript의 DOM을 내부에 감추고, 웹 페이지를 보다 쉽게 조작할 수 있도록 해주는 도구</span>
-        <span>▶ 라이브러리 : 자주 사용하는 로직을 재사용할 수 있도록 고안된 소프트웨어</span>
-        <span>▶ 기본 환경 세팅
-            <pre>
-                1. Google에 jQuery CDN를 입력해서 j-Query 공식 홈페이지로 이동한다.
-                2. 사용할 j-Query 버전에 맞는 코드를 클릭해서 확인한다. 
-                    [a] uncompressed 버전 : 압축되지 않은 버전 (공백, 줄바꿈, 들여쓰기 등이 되어있음)
-                    [b] minified 버전 : 압축되어 있는 버전 (공백, 줄바꿈, 들여쓰기 등을 최대한 적게 사용하여 용량 최소화함)
-                3. 해당 코드를 복사해서 j-Query를 사용할 html 파일에 명시해준다.
-                    예시)
-                    &lt;script
-                        src="https://code.jquery.com/jquery-3.5.1.js"
-                        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-                        crossorigin="anonymous">
-                    &lt;/script>
-                4. 테스트 해보기
-                    예시) jQuery(document).ready(function($){ $('body').prepend('&lt;h1>Hello World&lt;/h1>'); });  //body에 ''Hello World' 추가
-            </pre>
-        </span>
+        <header class="note_title">j-Query</header>
+        <ul>
+            <li>▶ jQuery : JavaScript의 DOM을 내부에 감추고, 웹 페이지를 보다 쉽게 조작할 수 있도록 해주는 도구</li>
+            <li>▶ 라이브러리 : 자주 사용하는 로직을 재사용할 수 있도록 고안된 소프트웨어</li>
+            <li>▶ 기본 환경 세팅
+                <pre>
+                    1. Google에 jQuery CDN를 입력해서 j-Query 공식 홈페이지로 이동한다.
+                    2. 사용할 j-Query 버전에 맞는 코드를 클릭해서 확인한다. 
+                        [a] uncompressed 버전 : 압축되지 않은 버전 (공백, 줄바꿈, 들여쓰기 등이 되어있음)
+                        [b] minified 버전 : 압축되어 있는 버전 (공백, 줄바꿈, 들여쓰기 등을 최대한 적게 사용하여 용량 최소화함)
+                    3. 해당 코드를 복사해서 j-Query를 사용할 html 파일에 명시해준다.
+                        예시)
+                        &lt;script
+                            src="https://code.jquery.com/jquery-3.5.1.js"
+                            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+                            crossorigin="anonymous">
+                        &lt;/script>
+                    4. 테스트 해보기
+                        예시) jQuery(document).ready(function($){ $('body').prepend('&lt;h1>Hello World&lt;/h1>'); });  //body에 ''Hello World' 추가
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
 
     <section id="basic">
-        <span><bold>j-Query의 기본</bold></span>
-        <span>▶ j-Query의 객체 탐색 : j-Query는 css 선택자를 통해서 객체를 탐색한다.</span>
-        <span>▶ $('선택자') 함수 => wrapper라고도 표현한다.
-            <pre>
-                ● j-Query의 기초가 되는 문법이다.
-                ● css 선택자를 전달하면 해당 객체를 탐색하여 jQuery 객체를 리턴한다.
-                    예시) $('span').css('color', 'red');
-            </pre>
-        </span>
-        <span>▶ j-Query 객체 : jQuery 함수를 이용해서 선택한 엘리먼트들에 대해서 프로퍼티를 가지고 있는 객체
-            <pre>
-                ● 암시적 반복 : 암시적 반복은 값을 설정할 때만 동작한다.
-                    예시 1) $('#test').css('color');        //해당 속성에 대한 정보를 가져온다.
-                    예시 2) $('#test').css('color', 'red'); //해당 속성에 대한 설정을 한다.
-                ● 체이닝(chainig) : 선택된 엘리먼트에 대해서 연속적으로 작업을 처리할 수 있는 방법
-                    예시) $('#test').css('color', 'red').css('text-decoration', 'underline');
-                ● 객체명.map() : jQuery 객체의 엘리먼트를 하나씩 순회하면서 첫번째 인자로 전달된 함수가 호출되는데,
-                                첫번째 인자로 엘리먼트의 인덱스, 두번째 인자로 엘리먼트 객체(DOM)가 자동으로 전달된다.
-                                var li = $('li');
-                                li.map(function(index, elem){
-                                    console.log(index, elem);
-                                    $(elem).css('color', 'red');
-                                });
-                ● j-Query 객체 API
-                    <a href="https://api.jquery.com">https://api.jquery.com</a>
-            </pre>
-        </span>
+        <header class="note_title">j-Query의 기본</header>
+        <ul>
+            <li>▶ j-Query의 객체 탐색 : j-Query는 css 선택자를 통해서 객체를 탐색한다.</li>
+            <li>▶ $('선택자') 함수 => wrapper라고도 표현한다.
+                <pre>
+                    ● j-Query의 기초가 되는 문법이다.
+                    ● css 선택자를 전달하면 해당 객체를 탐색하여 jQuery 객체를 리턴한다.
+                        예시) $('span').css('color', 'red');
+                </pre>
+            </li>
+            <li>▶ j-Query 객체 : jQuery 함수를 이용해서 선택한 엘리먼트들에 대해서 프로퍼티를 가지고 있는 객체
+                <pre>
+                    ● 암시적 반복 : 암시적 반복은 값을 설정할 때만 동작한다.
+                        예시 1) $('#test').css('color');        //해당 속성에 대한 정보를 가져온다.
+                        예시 2) $('#test').css('color', 'red'); //해당 속성에 대한 설정을 한다.
+                    ● 체이닝(chainig) : 선택된 엘리먼트에 대해서 연속적으로 작업을 처리할 수 있는 방법
+                        예시) $('#test').css('color', 'red').css('text-decoration', 'underline');
+                    ● 객체명.map() : jQuery 객체의 엘리먼트를 하나씩 순회하면서 첫번째 인자로 전달된 함수가 호출되는데,
+                                    첫번째 인자로 엘리먼트의 인덱스, 두번째 인자로 엘리먼트 객체(DOM)가 자동으로 전달된다.
+                                    var li = $('li');
+                                    li.map(function(index, elem){
+                                        console.log(index, elem);
+                                        $(elem).css('color', 'red');
+                                    });
+                    ● j-Query 객체 API
+                        <a href="https://api.jquery.com">https://api.jquery.com</a>
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <section id="controll">
-        <span><bold>j-Query - 제어</bold></span>
-        <span>▶ attr & prop: jQuery에서 엘리멘트를 제어하는 API
-            <pre>
-                ● attr ( = attribute )
-                    (1) attr('name') => Element.getAttribute
-                    (2) attr('name', 'value') => Element.setAttribute
-                    (3) removeAttr('name') => Element.removeAttribute
+        <header class="note_title">j-Query - 제어</header>
+        <ul>
+            <li>▶ attr & prop: jQuery에서 엘리멘트를 제어하는 API
+                <pre>
+                    ● attr ( = attribute )
+                        (1) attr('name') => Element.getAttribute
+                        (2) attr('name', 'value') => Element.setAttribute
+                        (3) removeAttr('name') => Element.removeAttribute
 
-                    예시 - attr)
-                        &lt;a href="../index.html" id="aTag">index.html&lt;/a>
-                        var aTag = $('#aTag');
-                        console.log(aTag.attr('href')); //../index.html
-                        aTag.attr('title', 'index'); //title 속성 값 설정
-                        aTag.removeAttr('title'); //title 속성 제거
+                        예시 - attr)
+                            &lt;a href="../index.html" id="aTag">index.html&lt;/a>
+                            var aTag = $('#aTag');
+                            console.log(aTag.attr('href')); //../index.html
+                            aTag.attr('title', 'index'); //title 속성 값 설정
+                            aTag.removeAttr('title'); //title 속성 제거
 
-                ● prop ( = property )
-                    (1) prop('name') => Element.getAttribute
-                    (2) prop('name', 'value') => Element.setAttribute
-                    (3) removeProp('name') => Element.removeAttribute
+                    ● prop ( = property )
+                        (1) prop('name') => Element.getAttribute
+                        (2) prop('name', 'value') => Element.setAttribute
+                        (3) removeProp('name') => Element.removeAttribute
 
-                    예시)
-                        &lt;a href="../index.html" id="aTag">index.html&lt;/a>
-                        var aTag = $('#aTag');
-                        console.log(aTag.prop('href')); //../index.html
-                        aTag.prop('title', 'index'); //title 속성 값 설정
-                        aTag.removeProp('title'); //title 속성 제거
+                        예시)
+                            &lt;a href="../index.html" id="aTag">index.html&lt;/a>
+                            var aTag = $('#aTag');
+                            console.log(aTag.prop('href')); //../index.html
+                            aTag.prop('title', 'index'); //title 속성 값 설정
+                            aTag.removeProp('title'); //title 속성 제거
 
-                ● attr과 prop의 차이
-                    [1] attr
-                        ○ 해당 엘리멘트에서 특정 속성에 대해서 명시되어있는 값을 조회한다.
-                        ○ 찾으려는 속성이 태그에 명시되어있지 않으면 undefined가 뜬다.
-                        ○ style이나 src같은 설정 값에 대해 작업할 때 사용하는 것이 좋다.
-                    [2] prop
-                        ○ 해당 엘리멘트에서 특정 속성에 대해서 실제로 사용되는 값을 조회한다.
-                        ○ checked나 selected같은 변화하는 값에 대해 작업할 때 사용하는 것이 좋다.
-            </pre>
-        </span>
-        <span>▶ 조회 범위 제한
-            <pre>
-                ● 기존 JavaScript 방식
-                    var test = document.getElementById('#test');
-                    var innerTest = test.querySelectorAll('.innerTest');
-                ● jQuery 방식 : 첫 번째 인자는 가져올 엘리먼트들 나타내고, 두번째 인자는 첫번째 인자를 감싸고 있는 영역을 css 선택자로 나타낸다.
-                    (1) $() 함수 방식 : 엘리멘트를 한 번에 가져올 때 사용
-                        예시 1) $('.innerTest', '#test').css("background-color", "red");
-                        예시 2) $("li", "ul>li>ul").css( "background-color", "red");
-                    (2) find() 함수 방식 : 체인을 끊지 않고 작업의 대상을 변경하고 싶을 때 사용
-                        예시  ) $("ul>li#findPoint").css( "background-color", "blue").find("ul>li").css( "background-color", "red");
-            </pre>
-        </span>
-        <span>▶ jQuery의 노드 제어 API <a href="https://api.jquery.com/category/manipulation/">참고</a>
-            <pre>
-                조건 1 : (1)&lt;div id="target">(2)content&lt;(3)/div>(4)
-                조건 2 : &lt;div id="clone">clone test&lt;/div>
-                조건 3 : &lt;div id="append">append test&lt;/div>
+                    ● attr과 prop의 차이
+                        [1] attr
+                            ○ 해당 엘리멘트에서 특정 속성에 대해서 명시되어있는 값을 조회한다.
+                            ○ 찾으려는 속성이 태그에 명시되어있지 않으면 undefined가 뜬다.
+                            ○ style이나 src같은 설정 값에 대해 작업할 때 사용하는 것이 좋다.
+                        [2] prop
+                            ○ 해당 엘리멘트에서 특정 속성에 대해서 실제로 사용되는 값을 조회한다.
+                            ○ checked나 selected같은 변화하는 값에 대해 작업할 때 사용하는 것이 좋다.
+                </pre>
+            </li>
+            <li>▶ 조회 범위 제한
+                <pre>
+                    ● 기존 JavaScript 방식
+                        var test = document.getElementById('#test');
+                        var innerTest = test.querySelectorAll('.innerTest');
+                    ● jQuery 방식 : 첫 번째 인자는 가져올 엘리먼트들 나타내고, 두번째 인자는 첫번째 인자를 감싸고 있는 영역을 css 선택자로 나타낸다.
+                        (1) $() 함수 방식 : 엘리멘트를 한 번에 가져올 때 사용
+                            예시 1) $('.innerTest', '#test').css("background-color", "red");
+                            예시 2) $("li", "ul>li>ul").css( "background-color", "red");
+                        (2) find() 함수 방식 : 체인을 끊지 않고 작업의 대상을 변경하고 싶을 때 사용
+                            예시  ) $("ul>li#findPoint").css( "background-color", "blue").find("ul>li").css( "background-color", "red");
+                </pre>
+            </li>
+            <li>▶ jQuery의 노드 제어 API <a href="https://api.jquery.com/category/manipulation/">참고</a>
+                <pre>
+                    조건 1 : (1)&lt;div id="target">(2)content&lt;(3)/div>(4)
+                    조건 2 : &lt;div id="clone">clone test&lt;/div>
+                    조건 3 : &lt;div id="append">append test&lt;/div>
 
-                ● 추가
-                    ○ $('#target').before('내용') : (1)의 위치에 추가
-                    ○ $('#target').prepend('내용') : (2)의 위치에 추가
-                    ○ $('#target').append('내용') : (3)의 위치에 추가
-                    ○ $('#target').after('내용') : (4)의 위치에 추가
+                    ● 추가
+                        ○ $('#target').before('내용') : (1)의 위치에 추가
+                        ○ $('#target').prepend('내용') : (2)의 위치에 추가
+                        ○ $('#target').append('내용') : (3)의 위치에 추가
+                        ○ $('#target').after('내용') : (4)의 위치에 추가
+                        
+                    ● 삭제
+                        ○ $('#target').remove() : 선택된 엘리먼트 제거
+                        ○ $('#target').empty() : 선택된 엘리먼트의 텍스트 노드 제거
                     
-                ● 삭제
-                    ○ $('#target').remove() : 선택된 엘리먼트 제거
-                    ○ $('#target').empty() : 선택된 엘리먼트의 텍스트 노드 제거
-                
-                ● 교체
-                    ○ $('&lt;div>replace&lt;/div>').replaceAll('#target') : 선택된 엘리먼트를 교체, 교체할 내용을 먼저 작성
-                    ○ $('#target').replaceWith('&lt;div>replace&lt;/div>') : 선택된 엘리먼트를 교체, 교체될 엘리먼트를 먼저 작성
-                    
-                ● 복제
-                    ○ $('#target').clone() : 선택된 엘리먼트를 복사
-                        예시) $('#clone').clone().replaceAll('#target');을 하게 되면  #target의 내용을 #clone을 복제한 엘리멘트로 교체한다.
-                    
-                ● 이동
-                    ○ $('#target').append('이동시킬 엘리멘트') : 먼저 지정한 엘리먼트의 하위 노드로 나중에 지정한 엘리먼트를 이동시킨다.
-                        예시) $('#target').append($('#append'));
-        </span>
+                    ● 교체
+                        ○ $('&lt;div>replace&lt;/div>').replaceAll('#target') : 선택된 엘리먼트를 교체, 교체할 내용을 먼저 작성
+                        ○ $('#target').replaceWith('&lt;div>replace&lt;/div>') : 선택된 엘리먼트를 교체, 교체될 엘리먼트를 먼저 작성
+                        
+                    ● 복제
+                        ○ $('#target').clone() : 선택된 엘리먼트를 복사
+                            예시) $('#clone').clone().replaceAll('#target');을 하게 되면  #target의 내용을 #clone을 복제한 엘리멘트로 교체한다.
+                        
+                    ● 이동
+                        ○ $('#target').append('이동시킬 엘리멘트') : 먼저 지정한 엘리먼트의 하위 노드로 나중에 지정한 엘리먼트를 이동시킨다.
+                            예시) $('#target').append($('#append'));
+            </li>
+        </ul>
     </section>
 
     
     
     <section id="event">
-        <span><bold>이벤트</bold></span>
-        <span>▶ jQuery API - on : 이벤트 등록
-            <pre>
-                ● 기본 문법 : on( events [, selector] [, data], handler(eventObject) );
-                    ○ event : 등록하고자 하는 이벤트 타입을 지정한다. (예시 : "click")
-                    ○ selector : 이벤트가 설치된 엘리먼트의 하위 엘리먼트를 이벤트 대상으로 필터링함
-                    ○ data : 이벤트가 실행될 때 핸들러로 전달될 데이터를 설정함
-                    ○ handler : 이벤트 핸들러 함수
+        <header class="note_title">j-Query - 이벤트</header>
+        <ul>
+            <li>▶ jQuery API - on : 이벤트 등록
+                <pre>
+                    ● 기본 문법 : on( events [, selector] [, data], handler(eventObject) );
+                        ○ event : 등록하고자 하는 이벤트 타입을 지정한다. (예시 : "click")
+                        ○ selector : 이벤트가 설치된 엘리먼트의 하위 엘리먼트를 이벤트 대상으로 필터링함
+                        ○ data : 이벤트가 실행될 때 핸들러로 전달될 데이터를 설정함
+                        ○ handler : 이벤트 핸들러 함수
 
-                ● on의 장점 : 기존 JavaScript의 addEventListener로 이벤트를 추가하는 것보다 코드가 매우 간결해진다.
-                    예시)
-                        &lt;input type="button" id="jQuery_API_on" value="jQuery API - on" />
-                        $('#jQuery_API_on').on('click', function(event){
-                            alert('jQuery API - on');
-                        })
+                    ● on의 장점 : 기존 JavaScript의 addEventListener로 이벤트를 추가하는 것보다 코드가 매우 간결해진다.
+                        예시)
+                            &lt;input type="button" id="jQuery_API_on" value="jQuery API - on" />
+                            $('#jQuery_API_on').on('click', function(event){
+                                alert('jQuery API - on');
+                            })
 
-                ● 필터링 : on의 selector 옵션을 사용하면 on의 대상이 아니라 selector의 대상이 this가 된다.
-                
-                    예시)
+                    ● 필터링 : on의 selector 옵션을 사용하면 on의 대상이 아니라 selector의 대상이 this가 된다.
+                    
+                        예시)
+                                &lt;ul>
+                                    &lt;li>&lt;a href="#">필터링 테스트&lt;/a>&lt;/li>
+                                &lt;/ul>
+
+                            $('ul').on('click','a, li', function(event){
+                                console.log(this.tagName);  //a 출력 후 li 출력
+                            });
+                    
+                    ● late binding : JavaScript와 다르게 script 태그를 먼저 선언해도 바인딩을 잘 시키면 이벤트를 나중에 추가시킬 수 있다.
+                        예시)
+                            $('body').on('click','a, li', function(event){
+                                console.log(this.tagName);  //출력 : a와 li를 출력한다.
+                            });
+
                             &lt;ul>
                                 &lt;li>&lt;a href="#">필터링 테스트&lt;/a>&lt;/li>
                             &lt;/ul>
+                            
+                    ●  다중 바인딩 : 하나의 엘리먼트에 여러개의 이벤트 타입을 동시에 등록하는 것
+                            (1) 여러 종류의 이벤트에 같은 코드 적용
+                                예시)
+                                    $('#multi_binding_test').on('focus blur', function(e){
+                                        alert("multi_binding_test focus & blur");
+                                    })
+                            (2) 여러 종류의 이벤트에 각각 다른 코드 적용
+                                예시)
+                                    $('#multi_binding_test').on({
+                                        'focus' : function(e){
+                                            alert("multi_binding_test focus");
+                                        }, 
+                                        'blur' : function(e){
+                                            alert("multi_binding_test blur");
+                                        }
+                                    })
+                </pre>
+            </li>
+            <li>▶ jQuery API - off : 이벤트 삭제
+                <pre>
+                    ● 기본 문법 : off( events [, selector] [, data], handler(eventObject) );
+                        ○ event : 등록하고자 하는 이벤트 타입을 지정한다. (예시 : "click")
+                        ○ selector : 이벤트가 설치된 엘리먼트의 하위 엘리먼트를 이벤트 대상으로 필터링함
+                        ○ data : 이벤트가 실행될 때 핸들러로 전달될 데이터를 설정함
+                        ○ handler : 이벤트 핸들러 함수
 
-                        $('ul').on('click','a, li', function(event){
-                            console.log(this.tagName);  //a 출력 후 li 출력
-                        });
-                
-                ● late binding : JavaScript와 다르게 script 태그를 먼저 선언해도 바인딩을 잘 시키면 이벤트를 나중에 추가시킬 수 있다.
-                    예시)
-                        $('body').on('click','a, li', function(event){
-                            console.log(this.tagName);  //출력 : a와 li를 출력한다.
-                        });
-
-                        &lt;ul>
-                            &lt;li>&lt;a href="#">필터링 테스트&lt;/a>&lt;/li>
-                        &lt;/ul>
-                        
-                ●  다중 바인딩 : 하나의 엘리먼트에 여러개의 이벤트 타입을 동시에 등록하는 것
-                        (1) 여러 종류의 이벤트에 같은 코드 적용
-                            예시)
-                                $('#multi_binding_test').on('focus blur', function(e){
-                                    alert("multi_binding_test focus & blur");
-                                })
-                        (2) 여러 종류의 이벤트에 각각 다른 코드 적용
-                            예시)
-                                $('#multi_binding_test').on({
-                                    'focus' : function(e){
-                                        alert("multi_binding_test focus");
-                                    }, 
-                                    'blur' : function(e){
-                                        alert("multi_binding_test blur");
-                                    }
-                                })
-            </pre>
-        </span>
-        <span>▶ jQuery API - off : 이벤트 삭제
-            <pre>
-                ● 기본 문법 : off( events [, selector] [, data], handler(eventObject) );
-                    ○ event : 등록하고자 하는 이벤트 타입을 지정한다. (예시 : "click")
-                    ○ selector : 이벤트가 설치된 엘리먼트의 하위 엘리먼트를 이벤트 대상으로 필터링함
-                    ○ data : 이벤트가 실행될 때 핸들러로 전달될 데이터를 설정함
-                    ○ handler : 이벤트 핸들러 함수
-
-                ● on의 장점 : 기존 JavaScript의 addEventListener로 이벤트를 추가하는 것보다 코드가 매우 간결해진다.
-                    예시 1)
-                        $('#target').off('click');  //click 대한 이벤트 모두 삭제
-                    예시 2)
-                        $('#target').off('click', handler); //click 대한 이벤트 중 handler라는 메소드의 내용만 제거
-            </pre>
-        </span>
+                    ● on의 장점 : 기존 JavaScript의 addEventListener로 이벤트를 추가하는 것보다 코드가 매우 간결해진다.
+                        예시 1)
+                            $('#target').off('click');  //click 대한 이벤트 모두 삭제
+                        예시 2)
+                            $('#target').off('click', handler); //click 대한 이벤트 중 handler라는 메소드의 내용만 제거
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
     
     <section id="class">
-        <span><bold>클래스</bold></span>
-        <span>▶ 클래스 제어
-            <pre>
-                ● 클래스 추가
-                    $("#target").addClass("test");
-                ● 클래스 삭제
-                    $("#target").removeClass("test");
-                ● 클래스 토글
-                    $("#target").toggleClass("test");
-                ● 클래스 보유 여부 확인
-                    $("#target").hasClass("test");
-            </pre>
-        </span>
+        <header class="note_title">j-Query - 클래스</header>
+        <ul>
+            <li>▶ 클래스 제어
+                <pre>
+                    ● 클래스 추가
+                        $("#target").addClass("test");
+                    ● 클래스 삭제
+                        $("#target").removeClass("test");
+                    ● 클래스 토글
+                        $("#target").toggleClass("test");
+                    ● 클래스 보유 여부 확인
+                        $("#target").hasClass("test");
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
     
     <section id="animation">
-        <span><bold>애니메이션</bold></span>
-        <span>▶ 애니메이션 제어
-            <pre>
-                    <div class="animation_btn_flex">
-                        <input type="button" id="fadeout" value="fade out" />
-                        <input type="button" id="fadein" value="fade in" />
-                        <input type="button" id="hide" value="hide" />
-                        <input type="button" id="show" value="show" />
-                        <input type="button" id="slidedown" value="slide down" />
-                        <input type="button" id="slideup" value="slide up" />
-                        <input type="button" id="mix" value="mix" />
-                    </div>
-                    <div id="aniTarget">
-                        <span>aniTarget</span>
-                    </div>
-            </pre>
-        </span>
+        <header class="note_title">j-Query - 애니메이션</header>
+        <ul>
+            <li>▶ 애니메이션 제어
+                <pre>
+                        <div class="animation_btn_flex">
+                            <input type="button" id="fadeout" value="fade out" />
+                            <input type="button" id="fadein" value="fade in" />
+                            <input type="button" id="hide" value="hide" />
+                            <input type="button" id="show" value="show" />
+                            <input type="button" id="slidedown" value="slide down" />
+                            <input type="button" id="slideup" value="slide up" />
+                            <input type="button" id="mix" value="mix" />
+                        </div>
+                        <div id="aniTarget">
+                            <span>aniTarget</span>
+                        </div>
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
     
     <section id="include">
-        <span><bold>다른 페이지 부르기</bold></span>
-        <span>
-            <pre>
-                ● 클래스 추가
-                    $("#target").addClass("test");
-                ● 클래스 삭제
-                    $("#target").removeClass("test");
-                ● 클래스 토글
-                    $("#target").toggleClass("test");
-                ● 클래스 보유 여부 확인
-                    $("#target").hasClass("test");
-            </pre>
-        </span>
+        <header class="note_title">다른 페이지 부르기</header>
+        <ul>
+            <li>
+                <pre>
+                    ● $("#note_body").load("부를 html 파일");
+                </pre>
+            </li>
+        </ul>
     </section>
 
 
