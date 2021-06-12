@@ -111,6 +111,11 @@
                     ※ useEffect는 두 개의 인자가 사용된다.
                         1) useEffect가 실행될 때 실행되는 함수
                         2) 해당하는 값일 있을 때만 값이 변하도록 활성화하는 배열
+                    ※ useEffect 내에서 사용되는 return은 해당 effect가 더 이상 실행할 필요가 없을 때 청소하는 용도를 한다.
+                    ※ useEffect가 더 이상 실행할 필요가 없는 경우
+                        1) dependancy가 바뀌어서 effect가 달라져야할 때 (이전 effect 제거)
+                        2) 해당 component가 unmount 될 때
+                    ※ 해당하는 unmount 될 때만 사용하려면 dependancy가 항상 같도록 useEffect의 두번째 인자에 []를 넘기면 된다.
                 </pre>
             </li>
             <li>useTitle : Document의 title을 변경하는 기능
