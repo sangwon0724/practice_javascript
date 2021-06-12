@@ -102,82 +102,90 @@
     <section id="effectHooks" tag="">
         <header class="note_title">Effect Hooks</header>
         <ul>
-            <li>useTitle : React Document의 title을 몇 개의 Hooks와 함께 바꾸는 것
+            <li>useEffect : Element에 효과 부여하기
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 기존의 import React from "react";에서 import React, {useEffect} from "react";로 변경한다.
+                    (2) useEffect(func, [deps]);로 사용하면 된다.
 
-                    ※ x
+                    ※ useEffect는 componentDidmount의 역할을 한다.
+                    ※ useEffect는 두 개의 인자가 사용된다.
+                        1) useEffect가 실행될 때 실행되는 함수
+                        2) 해당하는 값일 있을 때만 값이 변하도록 활성화하는 배열
+                </pre>
+            </li>
+            <li>useTitle : Document의 title을 변경하는 기능
+                <pre>
+                    (1) useState와 useEffect를 import한다.
+                    (2) const useTitles = initailTitle => {
+                        const [title, setTitle] = useState(initailTitle);
+                        const updateTitle = () => {
+                            const htmlTitle = docuement.querySelecor("title");
+                            htmlTitle.innerText = title;
+                        };
+                        useEffect(updateTitle, [title]);
+                        return setTitle;
+                    };를 선언한다.
                 </pre>
             </li>
             <li>useClick : 클릭한 시점에 일어나는 이벤트
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>useConfirm :
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>usePageLeave (useBeforeLeave & userPreventLeave) : 유저가 페이지를 벗어나는 시점에 실행되는 함수
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>useFadeIn : 어떤 Element든 상관없이 애니메이션을 Element 안으로 서서히 사라지게 하는 이벤트
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>useNetwork : 온라인 or 오프라인 상태 확인
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>useScroll : 스크롤 사용시 발생하는 이벤트
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>userFullscreen : 어떤 Element든 풀스크린으로 만들거나 일반 화면으로 돌아가게 한다.
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>useNotification : Notification API를 사용할 때 유저에게 알림을 보낸다.
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
             </li>
             <li>useAxios :
                 <pre>
-                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
-                    (2) x
+                    (1) 
 
                     ※ x
                 </pre>
