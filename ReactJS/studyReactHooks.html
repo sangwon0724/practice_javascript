@@ -129,9 +129,7 @@
             </li>
             <li>useClick : 클릭한 시점에 일어나는 이벤트
                 <pre>
-                    (1) 
-
-                    ※ x
+                    (1) uㅌ
                 </pre>
             </li>
             <li>useConfirm :
@@ -193,12 +191,31 @@
         </ul>
     </section>
 
+    <section id="useRef" tag="">
+        <header class="note_title">useRef</header>
+        <ul>
+            <li>useRef : 리액트의 컴포넌트가 특정 요소를 참조하게 하는 기능
+                <pre>
+                    (1) useRef를 import한다.
+                    (2) const refTest = useRef();를 선언한다. (refTest는 임의 변수명이다.)
+                    (3) 사용할 컴포넌트에 ref 속성을 명시하고 값을 {refTest}로 작성한다.
+                    (4) 만약 임의의 input 태그를 만들어서 refTest를 참조하게 했다면,
+                        refTest.current를 통해서 해당 요소에 접근할 수 있다.
+                        예시) setTimeouy(() => refTest.current.focus(), 3000);
+                    
+                    ※ 리액트의 컴포넌트는 기본적으로 ref를 가지고 있다.
+                </pre>
+            </li>
+        </ul>
+    </section>
+
     <div id="remote">
         <article id="remote_setcion">
             <select id="remote_menu">
                 <option value="start">시작</option>
                 <option value="stateHooks">State Hooks</option>
                 <option value="effectHooks">Effect Hooks</option>
+                <option value="useRef">useRef</option>
             </select>
         </article>
     </div>
