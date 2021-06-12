@@ -1,49 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Hooks 공부</title>
 </head>
+
 <body>
 
-<section id="start" tag="기초정보 기초 시작">
-    <header class="note_title">기본</header>
-    <ul>
-        <li>리액트 훅이란 무엇인가?
-            <pre>
-                ● 함수형 컴포넌트에서도 클래스형 컴포넌트의 기능을 사용할 수 있게 하는 기능
-            </pre>
-        </li>
-        <li>리액트 훅의 특징
-            <pre>
-                ● 훅을 통해서 함수형 컴포넌트에서도 컴포넌트 상태값을 관리할 수 있다.
-                ● 훅을 통해서 컴포넌트 생명 주기 함수 또한 이용할 수 있게 된다.
-            </pre>
-        </li>
-        <li>리액트 훅의 장점
-            <pre>
-                ● 훅을 사용하게 되면 재사용 가능한 로직을 쉽게 만들 수 있다.
-                ● 훅을 사용하게 되면 같은 로직은 한 곳으로 모아 가독성이 좋다. (경우에 따라 아닌 경우도 있다.)
-            </pre>
-        </li>
-        <li>Visual Studio Code 대신 코드를 테스트 할 수 있는 사이트
-            <pre>
-                ● https://codesandbox.io/
-            </pre>
-        </li>
-    </ul>
-</section>
-    
-<div id="remote">
-    <article id="remote_setcion">
-        <select id="remote_menu">
-            <option value="start">시작</option>
-        </select>
-    </article>
-</div>
+    <section id="start" tag="기초정보 기초 시작">
+        <header class="note_title">기본</header>
+        <ul>
+            <li>리액트 훅이란 무엇인가?
+                <pre>
+                    ● 함수형 컴포넌트에서도 state를 가질수 있게 하여 클래스형 컴포넌트의 기능을 사용할 수 있게 하는 기능
+                    ● React의 State Machine에 연결하는 기본적인 방법
+                </pre>
+            </li>
+            <li>리액트 훅의 특징
+                <pre>
+                    ● 훅을 통해서 함수형 컴포넌트에서도 컴포넌트 상태값을 관리할 수 있다.
+                    ● 훅을 통해서 컴포넌트 생명 주기 함수 또한 이용할 수 있게 된다.
+                </pre>
+            </li>
+            <li>리액트 훅의 장점
+                <pre>
+                    ● 훅을 사용하게 되면 재사용 가능한 로직을 쉽게 만들 수 있다.
+                    ● 훅을 사용하게 되면 같은 로직은 한 곳으로 모아 가독성이 좋다. (경우에 따라 아닌 경우도 있다.)
+                </pre>
+            </li>
+            <li>Visual Studio Code 대신 코드를 테스트 할 수 있는 사이트
+                <pre>
+                    ● https://codesandbox.io/
+                </pre>
+            </li>
+        </ul>
+    </section>
 
-<script src="./remote.js"></script>
+    <section id="stateHooks" tag="">
+        <header class="note_title">useState Hooks</header>
+        <ul>
+            <li>useState : 초기값 설정 + setter 추가
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useState} from "react";로 변경한다.
+                    (2) const [val, setVal] = useState("원하는 값");을 선언한다.
+                    (3) 만약 함수를 선언해서 그 안에서 값을 변경한다면 setVal(val + "XXX");처럼 하면 된다.
+
+                    ※ useState는 배열을 반환한다.
+                    ※ val와 setVal은 그 어떤 이름을 써도 상관이 없긴 하지만
+                       본인의 편의나 팀간의 협력을 위해서라도 val와 setVal과 같이 쓰는 것이 좋다.
+                    ※ 만약 setVal은 사용하지 않고 val만 사용하고 싶다면 const [val] = useState("원하는 값")[0];처럼 사용하면 된다.
+                    ※ useState를 사용하게 된다면 this를 사용하지 않아도 된다.
+                </pre>
+            </li>
+            <li>useInput : 값 변경 + 유효성 검사
+                <pre>
+                    (1) useState를 import한다.
+                    (2) const useInput = (initialValue, validator) => {
+                            const [value , setValue] = useState(initialValue);
+                            const onChange = event => {
+                                const { 
+                                    target : {value}
+                                } = event;
+                            };
+                            let willUpdate = true;
+                            if(typeof validator === "function"){
+                                willUpdate = validator(value);
+                            }
+                            if(willUpdate){
+                                setValue(value);
+                            }
+                            return {value, onChange};
+                        };를 선언한다.
+                    (3) const name = useInput("원하는 값");을 선언한다.
+                    (4) input에서 값을 사용할 때 {name.value}로 사용하면 된다.
+
+                    ※ {name.value}가 사용가능한 이유는 useInput이 value라는 이름의 값을 return하기 때문이다.
+                        아니면 name안의 내용물을 모두 풀어주는 {...name}을 사용하면 된다.
+                </pre>
+            </li>
+            <li>useTabs : 값의 전환을 쉽게 사용하기 위한 기능
+                <pre>
+                    (1) useState를 import한다.
+                    (2) const useTabs = (initialTab, allTabs) -> {
+                        if(!allTabs || Array.isArray(allTabs)){
+                            return; 
+                        }
+                        const [currentIndex, setCurrentIndex] = useState(initialTab);
+                        return {
+                            currentItem : allTabs[currentIndex],
+                            changeItem : setCurrentIndex
+                        };
+                    };를 선언한다.
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    <section id="effectHooks" tag="">
+        <header class="note_title">Effect Hooks</header>
+        <ul>
+            <li>useTitle : React Document의 title을 몇 개의 Hooks와 함께 바꾸는 것
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>useClick : 클릭한 시점에 일어나는 이벤트
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>useConfirm :
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>usePageLeave (useBeforeLeave & userPreventLeave) : 유저가 페이지를 벗어나는 시점에 실행되는 함수
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>useFadeIn : 어떤 Element든 상관없이 애니메이션을 Element 안으로 서서히 사라지게 하는 이벤트
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>useNetwork : 온라인 or 오프라인 상태 확인
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>useScroll : 스크롤 사용시 발생하는 이벤트
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>userFullscreen : 어떤 Element든 풀스크린으로 만들거나 일반 화면으로 돌아가게 한다.
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>useNotification : Notification API를 사용할 때 유저에게 알림을 보낸다.
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+            <li>useAxios :
+                <pre>
+                    (1) 기존의 import React from "react";에서 import React, {useInput} from "react";로 변경한다.
+                    (2) x
+
+                    ※ x
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    <div id="remote">
+        <article id="remote_setcion">
+            <select id="remote_menu">
+                <option value="start">시작</option>
+                <option value="stateHooks">State Hooks</option>
+                <option value="effectHooks">Effect Hooks</option>
+            </select>
+        </article>
+    </div>
+
+    <script src="./remote.js"></script>
 </body>
+
 </html>
