@@ -85,15 +85,15 @@
                 <pre>
                     (1) useState를 import한다.
                     (2) const useTabs = (initialTab, allTabs) -> {
-                        if(!allTabs || Array.isArray(allTabs)){
-                            return; 
-                        }
-                        const [currentIndex, setCurrentIndex] = useState(initialTab);
-                        return {
-                            currentItem : allTabs[currentIndex],
-                            changeItem : setCurrentIndex
-                        };
-                    };를 선언한다.
+                            if(!allTabs || Array.isArray(allTabs)){
+                                return; 
+                            }
+                            const [currentIndex, setCurrentIndex] = useState(initialTab);
+                            return {
+                                currentItem : allTabs[currentIndex],
+                                changeItem : setCurrentIndex
+                            };
+                        };를 선언한다.
                 </pre>
             </li>
         </ul>
@@ -117,19 +117,41 @@
                 <pre>
                     (1) useState와 useEffect를 import한다.
                     (2) const useTitles = initailTitle => {
-                        const [title, setTitle] = useState(initailTitle);
-                        const updateTitle = () => {
-                            const htmlTitle = docuement.querySelecor("title");
-                            htmlTitle.innerText = title;
-                        };
-                        useEffect(updateTitle, [title]);
-                        return setTitle;
-                    };를 선언한다.
+                            const [title, setTitle] = useState(initailTitle);
+                            const updateTitle = () => {
+                                const htmlTitle = docuement.querySelecor("title");
+                                htmlTitle.innerText = title;
+                            };
+                            useEffect(updateTitle, [title]);
+                            return setTitle;
+                        };를 선언한다.
                 </pre>
             </li>
             <li>useClick : 클릭한 시점에 일어나는 이벤트
                 <pre>
-                    (1) uㅌ
+                    (1) useRef와 useEffect를를 import한다.
+                    (2) const useClick = onClick => {
+                            if(typeof onClick !== "function"){return;}
+                            const element = useRef();
+                            useEffect(
+                                () => {
+                                    if(element.current){
+                                        element.current.addEventListener("click",onClick);
+                                    }
+                                    return () => {
+                                        if(element.current){
+                                            element.current.removeEventListener("click",onClick);
+                                        }
+                                }
+                            ,[]);
+                            return element;
+                        };를 선언한다.
+                    (3) App()에서 const title = useClick(사용할 함수명);을 선언한다.
+                    (4) App()의 return에서 적용할 컴포넌트의 ref 속성에 {title}이라고 작성한다.
+
+                    ※ useEffect에서 빈 배열을 넣는 이유는 그렇게 해야지 componentDidmount떄 단 한 번만 실행되라는 의미가 되기 떄문이다.
+                       만약 그렇지 않다면 매번 업데이트 될 때마다 eventListener가 추가된다.
+                    ※ useEffect 안에서 return을 시켜서 removeEventListener를 시키는 이유는 componentWillUnMoount때 호출되게 하기 위해서다.
                 </pre>
             </li>
             <li>useConfirm :
