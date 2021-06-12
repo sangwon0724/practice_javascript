@@ -9,123 +9,201 @@
 </head>
 <body>
     <section id="date">
-        <span><bold>날짜</bold></span>
-        <span>
-            <pre>
-                const date = new Date();
-                const minutes = date.getMinutes();
-                const hours = date.getHours();
-                const seconds = date.getSeconds();
-            </pre>
-        </span>
+        <header class="note_title">날짜</header>
+        <ul>
+            <li>날짜 객체 생성하기
+                <pre>
+                    const date = new Date();
+                    const minutes = date.getMinutes();
+                    const hours = date.getHours();
+                    const seconds = date.getSeconds();
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <section id="localStorage">
-        <span><bold>로컬 스토리지</bold></span>
-        <span>
-            <pre>
-                ● 로컬스토리지 값 설정하기
-                    localStorage.setItem(USER_LS, text);
+        <header class="note_title">로컬 스토리지</header>
+        <ul>
+            <li>로컬 스토리지 사용하기
+                <pre>
+                    ● 로컬스토리지 값 설정하기
+                        localStorage.setItem(USER_LS, text);
 
-                ● 로컬스토리지 값 가져오기
-                    localStorage.getItem(USER_LS);
-            </pre>
-        </span>
+                    ● 로컬스토리지 값 가져오기
+                        localStorage.getItem(USER_LS);
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <section id="cookie">
-        <span><bold>쿠키</bold></span>
-        <span>
-            <pre>
-                ● 쿠키 설정하기
-                    //setCookie(변수이름, 변수값, 기간);
-                    var setCookie = function(name, value, exp) {
-                        var date = new Date();
-                        date.setTime(date.getTime() + exp*24*60*60*1000);
-                        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-                    };
+        <header class="note_title">쿠키</header>
+        <ul>
+            <li>쿠키 사용하기
+                <pre>
+                    ● 쿠키 설정하기
+                        //setCookie(변수이름, 변수값, 기간);
+                        var setCookie = function(name, value, exp) {
+                            var date = new Date();
+                            date.setTime(date.getTime() + exp*24*60*60*1000);
+                            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+                        };
 
 
-                ● 쿠키 가져오기
-                    //getCookie(변수이름)
-                    var getCookie = function(name) {
-                        var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-                        return value? value[2] : null;
-                    };
+                    ● 쿠키 가져오기
+                        //getCookie(변수이름)
+                        var getCookie = function(name) {
+                            var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+                            return value? value[2] : null;
+                        };
 
-                ● 쿠키 삭제하기
-                    //deleteCookie(변수이름)
-                    var deleteCookie = function(name) {
-                        document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
-                    }
-            </pre>
-        </span>
+                    ● 쿠키 삭제하기
+                        //deleteCookie(변수이름)
+                        var deleteCookie = function(name) {
+                            document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+                        }
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <section id="session">
-        <span><bold>세션</bold></span>
-        <span>
-            <pre>
-                ● 세션스토리지에 세션 값 저장하기
-                    sessionStorage.setItem("testSession", "test value" );
+        <header class="note_title">세션</header>
+        <ul>
+            <li>세션 스토리지 사용하기
+                <pre>
+                    ● 세션스토리지에 세션 값 저장하기
+                        sessionStorage.setItem("testSession", "test value" );
 
-                ● 세션스토리지에 세션 값 가져오기
-                    sessionStorage.getItem("testSession");
+                    ● 세션스토리지에 세션 값 가져오기
+                        sessionStorage.getItem("testSession");
 
-                ● 세션스토리지에 저장된 데이터의 개수 가져오기
-                    sessionStorage.length;
-                
-                ● 세션스토리지에서 특정 순서(index)의 키 이름을 가져온다. (0번부터 존재)
-                    sessionStorage.key(0);
+                    ● 세션스토리지에 저장된 데이터의 개수 가져오기
+                        sessionStorage.length;
+                    
+                    ● 세션스토리지에서 특정 순서(index)의 키 이름을 가져온다. (0번부터 존재)
+                        sessionStorage.key(0);
 
-                ● 세션스토리지에서 특정한 key 값의 데이터를 삭제한다. 
-                    sessionStorage.removeItem("testSession");
+                    ● 세션스토리지에서 특정한 key 값의 데이터를 삭제한다. 
+                        sessionStorage.removeItem("testSession");
 
-                ● 세션스토리지 비우기 ( = 전체삭제 )
-                    sessionStorage.clear();
-            </pre>
-        </span>
+                    ● 세션스토리지 비우기 ( = 전체삭제 )
+                        sessionStorage.clear();
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <section id="event">
-        <span><bold>이벤트</bold></span>
-        <span>이벤트 막기
-            <pre>
-                event.preventDefault(); //이벤트 실행 막기, 예시) form의 submit()
-            </pre>
-        </span>
+        <header class="note_title">이벤트</header>
+        <ul>
+            <li>이벤트 막기
+                <pre>
+                    event.preventDefault(); //이벤트 실행 막기, 예시) form의 submit()
+                </pre>
+            </li>
+            <li>드래그 앤 드롭
+                <pre>
+                    &lt;div ondrop="drop(event)" ondragover="dragEnter(event)">
+                        &lt;img id="monalisa" width="180" height="280" src="xxx.png" draggable="true" ondragstart="drag(event)">
+                    &lt;/div>
+                    &lt;div ondrop="drop(event)" ondragover="dragEnter(event)">&lt;/div>
+
+                    function dragEnter(ev) {
+                        ev.preventDefault();
+                    }
+            
+                    function drag(ev) {
+                        ev.dataTransfer.setData("text", ev.target.id);
+                    }
+            
+                    function drop(ev) {
+                        ev.preventDefault();
+                        var data = ev.dataTransfer.getData("text");
+                        ev.target.appendChild(document.getElementById(data));
+                    }
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <section id="className">
-        <span><bold>이벤트</bold></span>
-        <span>클래스명 제어
-            <pre>
-                객체명.classList.toggle("클래스명");
-            </pre>
-        </span>
+        <header class="note_title">클래스명 제어</header>
+        <ul>
+            <li>클래스명 제어
+                <pre>
+                    객체명.classList.toggle("클래스명");
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <section id="timer">
-        <span><bold>타이밍 제어</bold></span>
-        <span>
-            <pre>
-                ● setTimeout(함수명, 시간) => 명시된 시간이 지나면 해당 함수를 한 번 실행하는 리스너
-                    예시) setTimeout(sayHi, 1000); //(실행될 함수명, 단위 : 1/1000초)
+        <header class="note_title">타이밍 제어</header>
+        <ul>
+            <li>타이밍 제어
+                <pre>
+                    ● setTimeout(함수명, 시간) => 명시된 시간이 지나면 해당 함수를 한 번 실행하는 리스너
+                        예시) setTimeout(sayHi, 1000); //(실행될 함수명, 단위 : 1/1000초)
 
-                ● clearTimeout(setTimeout 변수명) => setTimeout을 제거하는 리스너
-                    예시)
-                        var timer = setTimeout(alertStr, 3000);
-                        clearTimeout(timer);
+                    ● clearTimeout(setTimeout 변수명) => setTimeout을 제거하는 리스너
+                        예시)
+                            var timer = setTimeout(alertStr, 3000);
+                            clearTimeout(timer);
 
-                ● setInterval(함수명, 시간) => 명시된 시간마다 해당 함수를 실행하는 리스너
-                    예시) setInterval(getTime, 1000); //(실행될 함수명, 단위 : 1/1000초)
+                    ● setInterval(함수명, 시간) => 명시된 시간마다 해당 함수를 실행하는 리스너
+                        예시) setInterval(getTime, 1000); //(실행될 함수명, 단위 : 1/1000초)
 
-                ● clearInterval(setInterval 변수명) => setInterval을 제거하는 리스너
-                    예시)
-                        var temp = etInterval(getTime, 1000);
-                        setTimeout(temp);
-            </pre>
-        </span>
+                    ● clearInterval(setInterval 변수명) => setInterval을 제거하는 리스너
+                        예시)
+                            var temp = etInterval(getTime, 1000);
+                            setTimeout(temp);
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    <section id="canvas">
+        <header class="note_title">캔버스 제어</header>
+        <ul>
+            <li>이미지 그리기
+                <pre>
+                    const canvas = document.getElementById("jsCanvas");
+                    const ctx = canvas.getContext("2d"); //canvas의 그림 그리기 기능을 가져옴
+
+                    //canvas의 그리기 기능 이용시 크기 설정 필요
+                    //상위 요소에 relative가 없으면 컨텐츠의 절대값으로 설정
+                    canvas.width = 700;
+                    canvas.height = 700;
+
+                    ctx.strokeStyle = "#2c2c2c";//선의 기본 색상
+                    ctx.lineWidth = 2.5;//선의 굵기
+
+                    if (!painting) {
+                        //painting이 false인 상태 또는 값이 없는 상태 = 클릭 안 한 상태
+                        ctx.beginPath(); //path 생성
+                        ctx.moveTo(x, y); //내가 클릭한 위치
+                    } else {
+                        //painting이 true인 상태 또는 값이 있는 상태 = 클린 한 상태
+                        ctx.lineTo(x, y); //선을 긋는다.
+                        ctx.stroke(); //선을 현재의 stokeStyle로 채운다.
+                    }
+                </pre>
+            </li>
+            <li>이미지 다운로드
+                <pre>
+                    const image = canvas.toDataURL(); //이미지로 변환함과 동시에 그에 해당하는 url 반환
+                    const link = document.createElement("a"); //가상의 <a> 태그 생성
+                    link.href = image;
+                    //<a> 태그에 download 속성이 존재시 링크가 가리키는 파일을 다운로드 한다.
+                    //저장할 파일의 이름, 확장자 변경 가능
+                    link.download = "PaintJS[🎨].jpg";
+                    //<a> 태그를 가상으로 클릭함으로써 이미지를 다운로드 하게 한다.
+                    link.click();
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <div id="remote">
@@ -138,6 +216,7 @@
                 <option value="event">이벤트</option>
                 <option value="className">클래스명 제어</option>
                 <option value="timer">타이밍 제어</option>
+                <option value="canvas">캔버스 제어</option>
             </select>
         </article>
     </div>

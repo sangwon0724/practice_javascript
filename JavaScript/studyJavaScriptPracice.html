@@ -9,614 +9,629 @@
 </head>
 <body>
     <section id="BOM">
-        <span><bold>BOM (Browser Object Model)</bold></span>
-        <span>▶ BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
-            <pre>
-                ● Document 객체 : 현재문서에 대한 정보
-                ● History 객체 : 현재의 브라우저가 접근했던 URL history
-                ● Location 객체 : 현재 URL에 대한 정보, 브라우저에서 사용자가 요청하는 URL
-                ● Navigator 객체 : 브라우저명과 버전정보를 속성으로 가짐
-                ● Screen 객체 : 브라우저의 외부환경에 대한 정보를 제공
-                ● Window 객체 : 최상위 객체(= 전역 객체)로, 각 프레임별로 하나씩 존재
-            </pre>
-        </span>
-        <span>▶ Window 객체</span>
-        <span>
-            <pre>
-                ● b = 1;은 window.b = 1;과 같다.
-                ● alert("알림!")과 window.alert("알림");은 같다.
+        <header class="note_title">BOM (Browser Object Model)</header>
+        <ul>
+            <li>BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
+                <pre>
+                    ● Document 객체 : 현재문서에 대한 정보
+                    ● History 객체 : 현재의 브라우저가 접근했던 URL history
+                    ● Location 객체 : 현재 URL에 대한 정보, 브라우저에서 사용자가 요청하는 URL
+                    ● Navigator 객체 : 브라우저명과 버전정보를 속성으로 가짐
+                    ● Screen 객체 : 브라우저의 외부환경에 대한 정보를 제공
+                    ● Window 객체 : 최상위 객체(= 전역 객체)로, 각 프레임별로 하나씩 존재
+                </pre>
+            </li>
+            <li>사용자와의 커뮤니케이션
+                <pre>
+                    ● alert("문자열" 또는 변수명);  => 알림을 띄우는 기능
+                    ● confirm("문자열"); => 확인/취소를 띄우는 선택창을 띄우는 기능, 값은 true/false 반환
+                        if(confirm("confirm 테스트")){
+                            alert("확인 버튼  클릭")
+                        }
+                        else {
+                            alert("취소 버튼 클릭");
+                        }
+                        [테스트] <button onclick="BOM_Communication_confirm()">실행</button>
+                    ● prompt("문자열"); => 입력을 받아서 그 값을 저장해주는 형태
+                        if(prompt("\"BB 바른 한 래퍼가 내게 말을 건다 ~\"\n\n이것은 누구의 노래인가요?")==="조광일"){
+                            alert("정답입니다.")
+                        }
+                        else {
+                            alert("오답입니다.");
+                        }
+                        [테스트] <button onclick="BOM_Communication_prompt()">실행</button>
+                </pre>
+            </li>
+            <li>Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
+                <pre>
+                    ● 현재 윈도우의 문서가 위치하는 URL 알아보기
+                        document.write("location.toString() => ", location.toString(), "&lt;br/&gt;");
+                        document.write("location.href => ", location.href, "&lt;br/>");
+                        document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
 
-                즉, 전역 변수와 전역 함수는 window 객체의 프로퍼티나 메소드가 되는 것이다.
-            </pre>
-        </span>
-        <span>▶ 사용자와의 커뮤니케이션</span>
-        <span>
-            <pre>
-                ● alert("문자열" 또는 변수명);  => 알림을 띄우는 기능
-                ● confirm("문자열"); => 확인/취소를 띄우는 선택창을 띄우는 기능, 값은 true/false 반환
-                    if(confirm("confirm 테스트")){
-                        alert("확인 버튼  클릭")
-                    }
-                    else {
-                        alert("취소 버튼 클릭");
-                    }
-                    [테스트] <button onclick="BOM_Communication_confirm()">실행</button>
-                ● prompt("문자열"); => 입력을 받아서 그 값을 저장해주는 형태
-                    if(prompt("\"BB 바른 한 래퍼가 내게 말을 건다 ~\"\n\n이것은 누구의 노래인가요?")==="조광일"){
-                        alert("정답입니다.")
-                    }
-                    else {
-                        alert("오답입니다.");
-                    }
-                    [테스트] <button onclick="BOM_Communication_prompt()">실행</button>
-            </pre>
-        </span>
-        <span>▶ Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
-            <pre>
-                ● 현재 윈도우의 문서가 위치하는 URL 알아보기
-                    document.write("location.toString() => ", location.toString(), "&lt;br/&gt;");
-                    document.write("location.href => ", location.href, "&lt;br/>");
+                        [테스트] <button onclick="BOM_Location_locationInfo()">실행</button>
+
+                    ● URL Parsing : URL에 있는 요소의 정보를 나타낸다.
+                        document.write("location.protocol => ", location.protocol, "&lt;br/>");
+                        document.write("location.host => ", location.host, "&lt;br/>");
+                        document.write("location.port => ", location.port, "&lt;br/>");
+                        document.write("location.pathname => ", location.pathname, "&lt;br/>");
+                        document.write("location.search => ", location.search, "&lt;br/>");
+                        document.write("location.hash => ", location.hash, "&lt;br/>");
+                        document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
+
+                        [테스트] <button onclick="BOM_Location_urlParsing()">실행</button>
+
+                    ● location.href : 주소 이동하기
+                    location.href = "https://www.naver.com/"; 또는 location = "https://www.naver.com/";
+
+                    [테스트] <button onclick="BOM_Location_location_href()">실행</button>
+
+                    ● location.reload(); => 새로고침
+
+                    [테스트] <button onclick="BOM_Location_location_reload()">실행</button>
+                </pre>
+            </li>
+            <li>Navigator 객체 : 브라우저의 정보를 알려주는 객체
+                <pre>
+                    ● appName : 웹 브라우저의 이름. (IE => Microsoft Internet Explorer / 파이어폭스, 크롬 등 => Nescape)
+                    ● appVersion : 브라우저의 버전
+                    ● userAgent : 브라우저가 서버측으로 전송하는 USER-AGENT HTTP 헤더의 내용 () appVersion과 비슷함)
+                    ● platform : 브라우저가 동작하고 있는 운영체제에 대한 정보
+
+                    document.write("navigator.appName => ", navigator.appName, "&lt;br/>");
+                    document.write("navigator.appVersion => ", navigator.appVersion, "&lt;br/>");
+                    document.write("navigator.userAgent => ", navigator.userAgent, "&lt;br/>");
+                    document.write("navigator.platform => ", navigator.platform, "&lt;br/>");
                     document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
 
-                    [테스트] <button onclick="BOM_Location_locationInfo()">실행</button>
+                    [테스트] <button onclick="BOM_Navigator_navigatorInfo()">실행</button>
+                </pre>
+            </li>
+            <li>창 제어
+                <pre>
+                    ● window.open(URL, Window_Name, option)
+                        (1) URL : 새 창에 로드할 문서의 URL이다. 인자를 생략하면 이름이 붙지 않은 새 창이 만들어진다.
+                                [테스트] <button onclick="BOM_Window_Open('basic')">window.open('popup.html');</button>
 
-                ● URL Parsing : URL에 있는 요소의 정보를 나타낸다.
-                    document.write("location.protocol => ", location.protocol, "&lt;br/>");
-                    document.write("location.host => ", location.host, "&lt;br/>");
-                    document.write("location.port => ", location.port, "&lt;br/>");
-                    document.write("location.pathname => ", location.pathname, "&lt;br/>");
-                    document.write("location.search => ", location.search, "&lt;br/>");
-                    document.write("location.hash => ", location.hash, "&lt;br/>");
-                    document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
+                        (2) Window_Name : 새 창의 이름
+                            [a] '_self' : 스크립트가 실행되는 탭
+                                [테스트] <button onclick="BOM_Window_Open('_self')">window.open('popup.html', '_self');</button>
 
-                    [테스트] <button onclick="BOM_Location_urlParsing()">실행</button>
+                            [b] '_blank' : 새 탭
+                                [테스트] <button onclick="BOM_Window_Open('_blank')">window.open('popup.html', '_blank');</button>
 
-                ● location.href : 주소 이동하기
-                location.href = "https://www.naver.com/"; 또는 location = "https://www.naver.com/";
+                            [c] '이름' : 이름 정의, open을 재실행시 동일한 이름의 탭이나 창이 있다면 그 곳으로 로드
+                                [테스트] <button onclick="BOM_Window_Open('name')">window.open('popup.html', 'name_is_popup');</button>
 
-                [테스트] <button onclick="BOM_Location_location_href()">실행</button>
+                        (3) option : 옵션을 지정해서 부여, 옵션이 여러개일 때는 쉼표로 연결, 옵션을 지정하면 새 탭이 아니라 새 창이 띄워진다.
+                            [01] width=n : 팝업 창의 가로 길이
+                            [02] height=n : 팝업 창의 세로 길이
+                            [03] toolbar=yes/no : 단축 도구창 (=툴바) 표시 여부
+                            [04] menubar=yes/no : 메뉴창 (=메뉴바) 표시 여부
+                            [05] location=yes/no : 주소창 표시 여부
+                            [06] scrollbars=yes/no : 스크롤바의 표시 여부
+                            [07] status=yes/no : 아래 상태바 창의 표시 여부
+                            [08] resizable=yes/no : 창의 크기 변형 가능 여부
+                            [09] fullscreen=yes/no : 전체화면 여부
+                            [10] channelmode=yes/no : 채널 모드 여부 (F11 키의 기능과 동일)
+                            [11] left=n : (0, ???)에서 (n,???)에 창을 고정
+                            [12] top=n : (???, 0)에서 (???, n)에 창을 고정
 
-                ● location.reload(); => 새로고침
+                                [테스트] <button onclick="BOM_Window_Open('option')">window.open('popup.html', '_blank', 'width=200, height=200, resizable=yes');</button>
+                    ● 상호 작용
+                        (1) <input type="button" value="open" onclick="BOM_Window_Controll('open');" /> (2) <input type="text" id="message" onkeypress="BOM_Window_Controll('message')" /> (3) <input type="button" value="close" onclick="BOM_Window_Controll('close');" />
+                        
+                        (1) 새 창 열기 : &lt;input type="button" value="open" onclick="BOM_Window_Controll('open');" />
+                        (2) 새 창에서 열린 html 파일의 내용 변경 : &lt;input type="text" id="message" onkeypress="BOM_Window_Controll('message')" />
+                        (3) 새 창 닫기 : &lt;input type="button" value="close" onclick="BOM_Window_Controll('close');" />
 
-                [테스트] <button onclick="BOM_Location_location_reload()">실행</button>
-            </pre>
-        </span>
-        <span>▶ Navigator 객체 : 브라우저의 정보를 알려주는 객체
-            <pre>
-                ● appName : 웹 브라우저의 이름. (IE => Microsoft Internet Explorer / 파이어폭스, 크롬 등 => Nescape)
-                ● appVersion : 브라우저의 버전
-                ● userAgent : 브라우저가 서버측으로 전송하는 USER-AGENT HTTP 헤더의 내용 () appVersion과 비슷함)
-                ● platform : 브라우저가 동작하고 있는 운영체제에 대한 정보
-
-                document.write("navigator.appName => ", navigator.appName, "&lt;br/>");
-                document.write("navigator.appVersion => ", navigator.appVersion, "&lt;br/>");
-                document.write("navigator.userAgent => ", navigator.userAgent, "&lt;br/>");
-                document.write("navigator.platform => ", navigator.platform, "&lt;br/>");
-                document.write("&lt;button onclick='javascript:location.reload();'>새로고침&lt;/button>");
-
-                [테스트] <button onclick="BOM_Navigator_navigatorInfo()">실행</button>
-            </pre>
-        </span>
-        <span>▶ 창 제어
-            <pre>
-                ● window.open(URL, Window_Name, option)
-                    (1) URL : 새 창에 로드할 문서의 URL이다. 인자를 생략하면 이름이 붙지 않은 새 창이 만들어진다.
-                            [테스트] <button onclick="BOM_Window_Open('basic')">window.open('popup.html');</button>
-
-                    (2) Window_Name : 새 창의 이름
-                        [a] '_self' : 스크립트가 실행되는 탭
-                            [테스트] <button onclick="BOM_Window_Open('_self')">window.open('popup.html', '_self');</button>
-
-                        [b] '_blank' : 새 탭
-                            [테스트] <button onclick="BOM_Window_Open('_blank')">window.open('popup.html', '_blank');</button>
-
-                        [c] '이름' : 이름 정의, open을 재실행시 동일한 이름의 탭이나 창이 있다면 그 곳으로 로드
-                            [테스트] <button onclick="BOM_Window_Open('name')">window.open('popup.html', 'name_is_popup');</button>
-
-                    (3) option : 옵션을 지정해서 부여, 옵션이 여러개일 때는 쉼표로 연결, 옵션을 지정하면 새 탭이 아니라 새 창이 띄워진다.
-                        [01] width=n : 팝업 창의 가로 길이
-                        [02] height=n : 팝업 창의 세로 길이
-                        [03] toolbar=yes/no : 단축 도구창 (=툴바) 표시 여부
-                        [04] menubar=yes/no : 메뉴창 (=메뉴바) 표시 여부
-                        [05] location=yes/no : 주소창 표시 여부
-                        [06] scrollbars=yes/no : 스크롤바의 표시 여부
-                        [07] status=yes/no : 아래 상태바 창의 표시 여부
-                        [08] resizable=yes/no : 창의 크기 변형 가능 여부
-                        [09] fullscreen=yes/no : 전체화면 여부
-                        [10] channelmode=yes/no : 채널 모드 여부 (F11 키의 기능과 동일)
-                        [11] left=n : (0, ???)에서 (n,???)에 창을 고정
-                        [12] top=n : (???, 0)에서 (???, n)에 창을 고정
-
-                            [테스트] <button onclick="BOM_Window_Open('option')">window.open('popup.html', '_blank', 'width=200, height=200, resizable=yes');</button>
-                ● 상호 작용
-                    (1) <input type="button" value="open" onclick="BOM_Window_Controll('open');" /> (2) <input type="text" id="message" onkeypress="BOM_Window_Controll('message')" /> (3) <input type="button" value="close" onclick="BOM_Window_Controll('close');" />
-                    
-                    (1) 새 창 열기 : &lt;input type="button" value="open" onclick="BOM_Window_Controll('open');" />
-                    (2) 새 창에서 열린 html 파일의 내용 변경 : &lt;input type="text" id="message" onkeypress="BOM_Window_Controll('message')" />
-                    (3) 새 창 닫기 : &lt;input type="button" value="close" onclick="BOM_Window_Controll('close');" />
-
-                    switch(type){
-                        case 'open':
-                            win = window.open('popup.html', 'name_is_popup', 'width=300px, height=500px');
-                            break;
-                        case 'message':
-                            win.document.getElementById('message').innerText=parent.document.getElementById('message').value;
-                            break;
-                        case 'close':
-                            win.close();
-                            break;
-                    }
-                    
-                ● 보안성
-                    (1) 크롬에서는 로컬파일로 실행시키면 Same-origin policy 때문에 브라우저자체에서 iframe이나 window.open(...)과 통신을 막아 동작하지 않습니다.
-                    (2) 만약 기존의 창과 새로 띄운 창의 도메인이 다른 경우에는 기존의 창에서 새로 띄운 창의 내용을 바꿀 수 있는 작업을 할 수 없다.
-                    (3) 웹 브라우저 제작 회사 측에서 버튼을 클릭한 것이 아니라 스크립트 상에서 window.open(...);으로 바로 띄우는 창같은 경우에는
-                        그것은 사용자의 의지가 아니라고 판단하여 기본적으로 팝업 차단을 해두었다. 만약, 해당 페이지에 대한 팝업 허용을 하면 사용가능하다.
-            </pre>
-        </span>
+                        switch(type){
+                            case 'open':
+                                win = window.open('popup.html', 'name_is_popup', 'width=300px, height=500px');
+                                break;
+                            case 'message':
+                                win.document.getElementById('message').innerText=parent.document.getElementById('message').value;
+                                break;
+                            case 'close':
+                                win.close();
+                                break;
+                        }
+                        
+                    ● 보안성
+                        (1) 크롬에서는 로컬파일로 실행시키면 Same-origin policy 때문에 브라우저자체에서 iframe이나 window.open(...)과 통신을 막아 동작하지 않습니다.
+                        (2) 만약 기존의 창과 새로 띄운 창의 도메인이 다른 경우에는 기존의 창에서 새로 띄운 창의 내용을 바꿀 수 있는 작업을 할 수 없다.
+                        (3) 웹 브라우저 제작 회사 측에서 버튼을 클릭한 것이 아니라 스크립트 상에서 window.open(...);으로 바로 띄우는 창같은 경우에는
+                            그것은 사용자의 의지가 아니라고 판단하여 기본적으로 팝업 차단을 해두었다. 만약, 해당 페이지에 대한 팝업 허용을 하면 사용가능하다.
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
 
     <section id="DOM">
-        <span><bold>DOM (Document Object Model)</bold></span>
-        <span>▶ DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
-            <pre>
-                ● window 객체의 document 프로퍼티를 통해서 사용
-                ● Document 객체는 윈도우에 로드된 문서를 의미
-            </pre>
-        </span>
-        <span>▶ 제어 대상 찾기
-            <pre>
-                1. getElementsByTagName('태그명') : 인자로 전달한 태그명에 해당되는 객체들을 찾아서 그 리스트를 NodeList라는 유사 배열에 담아서 반환한다.
-                    예시) var divList = document.getElementsByTagName('div');
-                2. getElementsByClassName('클래스명') : 클래스 속성의 값을 기준으로 객체를 찾아서 그 리스트를 유사 배열에 담아 반환한다.
-                    예시) var inputTextList = document.getElementsByClassName('inputText');
-                3. getElementById('아이디명') : 아이디 속성의 값을 기준으로 한 개의 객체를 찾아서 해당 객체를 반환한다.
-                    예시) var email = document.getElementById('email');
-                4. querySelector('선택자') & querySelectorAll('선택자') : css의 선택자 문법을 이용해서 객체 한 개나 리스트를 반환한다.
-                    예시 1) var divOne = document.querySelector('div'); //1개만 반환
-                    예시 2) var divList = document.querySelectorAll('div');     //리스트에 담아서 반환
-                    예시 3) var test = document.querySelector('.test'); //클래스 선택자를 통해서 객체 탐색, 아이디는 # 이용
+        <header class="note_title">DOM (Document Object Model)</header>
+        <ul>
+            <li>DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
+                <pre>
+                    ● window 객체의 document 프로퍼티를 통해서 사용
+                    ● Document 객체는 윈도우에 로드된 문서를 의미
+                </pre>
+            </li>
+            <li>제어 대상 찾기
+                <pre>
+                    1. getElementsByTagName('태그명') : 인자로 전달한 태그명에 해당되는 객체들을 찾아서 그 리스트를 NodeList라는 유사 배열에 담아서 반환한다.
+                        예시) var divList = document.getElementsByTagName('div');
+                    2. getElementsByClassName('클래스명') : 클래스 속성의 값을 기준으로 객체를 찾아서 그 리스트를 유사 배열에 담아 반환한다.
+                        예시) var inputTextList = document.getElementsByClassName('inputText');
+                    3. getElementById('아이디명') : 아이디 속성의 값을 기준으로 한 개의 객체를 찾아서 해당 객체를 반환한다.
+                        예시) var email = document.getElementById('email');
+                    4. querySelector('선택자') & querySelectorAll('선택자') : css의 선택자 문법을 이용해서 객체 한 개나 리스트를 반환한다.
+                        예시 1) var divOne = document.querySelector('div'); //1개만 반환
+                        예시 2) var divList = document.querySelectorAll('div');     //리스트에 담아서 반환
+                        예시 3) var test = document.querySelector('.test'); //클래스 선택자를 통해서 객체 탐색, 아이디는 # 이용
 
-                ※ getElementById는 querySelector 대비 약 169.86배 빠르고, querySelector는 jQuery대비 약 12.16배 빠르다
-            </pre>
-        </span>
-        <span>▶ HTML Element & HTML Collection
-            <pre>
-                ● getElementBy[xxx] 메소드나 querySelector/querySelectorAll을 통해서 객체를 조회했다면
-                이 객체들을 대상으로 구체적인 작업을 처리해야 한다.
-                ● 객체들에 대한 작업을 하기 위해서는 휙득한 객체가 무엇인지 정확히 알고 있어야지
-                적절한 메소드나 프로퍼티를 사용할 수 있다.
-                ● 휙득한 객체에 대한 정보는 console.log(객체.constructor.name);를 하면 알 수 있다.
-                ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 단수라면 HTML Element가 된다.
-                ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 복수(유사 배열을 통해 반환)라면 HTML Collection이 된다.
-            </pre>
-        </span>
-        <span>▶ HTML Element
-            <pre>
-                ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement, HTMLAnchroElement 등등)
-                ● HTML Element의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037" target="_blank">HTML Element</a>
-                ● HTML Element의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLElement" target="_blank">HTMLElement - Web API | MDN - Mozilla</a>
-            </pre>
-        </span>
-        <span>▶ HTML Collection
-            <pre>
-                ● HTML Collection의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-75708506" target="_blank">HTML Collection</a>
-                ● HTML Collection의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLCollection" target="_blank">HTMLCollection - Web API | MDN - Mozilla</a>
-            </pre>
-        </span>
-        <span>▶ DOM Tree (돔 트리)
-            <pre>
-                예시) Node → Element → HTMLElement → HTMLLIElement, HTMLAnchroElement 등등
+                    ※ getElementById는 querySelector 대비 약 169.86배 빠르고, querySelector는 jQuery대비 약 12.16배 빠르다
+                </pre>
+            </li>
+            <li>HTML Element & HTML Collection
+                <pre>
+                    ● getElementBy[xxx] 메소드나 querySelector/querySelectorAll을 통해서 객체를 조회했다면
+                    이 객체들을 대상으로 구체적인 작업을 처리해야 한다.
+                    ● 객체들에 대한 작업을 하기 위해서는 휙득한 객체가 무엇인지 정확히 알고 있어야지
+                    적절한 메소드나 프로퍼티를 사용할 수 있다.
+                    ● 휙득한 객체에 대한 정보는 console.log(객체.constructor.name);를 하면 알 수 있다.
+                    ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 단수라면 HTML Element가 된다.
+                    ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 복수(유사 배열을 통해 반환)라면 HTML Collection이 된다.
+                </pre>
+            </li>
+            <li>HTML Element
+                <pre>
+                    ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement, HTMLAnchroElement 등등)
+                    ● HTML Element의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037" target="_blank">HTML Element</a>
+                    ● HTML Element의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLElement" target="_blank">HTMLElement - Web API | MDN - Mozilla</a>
+                </pre>
+            </li>
+            <li>HTML Collection
+                <pre>
+                    ● HTML Collection의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-75708506" target="_blank">HTML Collection</a>
+                    ● HTML Collection의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLCollection" target="_blank">HTMLCollection - Web API | MDN - Mozilla</a>
+                </pre>
+            </li>
+            <li>DOM Tree (돔 트리)
+                <pre>
+                    예시) Node → Element → HTMLElement → HTMLLIElement, HTMLAnchroElement 등등
 
-                1. 모든 엘리먼트는 HTMLElement의 자식이다.
-                2. 따라서 HTMLElement의 프로퍼티를 똑같이 가지고 있다.
-                3. 동시에 엘리먼트의 성격에 따라서 자신만의 프로퍼티를 가지고 있는데 이것은 엘리먼트의 성격에 따라서 달라진다.
-                4. HTMLElement은 Element의 자식이다.
-                5. 따라서 Element의 프로퍼티를 똑같이 가지고 있다.
-                6. Element은 Element의 Node의 자식이다.
-                7. 이렇게 자신의 부모가 되는 객체의 프로퍼티나 메소드를 차례대로 자식 객체들이 물려받는 구조를 DOM Tree라고 한다.
-        </span>
+                    1. 모든 엘리먼트는 HTMLElement의 자식이다.
+                    2. 따라서 HTMLElement의 프로퍼티를 똑같이 가지고 있다.
+                    3. 동시에 엘리먼트의 성격에 따라서 자신만의 프로퍼티를 가지고 있는데 이것은 엘리먼트의 성격에 따라서 달라진다.
+                    4. HTMLElement은 Element의 자식이다.
+                    5. 따라서 Element의 프로퍼티를 똑같이 가지고 있다.
+                    6. Element은 Element의 Node의 자식이다.
+                    7. 이렇게 자신의 부모가 되는 객체의 프로퍼티나 메소드를 차례대로 자식 객체들이 물려받는 구조를 DOM Tree라고 한다.
+            </span>
+        </ul>
     </section>
 
     
 
     <section id="Element_Object">
-        <span><bold>Element 객체 : 엘리먼트를 추상화한 객체</bold></span>
-        <span>▶ 주요 기능
-            <pre>
-                ● 식별자 : 문서내에서 특정한 엘리먼트를 식별하기 위한 용도로 사용되는 API
-                ● 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
-                ● 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
+        <header class="note_title">Element 객체 : 엘리먼트를 추상화한 객체</header>
+        <ul>
+            <li>주요 기능
+                <pre>
+                    ● 식별자 : 문서내에서 특정한 엘리먼트를 식별하기 위한 용도로 사용되는 API
+                    ● 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
+                    ● 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
 
-                ■ 사용법 : 객체.xxx(...);
-            </pre>
-        </span>
-        <span>▶ 식별자 : id나 clas같은 식별자를 가져오고 변경하는 기능
-            <pre>
-                ● Element.classList => class명의 목록을 가져온다. 변경 가능. Element.className보다 좀 더 발전한 API
+                    ■ 사용법 : 객체.xxx(...);
+                </pre>
+            </li>
+            <li>식별자 : id나 clas같은 식별자를 가져오고 변경하는 기능
+                <pre>
+                    ● Element.classList => class명의 목록을 가져온다. 변경 가능. Element.className보다 좀 더 발전한 API
+                        예시)
+                            var test = document.getElementById('test');
+                            test.classList.add('example');      //클래스 추가
+                            for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
+                            test.classList.remove('example');   //클래스 삭제
+                            for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
+                    ● Element.className => class명을 가져온다. 변경 가능
+                        예시)
+                            var test = document.getElementById('test');
+                            test.className = "test1";
+                            console.log(test.className);
+                            test.className += " test2"
+                            console.log(test.className);
+                    ● Element.id => id명을 가져온다. 변경 가능
+                    ● Element.tagName => 태그명을 가져온다. 읽기 전용
+                </pre>
+            </li>
+            <li>조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
+                <pre>
+                    ● Element.getElementsByClassName
+                    ● Element.getElementsByTagName
+                    ● Element.querySelector
+                    ● Element.querySelectorAll
+                </pre>
+            </li>
+            <li>속성 : 엘리먼트의 속성을 알아내고 변경하는 API
+                <pre>
+                    ● Element.getAttribute(name)            //해당 속성의 값을 조회
+                    ● Element.setAttribute(name, value);    //해당 속성의 값 변경
+                    ● Element.hasAttribute(name);           //해당 속성의 존재 여부 확인
+                    ● Element.removeAttribute(name);        //해당 속성의 존재를 삭제
+
                     예시)
-                        var test = document.getElementById('test');
-                        test.classList.add('example');      //클래스 추가
-                        for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
-                        test.classList.remove('example');   //클래스 삭제
-                        for(var i=0; i&lt;test.classList.length; i++){console.log(test.classList[i]);}
-                ● Element.className => class명을 가져온다. 변경 가능
-                    예시)
-                        var test = document.getElementById('test');
-                        test.className = "test1";
-                        console.log(test.className);
-                        test.className += " test2"
-                        console.log(test.className);
-                ● Element.id => id명을 가져온다. 변경 가능
-                ● Element.tagName => 태그명을 가져온다. 읽기 전용
-            </pre>
-        </span>
-        <span>▶ 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
-            <pre>
-                ● Element.getElementsByClassName
-                ● Element.getElementsByTagName
-                ● Element.querySelector
-                ● Element.querySelectorAll
-            </pre>
-        </span>
-        <span>▶ 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
-            <pre>
-                ● Element.getAttribute(name)            //해당 속성의 값을 조회
-                ● Element.setAttribute(name, value);    //해당 속성의 값 변경
-                ● Element.hasAttribute(name);           //해당 속성의 존재 여부 확인
-                ● Element.removeAttribute(name);        //해당 속성의 존재를 삭제
+                        &lt;a href="https://www.naver.com/" id="aTag">Naver&lt;/a>
 
-                예시)
-                    &lt;a href="https://www.naver.com/" id="aTag">Naver&lt;/a>
+                        var aTag = document.getElementById('aTag');
+                        console.log(aTag.getAttribute('href')); //https://www.naver.com/
 
-                    var aTag = document.getElementById('aTag');
-                    console.log(aTag.getAttribute('href')); //https://www.naver.com/
+                        aTag.setAttribute('title', 'naver'); // title 속성값 설정
+                        console.log(aTag.hasAttribute('title')); //출력 : true
 
-                    aTag.setAttribute('title', 'naver'); // title 속성값 설정
-                    console.log(aTag.hasAttribute('title')); //출력 : true
-
-                    aTag.removeAttribute('title'); // title 속성을 제거한다.
-                    console.log(aTag.hasAttribute('title')); //출력 : false
-            </pre>
-        </span>
+                        aTag.removeAttribute('title'); // title 속성을 제거한다.
+                        console.log(aTag.hasAttribute('title')); //출력 : false
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
 
     <section id="Node_Object">
-        <span><bold>Node 객체 : DOM의 시조같은 역할</bold></span>
-        <span>▶ 주요 기능
-            <pre>
-                ● 관계 : 각각의 Node가 다른 Node와 연결된 정보를 보여주는 API를 통해서 문서를 프로그래밍적으로 탐색
-                ● 노드의 종류 :  Node 객체 => 모든 구성 요소의 대표격 객체, 각 구성요소의 소속을 알려주는 식별자 제공
-                ● 값 : Node 객체의 값을 제공하는 API
-                ● 자식 관리 : Node 객체의 자식을 추가하는 방법에 대한 API
-            </pre>
-        </span>
-        <span>▶ 관계
-            <pre>
-                ● Node.childNodes : 자식 노드들을 유사 배열에 담아서 반환한다.
-                ● Node.firstChild : 첫번째 자식 노드를 반환한다.
-                ● Node.lastChild : 마지막 자식 노드를 반환한다.
-                ● Node.nextSibling : 다음 형제 노드를 반환한다.
-                ● Node.previousSibling : 이전 형제 노드를 반환한다.
-                ● Node.contains('객체명') : 주어진 인자가 Node의 자손인지에 대한 true/false 값을 반환한다.
-                ● Node.hasChildNodes() : Node가 자손을 갖고 있는 지에 대한 true/false 값을 반환한다.
+        <header class="note_title">Node 객체 : DOM의 시조같은 역할</header>
+        <ul>
+            <li>주요 기능
+                <pre>
+                    ● 관계 : 각각의 Node가 다른 Node와 연결된 정보를 보여주는 API를 통해서 문서를 프로그래밍적으로 탐색
+                    ● 노드의 종류 :  Node 객체 => 모든 구성 요소의 대표격 객체, 각 구성요소의 소속을 알려주는 식별자 제공
+                    ● 값 : Node 객체의 값을 제공하는 API
+                    ● 자식 관리 : Node 객체의 자식을 추가하는 방법에 대한 API
+                </pre>
+            </li>
+            <li>관계
+                <pre>
+                    ● Node.childNodes : 자식 노드들을 유사 배열에 담아서 반환한다.
+                    ● Node.firstChild : 첫번째 자식 노드를 반환한다.
+                    ● Node.lastChild : 마지막 자식 노드를 반환한다.
+                    ● Node.nextSibling : 다음 형제 노드를 반환한다.
+                    ● Node.previousSibling : 이전 형제 노드를 반환한다.
+                    ● Node.contains('객체명') : 주어진 인자가 Node의 자손인지에 대한 true/false 값을 반환한다.
+                    ● Node.hasChildNodes() : Node가 자손을 갖고 있는 지에 대한 true/false 값을 반환한다.
 
-                ※ 주의점 : Node.firstChild를 사용할 때 줄바꿈 문자가 첫번째 자식으로 들어갈 수도 있으니 조심해야 한다.
-            </pre>
-        </span>
-        <span>▶ 노드의 종류
-            <pre>
-                ● Node.nodeType : Node의 타입을 반환한다.
-                    for(var name in Node){
-                        console.log(name, Node[name]);
-                    }
-                ● Node.nodeName : Node의 이름을 반환한다. ( = 태그명 )
-            </pre>
-        </span>
-        <span>▶ 노드의 값
-            <pre>
-                ● Node.nodeValue : Node의 종류마다 각각 다른 값을 반환한다.
-                    ○ 요소 노드(element node) : undefined
-                    ○ 속성 노드(attribute node) : 해당 속성의 속성값
-                    ○ 텍스트 노드(text node) : 해당 텍스트 문자열
-                ● Node.textContent : Node가 가지고 있는 문자열을 반환한다.
-            </pre>
-        </span>
-        <span>▶ 노드의 자식 관리
-            <pre>
-                ● Node.appendChild(child) : 노드의 마지막 자식으로 주어진 엘리먼트 추가
-                    var ul = document.getElementsByTagName('ul');
-                    var li = document.createElement('li'); //Documnet 객체의 기능
-                    ul.appendChild(li); //ul에 li 추가
-                ● insertBefore(newElement, referenceElement) : appendChild와 사용법은 동일하나 newElement 노드를 referenceElement 앞에 추가한다.
-                ● Node.replaceChild(newChild, oldChild) : 노드 변경
-                    var parent = document.getElementById('#parent');    //parent 노드 설정
-                    var oldChild = document.createElement('div');  //oldChild 노드 생성
-                    parent.appendChild(oldChild); //parent 노드에 oldChild 노드를 자식 노드로 추가
-                    var newChild = document.createElement('span');  //newChild 노드 생성
-                    parent.replaceChild(newChild, oldChild); //parent 노드의 자식 노드인 oldChild 노드를 제거하고 그 자리에 newChild 노드를 새로 자식 노드로 연결한다.
-                ● Node.removeChild() : 노드의 마지막 자식으로 있는 엘리먼트 삭제
-                    var li = document.getElementsByTagName('li');
-                    li.parentNode.removeChild(li);
-            </pre>
-        </span>
-        <span>▶ 문자열로 노드 제어
-            <pre>
-                조건 1 : (1)&lt;div id="target">(2)content&lt;(3)/div>(4)
-                조건 2 : var target = document.getElementById('target');
+                    ※ 주의점 : Node.firstChild를 사용할 때 줄바꿈 문자가 첫번째 자식으로 들어갈 수도 있으니 조심해야 한다.
+                </pre>
+            </li>
+            <li>노드의 종류
+                <pre>
+                    ● Node.nodeType : Node의 타입을 반환한다.
+                        for(var name in Node){
+                            console.log(name, Node[name]);
+                        }
+                    ● Node.nodeName : Node의 이름을 반환한다. ( = 태그명 )
+                </pre>
+            </li>
+            <li>노드의 값
+                <pre>
+                    ● Node.nodeValue : Node의 종류마다 각각 다른 값을 반환한다.
+                        ○ 요소 노드(element node) : undefined
+                        ○ 속성 노드(attribute node) : 해당 속성의 속성값
+                        ○ 텍스트 노드(text node) : 해당 텍스트 문자열
+                    ● Node.textContent : Node가 가지고 있는 문자열을 반환한다.
+                </pre>
+            </li>
+            <li>노드의 자식 관리
+                <pre>
+                    ● Node.appendChild(child) : 노드의 마지막 자식으로 주어진 엘리먼트 추가
+                        var ul = document.getElementsByTagName('ul');
+                        var li = document.createElement('li'); //Documnet 객체의 기능
+                        ul.appendChild(li); //ul에 li 추가
+                    ● insertBefore(newElement, referenceElement) : appendChild와 사용법은 동일하나 newElement 노드를 referenceElement 앞에 추가한다.
+                    ● Node.replaceChild(newChild, oldChild) : 노드 변경
+                        var parent = document.getElementById('#parent');    //parent 노드 설정
+                        var oldChild = document.createElement('div');  //oldChild 노드 생성
+                        parent.appendChild(oldChild); //parent 노드에 oldChild 노드를 자식 노드로 추가
+                        var newChild = document.createElement('span');  //newChild 노드 생성
+                        parent.replaceChild(newChild, oldChild); //parent 노드의 자식 노드인 oldChild 노드를 제거하고 그 자리에 newChild 노드를 새로 자식 노드로 연결한다.
+                    ● Node.removeChild() : 노드의 마지막 자식으로 있는 엘리먼트 삭제
+                        var li = document.getElementsByTagName('li');
+                        li.parentNode.removeChild(li);
+                </pre>
+            </li>
+            <li>문자열로 노드 제어
+                <pre>
+                    조건 1 : (1)&lt;div id="target">(2)content&lt;(3)/div>(4)
+                    조건 2 : var target = document.getElementById('target');
 
-                ● Node.innerHTML
-                    ○ 값을 가져올 때에는 Node 내부에 있는 코드의 HTML 태그들까지 모두 가져온다.
-                    ○ 값을 설정할 때에는 Node 내부의 내용을 아예 변경해버린다. HTML 태그는 Parsing 된다.
+                    ● Node.innerHTML
+                        ○ 값을 가져올 때에는 Node 내부에 있는 코드의 HTML 태그들까지 모두 가져온다.
+                        ○ 값을 설정할 때에는 Node 내부의 내용을 아예 변경해버린다. HTML 태그는 Parsing 된다.
 
-                ● Node.outerHTML
-                    ○ 값을 가져올 때에는 Node를 포함한 코드의 HTML 태그들까지 모두 가져온다.
-                    ○ 값을 설정할 때에는 Node의 내용을 아예 변경해버린다. HTML 태그는 Parsing 된다.
+                    ● Node.outerHTML
+                        ○ 값을 가져올 때에는 Node를 포함한 코드의 HTML 태그들까지 모두 가져온다.
+                        ○ 값을 설정할 때에는 Node의 내용을 아예 변경해버린다. HTML 태그는 Parsing 된다.
 
-                ● Node.innerText, Node.outerText, Node.textContent
-                    ○ 모두 동일한 결과가 나온다.
-                    ○ 속도 : textContent (가장 빠름)→ innerText (중간)→ outerText (가장 느림)
-                    ○ 값을 가져올 때에는 지정한 Node 내부에 있는 코드의 문자열만을 가져온다.
-                    ○ 값을 설정할 때에는 Node 내부의 내용을 아예 변경해버린다. HTML 태그는 Parsing 되지 않고 그대로 문자열로 나온다.
+                    ● Node.innerText, Node.outerText, Node.textContent
+                        ○ 모두 동일한 결과가 나온다.
+                        ○ 속도 : textContent (가장 빠름)→ innerText (중간)→ outerText (가장 느림)
+                        ○ 값을 가져올 때에는 지정한 Node 내부에 있는 코드의 문자열만을 가져온다.
+                        ○ 값을 설정할 때에는 Node 내부의 내용을 아예 변경해버린다. HTML 태그는 Parsing 되지 않고 그대로 문자열로 나온다.
 
-                ● Node.insertAdjacentHTML('위치', '내용') : 문자열을 이용한 좀 더 정교한 노드 변경시 사용
-                    ○ target.insertAdjacentHTML('beforebegin', '&lt;h1>insertAdjacentHTML test&lt;/h1>') : (1)의 위치에 h1 태그 추가
-                    ○ target.insertAdjacentHTML('afterbegin', '&lt;span>insertAdjacentHTML test&lt;/span>') : (2)의 위치에 span 태그 추가
-                    ○ target.insertAdjacentHTML('beforeend', '&lt;span>insertAdjacentHTML test&lt;/span>') : (3)의 위치에 span 태그 추가
-                    ○ target.insertAdjacentHTML('afterend', '&lt;h1>insertAdjacentHTML test&lt;/h1>') : (4)의 위치에 h1 태그 추가
-        </span>
+                    ● Node.insertAdjacentHTML('위치', '내용') : 문자열을 이용한 좀 더 정교한 노드 변경시 사용
+                        ○ target.insertAdjacentHTML('beforebegin', '&lt;h1>insertAdjacentHTML test&lt;/h1>') : (1)의 위치에 h1 태그 추가
+                        ○ target.insertAdjacentHTML('afterbegin', '&lt;span>insertAdjacentHTML test&lt;/span>') : (2)의 위치에 span 태그 추가
+                        ○ target.insertAdjacentHTML('beforeend', '&lt;span>insertAdjacentHTML test&lt;/span>') : (3)의 위치에 span 태그 추가
+                        ○ target.insertAdjacentHTML('afterend', '&lt;h1>insertAdjacentHTML test&lt;/h1>') : (4)의 위치에 h1 태그 추가
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
 
     <section id="Document_Object">
-        <span><bold>Document 객체 : 문서 전체를 대표하는 객체</bold></span>
-        <span>▶ 주요 기능
-            <pre>
-                ● 노드 생성
-                ● 문서 정보
-            </pre>
-        </span>
-        <span>▶ 노드 생성
-            <pre>
-                ● document.createElement('태그') : 지정한 태그의 노드 만들기, 속성 지정 가능
-                ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
-            </pre>
-        </span>
-        <span>▶ 문서 정보
-            <pre>
-                ● lastModified : HTML 문서의 마지막 갱신 날짜 및 시간을 반환
-                ● referrer : 링크(linking)되어 있는 문서의 URI를 반환
-                ● title : &lt;title> 요소 반환
-                ● URL : HTML 문서의 완전한 URL 주소를 반환
+        <header class="note_title">Document 객체 : 문서 전체를 대표하는 객체</header>
+        <ul>
+            <li>주요 기능
+                <pre>
+                    ● 노드 생성
+                    ● 문서 정보
+                </pre>
+            </li>
+            <li>노드 생성
+                <pre>
+                    ● document.createElement('태그') : 지정한 태그의 노드 만들기, 속성 지정 가능
+                    ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
+                </pre>
+            </li>
+            <li>문서 정보
+                <pre>
+                    ● lastModified : HTML 문서의 마지막 갱신 날짜 및 시간을 반환
+                    ● referrer : 링크(linking)되어 있는 문서의 URI를 반환
+                    ● title : &lt;title> 요소 반환
+                    ● URL : HTML 문서의 완전한 URL 주소를 반환
 
-                <a href="http://www.tcpschool.com/javascript/js_dom_document">참고 (TCP School)</a>
-            </pre>
-        </span>
+                    <a href="http://www.tcpschool.com/javascript/js_dom_document">참고 (TCP School)</a>
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
 
     <section id="Text_Object">
-        <span><bold>Text 객체 : 텍스트 노드에 대한 DOM 객체</bold></span>
-        <span>▶ 특징
-            <pre>
-                ● CharcterData 객체를 상속받는다.
-                ● 공백이나 문자열도 객체로 취급한다.
-            </pre>
-        </span>
-        <span>▶ 주요 기능
-            <pre>
-                ● 값
-                ● 조작
-                ● 생성
-            </pre>
-        </span>
-        <span>▶ 값
-            <pre>
-                ● data : 텍스트 노드의 값을 가져오거나 변경
-                ● nodeValue : 텍스트 노드의 값을 가져오거나 변경
-            </pre>
-        </span>
-        <span>▶ 조작
-            <pre>
-                ● Node.appendData('내용') : Node의 기존 내용 뒤에 내용 추가
-                ● Node.deleteData(n, count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 삭제
-                ● Node.insertData(n, '내용') : Node의 기존 내용의 n번 인덱스에 내용 추가
-                ● Node.replaceData(n, count, '내용') : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 삭제한 뒤에 내용을 그 자리에 추가
-                ● Node.subStringData(n. count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 잘라서 반환
-            </pre>
-        </span>
-        <span>▶ 생성
-            <pre>
-                ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
-            </pre>
-        </span>
+        <header class="note_title">Text 객체 : 텍스트 노드에 대한 DOM 객체</header>
+        <ul>
+            <li>특징
+                <pre>
+                    ● CharcterData 객체를 상속받는다.
+                    ● 공백이나 문자열도 객체로 취급한다.
+                </pre>
+            </li>
+            <li>주요 기능
+                <pre>
+                    ● 값
+                    ● 조작
+                    ● 생성
+                </pre>
+            </li>
+            <li>값
+                <pre>
+                    ● data : 텍스트 노드의 값을 가져오거나 변경
+                    ● nodeValue : 텍스트 노드의 값을 가져오거나 변경
+                </pre>
+            </li>
+            <li>조작
+                <pre>
+                    ● Node.appendData('내용') : Node의 기존 내용 뒤에 내용 추가
+                    ● Node.deleteData(n, count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 삭제
+                    ● Node.insertData(n, '내용') : Node의 기존 내용의 n번 인덱스에 내용 추가
+                    ● Node.replaceData(n, count, '내용') : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 삭제한 뒤에 내용을 그 자리에 추가
+                    ● Node.subStringData(n. count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 잘라서 반환
+                </pre>
+            </li>
+            <li>생성
+                <pre>
+                    ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
 
     <section id="document_s_geometric_characteristics">
-        <span><bold>문서의 기하학적 특성</bold></span>
-        <span>▶ 요소의 크기와 위치
-            <pre>
-                ● 객체명.getBoundingClientRect() : 해당 객체가 문서에 가지고 있는 width, height, margin같은 정보를 반환한다.
-                ● 객체명.clientWidth : 해당 객체가 문서에 가지고 있는 width 값을 반환한다.
-                ● 객체명.clientHeight : 해당 객체가 문서에 가지고 있는 height 값을 반환한다.
-                ● 객체명.offsetParent : 해당 객체에 대해서 측정을 할 때, 측정의 기준이 되는 엘리먼트의 태그명을 반환한다.
-                    ※ tr이나 td의 경우에는 측정의 기준이 table이 된다.
-            </pre>
-        </span>
-        <span>▶ Viewport : 문서의 내용 중 사용자에게 보여주는 영역 (= 전체 문서 중에서 브라우저에서 보이는 영역)
-            <pre>
-                ● window.pageXoffset, window.pageYoffset : 뷰포트의 크기를 반환
-            </pre>
-        </span>
-        <span>▶ 스크롤 제어
-            <pre>
-                ● window.scrollTo(x,y) : 페이지의 오프셋을 오른쪽으로 x px, 아래쪽으로 y px만큼 이동(스크롤)한다.
-            </pre>
-        </span>
-        <span>▶ 스크린의 크기
-            <pre>
-                ● window.innerWidth, window.innerHeight : 뷰포트의 크기
-                ● screen.width, screen.height : 사용중인 모니터의 해상도
-            </pre>
-        </span>
+        <header class="note_title">문서의 기하학적 특성</header>
+        <ul>
+            <span>요소의 크기와 위치
+                <pre>
+                    ● 객체명.getBoundingClientRect() : 해당 객체가 문서에 가지고 있는 width, height, margin같은 정보를 반환한다.
+                    ● 객체명.clientWidth : 해당 객체가 문서에 가지고 있는 width 값을 반환한다.
+                    ● 객체명.clientHeight : 해당 객체가 문서에 가지고 있는 height 값을 반환한다.
+                    ● 객체명.offsetParent : 해당 객체에 대해서 측정을 할 때, 측정의 기준이 되는 엘리먼트의 태그명을 반환한다.
+                        ※ tr이나 td의 경우에는 측정의 기준이 table이 된다.
+                </pre>
+            </span>
+            <span>Viewport : 문서의 내용 중 사용자에게 보여주는 영역 (= 전체 문서 중에서 브라우저에서 보이는 영역)
+                <pre>
+                    ● window.pageXoffset, window.pageYoffset : 뷰포트의 크기를 반환
+                </pre>
+            </span>
+            <span>스크롤 제어
+                <pre>
+                    ● window.scrollTo(x,y) : 페이지의 오프셋을 오른쪽으로 x px, 아래쪽으로 y px만큼 이동(스크롤)한다.
+                </pre>
+            </span>
+            <span>스크린의 크기
+                <pre>
+                    ● window.innerWidth, window.innerHeight : 뷰포트의 크기
+                    ● screen.width, screen.height : 사용중인 모니터의 해상도
+                </pre>
+            </span>
+        </ul>
     </section>
 
     
 
     <section id="event">
-        <span><bold>이벤트</bold></span>
-        <span>▶ 이벤트의 기본
-            <pre>
-                ● 이벤트 : 특정 상황에 일어나는 사건
-                ● 이벤트 타겟 : 이벤트가 일어날 객체
-                ● 이벤트 타입 : 이벤트의 종류
-                ● 이벤트 핸들러 : 이벤트가 발생시 동작하는 코드
-            </pre>
-        </span>
-        <span>▶ 이벤트 등록 방법
-            <pre>
-                1. 인라인 (inline) 방식 : onclick같은 속성에 javascript 코드를 직접 등록하는 것, 바람직한 방법은 아니다.
-                    &lt;input type="button" onclick="alert('event '+this.value);" value="test" />
+        <header class="note_title">이벤트</header>
+        <ul>
+            <li>이벤트의 기본
+                <pre>
+                    ● 이벤트 : 특정 상황에 일어나는 사건
+                    ● 이벤트 타겟 : 이벤트가 일어날 객체
+                    ● 이벤트 타입 : 이벤트의 종류
+                    ● 이벤트 핸들러 : 이벤트가 발생시 동작하는 코드
+                </pre>
+            </li>
+            <li>이벤트 등록 방법
+                <pre>
+                    1. 인라인 (inline) 방식 : onclick같은 속성에 javascript 코드를 직접 등록하는 것, 바람직한 방법은 아니다.
+                        &lt;input type="button" onclick="alert('event '+this.value);" value="test" />
 
-                    테스트 : <input type="button" onclick="alert('event '+this.value);" value="test" />
+                        테스트 : <input type="button" onclick="alert('event '+this.value);" value="test" />
 
-                2. 프로퍼티 리스너 방식 : 이벤트 대상에 해당하는 객체의 프로퍼티로 이벤트를 등록하는 방식
-                    &lt;input type="button" id="propertyListenerTest" value="propertyListenerTest" />
-                    var target = document.getElementById('propertyListenerTest');
-                    target.onclick = function(event){
-                        alert('propertyListenerTest success, event.target.value : ' + event.target.value);
-                    }
+                    2. 프로퍼티 리스너 방식 : 이벤트 대상에 해당하는 객체의 프로퍼티로 이벤트를 등록하는 방식
+                        &lt;input type="button" id="propertyListenerTest" value="propertyListenerTest" />
+                        var target = document.getElementById('propertyListenerTest');
+                        target.onclick = function(event){
+                            alert('propertyListenerTest success, event.target.value : ' + event.target.value);
+                        }
 
-                    테스트 : <input type="button" id="propertyListenerTest" value="propertyListenerTest" />
+                        테스트 : <input type="button" id="propertyListenerTest" value="propertyListenerTest" />
 
-                3. addEventListener 방식 : 객체에 특정 상황에 대한 이벤트를 등록하는 방식
-                    &lt;input type="button" id="addListenerTest" value="propertyListenerTest" />
-                    var target = document.getElementById('addListenerTest');
+                    3. addEventListener 방식 : 객체에 특정 상황에 대한 이벤트를 등록하는 방식
+                        &lt;input type="button" id="addListenerTest" value="propertyListenerTest" />
+                        var target = document.getElementById('addListenerTest');
 
-                    방법 1 :
-                    fucntion whatever(event){ alert('addEventListenerTest success, '+event.target.value); }
-                    target.addEventListener('click', whatever);
+                        방법 1 :
+                        fucntion whatever(event){ alert('addEventListenerTest success, '+event.target.value); }
+                        target.addEventListener('click', whatever);
 
-                    방법 2 :
-                    target.addEventListener('click', function(event){
-                        alert('addEventListenerTest success, '+event.target.value);
-                    });
+                        방법 2 :
+                        target.addEventListener('click', function(event){
+                            alert('addEventListenerTest success, '+event.target.value);
+                        });
 
-                    테스트 : <input type="button" id="addListenerTest" value="addListenerTest" />
+                        테스트 : <input type="button" id="addListenerTest" value="addListenerTest" />
 
-                    ※ 주의점 :
-                        방법 1에서  함수명을 명시할때 [ 함수명() ]가 아니라 [ 함수명 ]로 적어야지 맞는 방식이다.
-                        왜냐하면 ()를 붙이면 바로 호출해버리기 때문에 우리가 원하는 이벤트때 호출되는게 아닌
-                        홈페이지 로드시 바로 호출되버리기 때문이다.
+                        ※ 주의점 :
+                            방법 1에서  함수명을 명시할때 [ 함수명() ]가 아니라 [ 함수명 ]로 적어야지 맞는 방식이다.
+                            왜냐하면 ()를 붙이면 바로 호출해버리기 때문에 우리가 원하는 이벤트때 호출되는게 아닌
+                            홈페이지 로드시 바로 호출되버리기 때문이다.
 
-            </pre>
-        </span>
-        <span>▶ 이벤트 전파 방법
-            <pre>
-                ● 캡처링 (capturing) : 이벤트가 부모에서부터 발생해서 자식으로 전파되는 방식
-                ● 버블링 (bubbling) : 이벤트가 자식으로부터 발생해서 부모로 전파되는 방식
-            </pre>
-        </span>
-        <span>▶ 기본 동작의 취소
-            <pre>
-                1. 인라인 방식 : 리턴 값이 false일 경우 취소
-                2. 프로퍼티 리스너 방식 : 리턴 값이 false일 경우 취소
-                3. addEventListener 방식 : 이벤트객체명.preventDefault() 실행시 취소
-            </pre>
-        </span>
-        <span>▶ 이벤트의 타입
-            <pre>
-                ● UI 이벤트
-                ● 키보드 이벤트
-                ● 마우스 이벤트
-                ● 포커스 이벤트
-                ● 폼 이벤트
-            </pre>
-        </span>
-        <span>▶ UI 이벤트
-            <pre>
-                ● load : 웹 페이지 로드의 완료
-                ● unload : 웹 페이지 언로드 (새로운 페이지 요청)
-                ● error :
-                    ○ 브라우저가 자바스크립트 오류를 만남
-                    ○ 브라우저가 요청한 자원이 없는 경우
-                ● resize : 브라우저의 창 크기를 조정
-                ● scroll : 사용자가 페이지를 위아래로 스크롤
-            </pre>
-        </span>
-        <span>▶ 키보드 이벤트
-            <pre>
-                ● keydown : 사용자가 키를 처음 눌렀을 때
-                ● keyup : 사용자가 키보드의 키를 눌렀다가 땠을 때
-                ● keypress : 사용자가 눌렀던 키의 문자가 입력되었을 때
+                </pre>
+            </li>
+            <li>이벤트 전파 방법
+                <pre>
+                    ● 캡처링 (capturing) : 이벤트가 부모에서부터 발생해서 자식으로 전파되는 방식
+                    ● 버블링 (bubbling) : 이벤트가 자식으로부터 발생해서 부모로 전파되는 방식
+                </pre>
+            </li>
+            <li>기본 동작의 취소
+                <pre>
+                    1. 인라인 방식 : 리턴 값이 false일 경우 취소
+                    2. 프로퍼티 리스너 방식 : 리턴 값이 false일 경우 취소
+                    3. addEventListener 방식 : 이벤트객체명.preventDefault() 실행시 취소
+                </pre>
+            </li>
+            <li>이벤트의 타입
+                <pre>
+                    ● UI 이벤트
+                    ● 키보드 이벤트
+                    ● 마우스 이벤트
+                    ● 포커스 이벤트
+                    ● 폼 이벤트
+                </pre>
+            </li>
+            <li>UI 이벤트
+                <pre>
+                    ● load : 웹 페이지 로드의 완료
+                    ● unload : 웹 페이지 언로드 (새로운 페이지 요청)
+                    ● error :
+                        ○ 브라우저가 자바스크립트 오류를 만남
+                        ○ 브라우저가 요청한 자원이 없는 경우
+                    ● resize : 브라우저의 창 크기를 조정
+                    ● scroll : 사용자가 페이지를 위아래로 스크롤
+                </pre>
+            </li>
+            <li>키보드 이벤트
+                <pre>
+                    ● keydown : 사용자가 키를 처음 눌렀을 때
+                    ● keyup : 사용자가 키보드의 키를 눌렀다가 땠을 때
+                    ● keypress : 사용자가 눌렀던 키의 문자가 입력되었을 때
 
-                ※ 특수 키 사용시의 프로퍼티 : event.shiftKey, event.altKey, event.ctrlKey
-            </pre>
-        </span>
-        <span>▶ 마우스 이벤트 
-            <pre>
-                ● click : 사용자가 마우스로 클릭할 때
-                ● dbclick : 사용자가 마우스로 더블 클릭할 때
-                ● mousedown : 사용자가 마우스를 계속 누르고 있을 때
-                ● mouseup : 사용자가 누르고 있던 마우스 버튼을 땔 때
-                ● mousemove : 사용자가 마우스를 움직였을 때
-                ● mouseover : 사용자가 요소의 위로 마우스를 움직였을 때
-                ● mouseout : 사용자가 요소의 바깥으로 마우스를 움직였을 때
-                ● contextmenu : 사용자가 우클릭으로 메뉴를 열 때
+                    ※ 특수 키 사용시의 프로퍼티 : event.shiftKey, event.altKey, event.ctrlKey
+                </pre>
+            </li>
+            <li>마우스 이벤트 
+                <pre>
+                    ● click : 사용자가 마우스로 클릭할 때
+                    ● dbclick : 사용자가 마우스로 더블 클릭할 때
+                    ● mousedown : 사용자가 마우스를 계속 누르고 있을 때
+                    ● mouseup : 사용자가 누르고 있던 마우스 버튼을 땔 때
+                    ● mousemove : 사용자가 마우스를 움직였을 때
+                    ● mouseover : 사용자가 요소의 위로 마우스를 움직였을 때
+                    ● mouseout : 사용자가 요소의 바깥으로 마우스를 움직였을 때
+                    ● contextmenu : 사용자가 우클릭으로 메뉴를 열 때
 
-                ※ 마우스 포인터의 위치 : clientX, clientY
-            </pre>
-        </span>
-        <span>▶ 포커스 이벤트
-            <pre>
-                ● focus : 요소가 포커스를 얻었을 때
-                ● blur : 요소가 포커스를 잃었을 때
-            </pre>
-        </span>
-        <span>▶ 폼 이벤트
-            <pre>
-                ● input : input 태그나 textarea 태그의 요소 값이 변경되었을 때
-                ● change : 선택 상자나 체크박스나 라디오 버튼의 상태가 변경되었을 때
-                ● submit : 사용자가 버튼키를 이용하여 폼을 제출할 때
-                ● reset : 리셋 버튼을 클릭할 때
-                ● cut : 폼 필드의 내용을 잘라낼 때
-                ● copy : 폼 필드의 내용을 복사할 때
-                ● paste : 폼 필드의 내용을 붙여넣을 때
-                ● select : 해당 텍스트를 선택했을 때
-            </pre>
-        </span>
-        <span>▶ 드래그 앤 드롭 이벤트
-            <pre>
-                ● dragstart : 요소나 텍스트 블록을 드래그 할 때
-                ● drag : 드래그를 끝냈을 때
-                ● dragend : 드래그를 끝냈을 때
-                ● dragenter : 드래그한 요소나 텍스트 블록을 적합한 드롭 대상위에 올라갔을 때
-                ● dragexit : 요소가 더 이상 드래그의 직접적인 대상이 아닐 때
-                ● dragover : 요소나 텍스트 블록을 적합한 드롭 대상 위로 지나갈 때
-                ● dragleave : 드래그하는 요소나 텍스트 블록이 적합한 드롭 대상에서 벗어났을 때
-                ● drop : 요소를 적합한 드롭 대상에 드롭했을 때
-            </pre>
-        </span>
+                    ※ 마우스 포인터의 위치 : clientX, clientY
+                </pre>
+            </li>
+            <li>포커스 이벤트
+                <pre>
+                    ● focus : 요소가 포커스를 얻었을 때
+                    ● blur : 요소가 포커스를 잃었을 때
+                </pre>
+            </li>
+            <li>폼 이벤트
+                <pre>
+                    ● input : input 태그나 textarea 태그의 요소 값이 변경되었을 때
+                    ● change : 선택 상자나 체크박스나 라디오 버튼의 상태가 변경되었을 때
+                    ● submit : 사용자가 버튼키를 이용하여 폼을 제출할 때
+                    ● reset : 리셋 버튼을 클릭할 때
+                    ● cut : 폼 필드의 내용을 잘라낼 때
+                    ● copy : 폼 필드의 내용을 복사할 때
+                    ● paste : 폼 필드의 내용을 붙여넣을 때
+                    ● select : 해당 텍스트를 선택했을 때
+                </pre>
+            </li>
+            <li>드래그 앤 드롭 이벤트
+                <pre>
+                    ● dragstart : 요소나 텍스트 블록을 드래그 할 때
+                    ● drag : 드래그를 끝냈을 때
+                    ● dragend : 드래그를 끝냈을 때
+                    ● dragenter : 드래그한 요소나 텍스트 블록을 적합한 드롭 대상위에 올라갔을 때
+                    ● dragexit : 요소가 더 이상 드래그의 직접적인 대상이 아닐 때
+                    ● dragover : 요소나 텍스트 블록을 적합한 드롭 대상 위로 지나갈 때
+                    ● dragleave : 드래그하는 요소나 텍스트 블록이 적합한 드롭 대상에서 벗어났을 때
+                    ● drop : 요소를 적합한 드롭 대상에 드롭했을 때
+                </pre>
+            </li>
+        </ul>
     </section>
 
     
 
     <section id="json">
-        <span><bold>JSON : JavaScript에서 객체를 만들 때 사용하는 표현식</bold></span>
-        <span>▶ JSON API
-            <pre>
-                ● JSON.parse('문자열') : 인자로 전달된 문자열을 자바스크립트의 데이터로 변환한다.
-                
-                ● JSON.stringify('변수명') : 인자로 전달된 자바스크립트의 데이터를 문자열로 변환한다.
-            </pre>
+        <header class="note_title">이벤트</header>
+        <ul>
+            <li>
+                <pre>
+                    ● JSON : JavaScript에서 객체를 만들 때 사용하는 표현식
+                </pre>
+            </li>
+            <li>JSON API
+                <pre>
+                    ● JSON.parse('문자열') : 인자로 전달된 문자열을 자바스크립트의 데이터로 변환한다.
+                    
+                    ● JSON.stringify('변수명') : 인자로 전달된 자바스크립트의 데이터를 문자열로 변환한다.
+                </pre>
+            </li>
+        </ul>
     </section>
 
     <div id="remote">
