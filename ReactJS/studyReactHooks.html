@@ -159,14 +159,7 @@
                     ※ useEffect 안에서 return을 시켜서 removeEventListener를 시키는 이유는 componentWillUnMoount때 호출되게 하기 위해서다.
                 </pre>
             </li>
-            <li>useConfirm :
-                <pre>
-                    (1) 
-
-                    ※ x
-                </pre>
-            </li>
-            <li>usePageLeave (useBeforeLeave & userPreventLeave) : 유저가 페이지를 벗어나는 시점에 실행되는 함수
+            <li>useBeforeLeave : 유저가 페이지를 벗어나는 시점에 실행되는 함수
                 <pre>
                     (1) 
 
@@ -236,6 +229,51 @@
         </ul>
     </section>
 
+    <section id="noneHooks" tag="">
+        <header class="note_title">None Hooks</header>
+        <ul>
+            <li>useConfirm : 사용자가 행동을 하기전에 미리 확인하는 기능
+                <pre>
+                    ● const useConfirm = (message, onConfirm, onCancle) => {
+                            //반드시 필요한 함수
+                            if(!onConfirm || typeof onConfirm !== "function"){
+                                return;
+                            }
+                            //반드시 필요한 건 아닌 함수
+                            if(onCancle && typeof onCancle !== "function"){
+                                return;
+                            }
+                            const confirmAction = () => {
+                                //confirm : 예 or 아니오를 묻는 JS의 기본 기능
+                                if(confirm(message)){
+                                    onConfirm();
+                                }
+                                else{
+                                    onCancle(); //confirm 실행시 아니오를 눌렀을 때 진행될 함수
+                                }
+                            }
+                            return confirmAction;
+                        };를 선언한다.
+                </pre>
+            </li>
+            <li>usePreventLeave : 유저가 페이지를 벗어나려는 시점에 실행되는 함수
+                <pre>
+                    (1) const usePreventLeave = () => {
+                            const listener = (event) => {
+                                event.preventDefault();
+                                event.reurnValue = "";
+                            };
+                            const enablePrevent = () => window.addEventListener("beforeunload", listener);
+                            const disablePrevent = () => window.removeEventListener("beforeunload", listener);
+                            return {enablePrevent, disablePrevent};
+                        };를 선언한다.
+                    (2) App()에서 const {enablePrevent, disablePrevent} = usePageLeave();를 작성한다.
+                    (3) 사용할 컴포넌트에서 enablePrevent 또는 disablePrevent를 사용한다.
+                </pre>
+            </li>
+        </ul>
+    </section>
+
     <div id="remote">
         <article id="remote_setcion">
             <select id="remote_menu">
@@ -243,6 +281,7 @@
                 <option value="stateHooks">State Hooks</option>
                 <option value="effectHooks">Effect Hooks</option>
                 <option value="useRef">useRef</option>
+                <option value="noneHooks">None Hooks</option>
             </select>
         </article>
     </div>
