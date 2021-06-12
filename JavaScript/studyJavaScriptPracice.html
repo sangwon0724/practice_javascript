@@ -11,7 +11,7 @@
     <section id="BOM">
         <header class="note_title">BOM (Browser Object Model)</header>
         <ul>
-            <li>▶ BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
+            <li>BOM : 웹 브라우저를 제어하기 위해서 브라우저가 제공하는 객체들
                 <pre>
                     ● Document 객체 : 현재문서에 대한 정보
                     ● History 객체 : 현재의 브라우저가 접근했던 URL history
@@ -21,15 +21,7 @@
                     ● Window 객체 : 최상위 객체(= 전역 객체)로, 각 프레임별로 하나씩 존재
                 </pre>
             </li>
-            <li>
-                <pre>
-                    ● b = 1;은 window.b = 1;과 같다.
-                    ● alert("알림!")과 window.alert("알림");은 같다.
-
-                    즉, 전역 변수와 전역 함수는 window 객체의 프로퍼티나 메소드가 되는 것이다.
-                </pre>
-            </li>
-            <li>▶ 사용자와의 커뮤니케이션
+            <li>사용자와의 커뮤니케이션
                 <pre>
                     ● alert("문자열" 또는 변수명);  => 알림을 띄우는 기능
                     ● confirm("문자열"); => 확인/취소를 띄우는 선택창을 띄우는 기능, 값은 true/false 반환
@@ -50,7 +42,7 @@
                         [테스트] <button onclick="BOM_Communication_prompt()">실행</button>
                 </pre>
             </li>
-            <li>▶ Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
+            <li>Location 객체 : 문서의 주소와 관련된 정보를 갖는 객체
                 <pre>
                     ● 현재 윈도우의 문서가 위치하는 URL 알아보기
                         document.write("location.toString() => ", location.toString(), "&lt;br/&gt;");
@@ -80,7 +72,7 @@
                     [테스트] <button onclick="BOM_Location_location_reload()">실행</button>
                 </pre>
             </li>
-            <li>▶ Navigator 객체 : 브라우저의 정보를 알려주는 객체
+            <li>Navigator 객체 : 브라우저의 정보를 알려주는 객체
                 <pre>
                     ● appName : 웹 브라우저의 이름. (IE => Microsoft Internet Explorer / 파이어폭스, 크롬 등 => Nescape)
                     ● appVersion : 브라우저의 버전
@@ -96,7 +88,7 @@
                     [테스트] <button onclick="BOM_Navigator_navigatorInfo()">실행</button>
                 </pre>
             </li>
-            <li>▶ 창 제어
+            <li>창 제어
                 <pre>
                     ● window.open(URL, Window_Name, option)
                         (1) URL : 새 창에 로드할 문서의 URL이다. 인자를 생략하면 이름이 붙지 않은 새 창이 만들어진다.
@@ -161,13 +153,13 @@
     <section id="DOM">
         <header class="note_title">DOM (Document Object Model)</header>
         <ul>
-            <li>▶ DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
+            <li>DOM : 웹페이지를 자바스크립트로 제어하기 위한 객체 모델
                 <pre>
                     ● window 객체의 document 프로퍼티를 통해서 사용
                     ● Document 객체는 윈도우에 로드된 문서를 의미
                 </pre>
             </li>
-            <li>▶ 제어 대상 찾기
+            <li>제어 대상 찾기
                 <pre>
                     1. getElementsByTagName('태그명') : 인자로 전달한 태그명에 해당되는 객체들을 찾아서 그 리스트를 NodeList라는 유사 배열에 담아서 반환한다.
                         예시) var divList = document.getElementsByTagName('div');
@@ -183,7 +175,7 @@
                     ※ getElementById는 querySelector 대비 약 169.86배 빠르고, querySelector는 jQuery대비 약 12.16배 빠르다
                 </pre>
             </li>
-            <li>▶ HTML Element & HTML Collection
+            <li>HTML Element & HTML Collection
                 <pre>
                     ● getElementBy[xxx] 메소드나 querySelector/querySelectorAll을 통해서 객체를 조회했다면
                     이 객체들을 대상으로 구체적인 작업을 처리해야 한다.
@@ -194,20 +186,20 @@
                     ● 제어 대상 탐색 메소드를 통해서 리턴받는 것이 복수(유사 배열을 통해 반환)라면 HTML Collection이 된다.
                 </pre>
             </li>
-            <li>▶ HTML Element
+            <li>HTML Element
                 <pre>
                     ● HTML Element는 각각의 태그에 따라 종류가 매우 많다. (HTMLLIElement, HTMLAnchroElement 등등)
                     ● HTML Element의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037" target="_blank">HTML Element</a>
                     ● HTML Element의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLElement" target="_blank">HTMLElement - Web API | MDN - Mozilla</a>
                 </pre>
             </li>
-            <li>▶ HTML Collection
+            <li>HTML Collection
                 <pre>
                     ● HTML Collection의 자세한 구조는 이 홈페이지에서 찾아보자. <a href="https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-75708506" target="_blank">HTML Collection</a>
                     ● HTML Collection의 메소드는 이 홈페이지에서 찾아보자. <a href="https://developer.mozilla.org/ko/docs/Web/API/HTMLCollection" target="_blank">HTMLCollection - Web API | MDN - Mozilla</a>
                 </pre>
             </li>
-            <li>▶ DOM Tree (돔 트리)
+            <li>DOM Tree (돔 트리)
                 <pre>
                     예시) Node → Element → HTMLElement → HTMLLIElement, HTMLAnchroElement 등등
 
@@ -227,7 +219,7 @@
     <section id="Element_Object">
         <header class="note_title">Element 객체 : 엘리먼트를 추상화한 객체</header>
         <ul>
-            <li>▶ 주요 기능
+            <li>주요 기능
                 <pre>
                     ● 식별자 : 문서내에서 특정한 엘리먼트를 식별하기 위한 용도로 사용되는 API
                     ● 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
@@ -236,7 +228,7 @@
                     ■ 사용법 : 객체.xxx(...);
                 </pre>
             </li>
-            <li>▶ 식별자 : id나 clas같은 식별자를 가져오고 변경하는 기능
+            <li>식별자 : id나 clas같은 식별자를 가져오고 변경하는 기능
                 <pre>
                     ● Element.classList => class명의 목록을 가져온다. 변경 가능. Element.className보다 좀 더 발전한 API
                         예시)
@@ -256,7 +248,7 @@
                     ● Element.tagName => 태그명을 가져온다. 읽기 전용
                 </pre>
             </li>
-            <li>▶ 조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
+            <li>조회 : 엘리먼트의 하위 엘리먼트를 조회하는 API
                 <pre>
                     ● Element.getElementsByClassName
                     ● Element.getElementsByTagName
@@ -264,7 +256,7 @@
                     ● Element.querySelectorAll
                 </pre>
             </li>
-            <li>▶ 속성 : 엘리먼트의 속성을 알아내고 변경하는 API
+            <li>속성 : 엘리먼트의 속성을 알아내고 변경하는 API
                 <pre>
                     ● Element.getAttribute(name)            //해당 속성의 값을 조회
                     ● Element.setAttribute(name, value);    //해당 속성의 값 변경
@@ -292,7 +284,7 @@
     <section id="Node_Object">
         <header class="note_title">Node 객체 : DOM의 시조같은 역할</header>
         <ul>
-            <li>▶ 주요 기능
+            <li>주요 기능
                 <pre>
                     ● 관계 : 각각의 Node가 다른 Node와 연결된 정보를 보여주는 API를 통해서 문서를 프로그래밍적으로 탐색
                     ● 노드의 종류 :  Node 객체 => 모든 구성 요소의 대표격 객체, 각 구성요소의 소속을 알려주는 식별자 제공
@@ -300,7 +292,7 @@
                     ● 자식 관리 : Node 객체의 자식을 추가하는 방법에 대한 API
                 </pre>
             </li>
-            <li>▶ 관계
+            <li>관계
                 <pre>
                     ● Node.childNodes : 자식 노드들을 유사 배열에 담아서 반환한다.
                     ● Node.firstChild : 첫번째 자식 노드를 반환한다.
@@ -313,7 +305,7 @@
                     ※ 주의점 : Node.firstChild를 사용할 때 줄바꿈 문자가 첫번째 자식으로 들어갈 수도 있으니 조심해야 한다.
                 </pre>
             </li>
-            <li>▶ 노드의 종류
+            <li>노드의 종류
                 <pre>
                     ● Node.nodeType : Node의 타입을 반환한다.
                         for(var name in Node){
@@ -322,7 +314,7 @@
                     ● Node.nodeName : Node의 이름을 반환한다. ( = 태그명 )
                 </pre>
             </li>
-            <li>▶ 노드의 값
+            <li>노드의 값
                 <pre>
                     ● Node.nodeValue : Node의 종류마다 각각 다른 값을 반환한다.
                         ○ 요소 노드(element node) : undefined
@@ -331,7 +323,7 @@
                     ● Node.textContent : Node가 가지고 있는 문자열을 반환한다.
                 </pre>
             </li>
-            <li>▶ 노드의 자식 관리
+            <li>노드의 자식 관리
                 <pre>
                     ● Node.appendChild(child) : 노드의 마지막 자식으로 주어진 엘리먼트 추가
                         var ul = document.getElementsByTagName('ul');
@@ -349,7 +341,7 @@
                         li.parentNode.removeChild(li);
                 </pre>
             </li>
-            <li>▶ 문자열로 노드 제어
+            <li>문자열로 노드 제어
                 <pre>
                     조건 1 : (1)&lt;div id="target">(2)content&lt;(3)/div>(4)
                     조건 2 : var target = document.getElementById('target');
@@ -383,19 +375,19 @@
     <section id="Document_Object">
         <header class="note_title">Document 객체 : 문서 전체를 대표하는 객체</header>
         <ul>
-            <li>▶ 주요 기능
+            <li>주요 기능
                 <pre>
                     ● 노드 생성
                     ● 문서 정보
                 </pre>
             </li>
-            <li>▶ 노드 생성
+            <li>노드 생성
                 <pre>
                     ● document.createElement('태그') : 지정한 태그의 노드 만들기, 속성 지정 가능
                     ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
                 </pre>
             </li>
-            <li>▶ 문서 정보
+            <li>문서 정보
                 <pre>
                     ● lastModified : HTML 문서의 마지막 갱신 날짜 및 시간을 반환
                     ● referrer : 링크(linking)되어 있는 문서의 URI를 반환
@@ -413,26 +405,26 @@
     <section id="Text_Object">
         <header class="note_title">Text 객체 : 텍스트 노드에 대한 DOM 객체</header>
         <ul>
-            <li>▶ 특징
+            <li>특징
                 <pre>
                     ● CharcterData 객체를 상속받는다.
                     ● 공백이나 문자열도 객체로 취급한다.
                 </pre>
             </li>
-            <li>▶ 주요 기능
+            <li>주요 기능
                 <pre>
                     ● 값
                     ● 조작
                     ● 생성
                 </pre>
             </li>
-            <li>▶ 값
+            <li>값
                 <pre>
                     ● data : 텍스트 노드의 값을 가져오거나 변경
                     ● nodeValue : 텍스트 노드의 값을 가져오거나 변경
                 </pre>
             </li>
-            <li>▶ 조작
+            <li>조작
                 <pre>
                     ● Node.appendData('내용') : Node의 기존 내용 뒤에 내용 추가
                     ● Node.deleteData(n, count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 삭제
@@ -441,7 +433,7 @@
                     ● Node.subStringData(n. count) : Node의 기존 내용의 n번 인덱스부터 count 개수만큼 잘라서 반환
                 </pre>
             </li>
-            <li>▶ 생성
+            <li>생성
                 <pre>
                     ● document.createTextNode('문자열') : 지정한 문자열로 노드 만들기
                 </pre>
@@ -454,7 +446,7 @@
     <section id="document_s_geometric_characteristics">
         <header class="note_title">문서의 기하학적 특성</header>
         <ul>
-            <span>▶ 요소의 크기와 위치
+            <span>요소의 크기와 위치
                 <pre>
                     ● 객체명.getBoundingClientRect() : 해당 객체가 문서에 가지고 있는 width, height, margin같은 정보를 반환한다.
                     ● 객체명.clientWidth : 해당 객체가 문서에 가지고 있는 width 값을 반환한다.
@@ -463,17 +455,17 @@
                         ※ tr이나 td의 경우에는 측정의 기준이 table이 된다.
                 </pre>
             </span>
-            <span>▶ Viewport : 문서의 내용 중 사용자에게 보여주는 영역 (= 전체 문서 중에서 브라우저에서 보이는 영역)
+            <span>Viewport : 문서의 내용 중 사용자에게 보여주는 영역 (= 전체 문서 중에서 브라우저에서 보이는 영역)
                 <pre>
                     ● window.pageXoffset, window.pageYoffset : 뷰포트의 크기를 반환
                 </pre>
             </span>
-            <span>▶ 스크롤 제어
+            <span>스크롤 제어
                 <pre>
                     ● window.scrollTo(x,y) : 페이지의 오프셋을 오른쪽으로 x px, 아래쪽으로 y px만큼 이동(스크롤)한다.
                 </pre>
             </span>
-            <span>▶ 스크린의 크기
+            <span>스크린의 크기
                 <pre>
                     ● window.innerWidth, window.innerHeight : 뷰포트의 크기
                     ● screen.width, screen.height : 사용중인 모니터의 해상도
@@ -487,7 +479,7 @@
     <section id="event">
         <header class="note_title">이벤트</header>
         <ul>
-            <li>▶ 이벤트의 기본
+            <li>이벤트의 기본
                 <pre>
                     ● 이벤트 : 특정 상황에 일어나는 사건
                     ● 이벤트 타겟 : 이벤트가 일어날 객체
@@ -495,7 +487,7 @@
                     ● 이벤트 핸들러 : 이벤트가 발생시 동작하는 코드
                 </pre>
             </li>
-            <li>▶ 이벤트 등록 방법
+            <li>이벤트 등록 방법
                 <pre>
                     1. 인라인 (inline) 방식 : onclick같은 속성에 javascript 코드를 직접 등록하는 것, 바람직한 방법은 아니다.
                         &lt;input type="button" onclick="alert('event '+this.value);" value="test" />
@@ -533,20 +525,20 @@
 
                 </pre>
             </li>
-            <li>▶ 이벤트 전파 방법
+            <li>이벤트 전파 방법
                 <pre>
                     ● 캡처링 (capturing) : 이벤트가 부모에서부터 발생해서 자식으로 전파되는 방식
                     ● 버블링 (bubbling) : 이벤트가 자식으로부터 발생해서 부모로 전파되는 방식
                 </pre>
             </li>
-            <li>▶ 기본 동작의 취소
+            <li>기본 동작의 취소
                 <pre>
                     1. 인라인 방식 : 리턴 값이 false일 경우 취소
                     2. 프로퍼티 리스너 방식 : 리턴 값이 false일 경우 취소
                     3. addEventListener 방식 : 이벤트객체명.preventDefault() 실행시 취소
                 </pre>
             </li>
-            <li>▶ 이벤트의 타입
+            <li>이벤트의 타입
                 <pre>
                     ● UI 이벤트
                     ● 키보드 이벤트
@@ -555,7 +547,7 @@
                     ● 폼 이벤트
                 </pre>
             </li>
-            <li>▶ UI 이벤트
+            <li>UI 이벤트
                 <pre>
                     ● load : 웹 페이지 로드의 완료
                     ● unload : 웹 페이지 언로드 (새로운 페이지 요청)
@@ -566,7 +558,7 @@
                     ● scroll : 사용자가 페이지를 위아래로 스크롤
                 </pre>
             </li>
-            <li>▶ 키보드 이벤트
+            <li>키보드 이벤트
                 <pre>
                     ● keydown : 사용자가 키를 처음 눌렀을 때
                     ● keyup : 사용자가 키보드의 키를 눌렀다가 땠을 때
@@ -575,7 +567,7 @@
                     ※ 특수 키 사용시의 프로퍼티 : event.shiftKey, event.altKey, event.ctrlKey
                 </pre>
             </li>
-            <li>▶ 마우스 이벤트 
+            <li>마우스 이벤트 
                 <pre>
                     ● click : 사용자가 마우스로 클릭할 때
                     ● dbclick : 사용자가 마우스로 더블 클릭할 때
@@ -589,13 +581,13 @@
                     ※ 마우스 포인터의 위치 : clientX, clientY
                 </pre>
             </li>
-            <li>▶ 포커스 이벤트
+            <li>포커스 이벤트
                 <pre>
                     ● focus : 요소가 포커스를 얻었을 때
                     ● blur : 요소가 포커스를 잃었을 때
                 </pre>
             </li>
-            <li>▶ 폼 이벤트
+            <li>폼 이벤트
                 <pre>
                     ● input : input 태그나 textarea 태그의 요소 값이 변경되었을 때
                     ● change : 선택 상자나 체크박스나 라디오 버튼의 상태가 변경되었을 때
@@ -607,7 +599,7 @@
                     ● select : 해당 텍스트를 선택했을 때
                 </pre>
             </li>
-            <li>▶ 드래그 앤 드롭 이벤트
+            <li>드래그 앤 드롭 이벤트
                 <pre>
                     ● dragstart : 요소나 텍스트 블록을 드래그 할 때
                     ● drag : 드래그를 끝냈을 때
@@ -632,7 +624,7 @@
                     ● JSON : JavaScript에서 객체를 만들 때 사용하는 표현식
                 </pre>
             </li>
-            <li>▶ JSON API
+            <li>JSON API
                 <pre>
                     ● JSON.parse('문자열') : 인자로 전달된 문자열을 자바스크립트의 데이터로 변환한다.
                     

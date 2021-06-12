@@ -10,3 +10,7 @@ body {
 br {
   margin: 20px 0;
 }
+
+li::before {
+  content: "▶ ";
+}
