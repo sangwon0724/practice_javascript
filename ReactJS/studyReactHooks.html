@@ -141,13 +141,6 @@
                         };를 선언한다.
                 </pre>
             </li>
-            <li>useNotification : Notification API를 사용할 때 유저에게 알림을 보낸다.
-                <pre>
-                    (1) 
-
-                    ※ x
-                </pre>
-            </li>
             <li>useAxios :
                 <pre>
                     (1) 
@@ -353,8 +346,8 @@
         </ul>
     </section>
 
-    <section id="noneHooks" tag="">
-        <header class="note_title">None Hooks</header>
+    <section id="noneImportHooks" tag="">
+        <header class="note_title">None Import Hooks</header>
         <ul>
             <li>useConfirm : 사용자가 행동을 하기전에 미리 확인하는 기능
                 <pre>
@@ -395,6 +388,33 @@
                     (3) 사용할 컴포넌트에서 enablePrevent 또는 disablePrevent를 사용한다.
                 </pre>
             </li>
+            <li>useNotification : Notification API를 사용할 때 유저에게 알림을 보낸다.
+                <pre>
+                    (1) const useNotification = (title, options) => {
+                            if(!("Notification" in window)){
+                                    return;
+                            }
+                            const fireNotification = () => {
+                                if(Notification.permission !== "granted"){
+                                    Notification.requestPermission().then(permission => {
+                                        if(permission === "granted"){
+                                            new Notification(title, options);
+                                        }
+                                        else{
+                                            return;
+                                        }
+                                    })
+                                }
+                                else{
+                                    new Notification(title, options);
+                                }
+                            };
+                            return fireNotification;
+                        };를 선언한다.
+
+                    ※ 참고 : <a href="https://developer.mozilla.org/ko/docs/Web/API/notification">이동</a>
+                </pre>
+            </li>
         </ul>
     </section>
 
@@ -406,7 +426,7 @@
                 <option value="effectHooks">Effect Hooks</option>
                 <option value="useRef">useRef</option>
                 <option value="compositiveHooks">Compositive Hooks</option>
-                <option value="noneHooks">None Hooks</option>
+                <option value="noneImportHooks">None Import Hooks</option>
             </select>
         </article>
     </div>
