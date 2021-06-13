@@ -141,13 +141,6 @@
                         };를 선언한다.
                 </pre>
             </li>
-            <li>useAxios :
-                <pre>
-                    (1) 
-
-                    ※ x
-                </pre>
-            </li>
         </ul>
     </section>
 
@@ -390,29 +383,46 @@
             </li>
             <li>useNotification : Notification API를 사용할 때 유저에게 알림을 보낸다.
                 <pre>
-                    (1) const useNotification = (title, options) => {
-                            if(!("Notification" in window)){
-                                    return;
-                            }
-                            const fireNotification = () => {
-                                if(Notification.permission !== "granted"){
-                                    Notification.requestPermission().then(permission => {
-                                        if(permission === "granted"){
-                                            new Notification(title, options);
-                                        }
-                                        else{
-                                            return;
-                                        }
-                                    })
-                                }
-                                else{
-                                    new Notification(title, options);
-                                }
-                            };
-                            return fireNotification;
-                        };를 선언한다.
+                    const useNotification = (title, options) => {
+                        ● if (!("Notification" in window)) {
+                          return;
+                        }
+                        const fireNotif = () => {
+                          if (Notification.permission !== "granted") {
+                            Notification.requestPermission().then(permission => {
+                              if (permission === "granted") {
+                                new Notification(title, options);
+                              } else {
+                                return;
+                              }
+                            });
+                          } else {
+                            new Notification(title, options);
+                          }
+                        };
+                        return fireNotif;
+                      };를 선언한다.
 
                     ※ 참고 : <a href="https://developer.mozilla.org/ko/docs/Web/API/notification">이동</a>
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    <section id="publishingToNPM" tag="">
+        <header class="note_title">Publishing to NPM</header>
+        <ul>
+            <li>NPM에 제작한 리액트 훅 등록하기
+                <pre>
+                    (1) 등록할 JS 파일에 가서 터미널 패널을 연 다음에 npm init을 입력한다.
+                    (2) 필요한 정보를 다 입력한다.
+                    (3) react가 필요한 훅이기 때문에 터미널에서 npm i react react-dom을 입력한다.
+                    (4) package.json의 dependencies 속성의 이름을 peerDependencies로 변경한다.
+                            → 이미 설치되어 있다면 설치하지 않고, 설치되어 있지 않다면 설치한다.
+                    (5) 터미널에서 npm login을 입력한다.
+                    (6) 터미널에서 npm publish -access public을 입력한다.
+
+                    ※ npm 계정이 없는 경우 npm 계정을 만든다.
                 </pre>
             </li>
         </ul>
@@ -427,6 +437,7 @@
                 <option value="useRef">useRef</option>
                 <option value="compositiveHooks">Compositive Hooks</option>
                 <option value="noneImportHooks">None Import Hooks</option>
+                <option value="publishingToNPM">Publishing to NPM</option>
             </select>
         </article>
     </div>
