@@ -23,6 +23,77 @@
                 ● Redux는 Javascript가 사용되는 모든 언어에서 사용할 수 있다.
             </pre>
         </li>
+        <li>설치방법
+            <pre>
+                ● 터미널에 npm add redux를 입력한다.
+            </pre>
+        </li>
+        <li>특징
+            <pre>
+                ● redux는 값을 삭제하는 것이 아닌 수정하는 작업을 한다.
+            </pre>
+        </li>
+    </ul>
+</section>
+
+<section id="createStore" tag="">
+    <header class="note_title">createStore</header>
+    <ul>
+        <li>createStore의 용어 설명
+            <pre>
+                ● state는 어플리케이션에서 값이 바뀌는 data를 의미한다.
+                ● store는 data를 넣는 곳을 의미한다.
+                ● reducer는 data의 변경을 담당하는 함수를 의미한다.
+            </pre>
+        </li>
+        <li>사용방법
+            <pre>
+                (1) index.js에서 import {createStore} from "redux";를 통해서 import한다.
+                (2) const store = createStore();라고 작성한다.
+                (3) createStore를 위해서 reducer라는 임의의 내용을 가진 빈 함수를 만든다.
+                (4) (2)에서 작성한 createStore()의 인자로 (3)에서 작성한 reducer 함수를 집어 넣는다.
+                    예시)
+                        const reducer = (value, action) => {};
+                        const store = createStore(reducer);
+                (5) store에게 action을 보내기 위해 store.dispatch({type : "Hello"});와 같은 문장을 작성한다.
+                (6) 값이 변경됬을 때의 기능을 만든다. (예시 : onChange)
+                (7) store.subscribe(onChange);를 작성해서 store가 작동되서 값이 변경되면 onChange가 작동되도록 한다.
+            </pre>
+        </li>
+        <li>값 전하기
+            <pre>
+                ● reducer 함수 기본틀
+                    const reducer = (value, action) => {};
+                
+                ※ value는 reducer 함수가 전해받는 값들을 의미한다.
+                ※ action은 reducer 함수가 전해받는 행동을 의미한다.
+
+                ※ action은 순수한 object이여야 하기 때문에 {}를 통해서 전달한다.
+            </pre>
+        </li>
+        <li>현재 값 알아내기
+            <pre>
+                ● getState()
+                    예시)
+                        const reducer = (value, action) => {};
+                        const store = createStore(reducer);
+                        store.getState();
+            </pre>
+        </li>
+        <li>값의 변화 감지하기 => dispatch가 실행됬을 때 작동할 기능
+            <pre>
+                ● subscribe()
+                    예시)
+                        const reducer = (value, action) => {};
+                        const store = createStore(reducer);
+                        const onChange = () => {
+                            temp.innerText = store.getState();
+                        };
+                        store.subscribe(onChange);
+
+                        store.dispatch({type : "Hello"}); //onChange 작동
+            </pre>
+        </li>
     </ul>
 </section>
     
@@ -30,6 +101,7 @@
     <article id="remote_setcion">
         <select id="remote_menu">
             <option value="start">시작</option>
+            <option value="createStore">createStore</option>
         </select>
     </article>
 </div>
