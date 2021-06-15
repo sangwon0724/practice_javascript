@@ -96,12 +96,45 @@
         </li>
     </ul>
 </section>
+
+<section id="reactRedux" tag="">
+    <header class="note_title">react-redux</header>
+    <ul>
+        <li>설치방법
+            <pre>
+                ● 해당 프로젝트의 터미널에 npm add react-redux react-router-dom을 입력한다.
+            </pre>
+        </li>
+        <li>사용방법
+            <pre>
+                (1) index.js에 가서 import { Provider } from "react-redux";를 통해서 import한다.
+                (2) store.js를 만들고 createStore를 통한 변수를 만든다. (예시 : store)
+                (3) index.js에 가서 store.js를 import한다.
+                (4) index.js의 ReactDOM.render에서 &lt;App/>을 &lt;Provider store={store}>&lt;/Provider>로 감싸준다.
+                (5) store를 사용할 js 페이지에 가서 import { connect } from "react-redux";를 통해서 import한다.
+                (6) 순수 객체를 반환하는 함수를 만든다.
+                    예시)
+                        function mapStateToProps(state) {
+                            return { toDos: state };
+                        }
+                (7) 해당 파일명이 Home이라고 가정했을 때, 최하단에 export default connect(mapStateToProps)(Home);을 작성한다.
+                        ※ 기본 형태 : export default (mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)(컴포넌트명);
+            </pre>
+        </li>
+        <li>참고
+            <pre>
+                <a href="https://react-redux.js.org/api/connect">이동</a>
+            </pre>
+        </li>
+    </ul>
+</section>
     
 <div id="remote">
     <article id="remote_setcion">
         <select id="remote_menu">
             <option value="start">시작</option>
             <option value="createStore">createStore</option>
+            <option value="reactRedux">react-redux</option>
         </select>
     </article>
 </div>
