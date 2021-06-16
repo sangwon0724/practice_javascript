@@ -170,6 +170,15 @@
                     }
                 </pre>
             </li>
+            <li>Fragment
+                <pre>
+                    ● React v16에 추가된 기능
+                    ● 컴포넌트가 여러 엘리먼트를 return 할때 jsx 규칙상 하나의 태그로 묶어서 return 해줘야 하는데,
+                      이때 fragment를 사용하면 dom에 별도의 노드를 추가하지 않고 여러자식을 그룹화 할 수 있다.
+                    ● 기본 문법 : &lt;React.Fragment>&lt;컴포넌트명>&lt;/React.Fragment>
+                    ● 간략화 문법 : &lt;>&lt;컴포넌트명>&lt;/>
+                </pre>
+            </li>
         </ul>
     </section>
 
@@ -277,6 +286,72 @@
                     3. Link 태그 예시 => &lt;Link to="/about">About&lt;/Link> 
                 </pre>
             </li>
+            <li>상황에 따른 컨트롤러 만들기
+                <pre>
+                    1. import { HashRouter as Router, Route, Switch } from "react-router-dom";
+                    2. 상황을 설정할 값 선언
+                    3. 아래와 같은 틀의 코드 작성하기
+                        &lt;Router>
+                            &lt;Switch>
+                            {isLoggedIn ? (
+                                &lt;>
+                                &lt;<Route exact path="/">
+                                    &lt;Home />
+                                &lt;/Route>
+                                &lt;/>
+                            ) : (
+                                &lt;Route exact path="/">
+                                    &lt;Auth />
+                                &lt;/Route>
+                            )}
+                            &lt;/Switch>
+                        &lt;/Router>
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    
+
+    <section id="env" tag="">
+        <header class="note_title">환경변수</header>
+        <ul>
+            <li>.env 파일 사용방법
+                <pre>
+                    ● 리액트에서 create-react-app을 사용한 이후에 .env 파일을 사용하고 싶다면
+                      .env 파일 안에서 사용되는 환경변수명들 앞에는 반드시 "REACT_APP_"을 붙여야 한다.
+                        예시) REACT_APP_PROJECT_ID=abc
+                    ● 쉼표나 세미콜론이 아닌 엔터로 구분한다.
+                    ● 사용할때는 process.env.REACT_APP_XXX=123로 사용할 수 있다.
+                    ● 개인 API KEY를 가리기 위해 사용하는 경우가 많지만 결국 브라우저를 통해 요청되면 데이터가 이동하기 때문에 반드시 숨겨지는것은 아니다.
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    
+
+    <section id="path" tag="">
+        <header class="note_title">경로설정</header>
+        <ul>
+            <li>jsconfig.json 사용방법
+                <pre>
+                    1. jsconfig.json 파일을 package.json 파일과 같은 위치에 만들어서 아래의 코드를 복붙한다.
+                        {
+                            "compilerOptions": {
+                                "baseUrl": "src"
+                            },
+                            "include": [
+                                "src"
+                            ]
+                        }
+                    2. import할 때 from의 주소를 절대경로로 작성한다.
+                        ※ 기존 : import AppRouter from "./Router";
+                        ※ 변경 : import AppRouter from "components/Router";
+
+                    ※ 만약 작동하지 않는다면 vscode를 껐다가 다시 킨다.
+                </pre>
+            </li>
         </ul>
     </section>
 
@@ -290,6 +365,8 @@
                 <option value="axios">axios</option>
                 <option value="gh_pages">깃허브 페이지</option>
                 <option value="navigation">네비게이션 (= 컨트롤러)</option>
+                <option value="env">환경변수</option>
+                <option value="path">경로설정</option>
             </select>
         </article>
     </div>
