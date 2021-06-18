@@ -361,6 +361,40 @@
         </ul>
     </section>
 
+    
+
+    <section id="fontAwesome" tag="">
+        <header class="note_title">fontAwesome 사용하기</header>
+        <ul>
+            <li>설치방법
+                <pre>
+                    1. 터미널에 명령어 npm install @fortawesome/react-fontawesome 입력하기
+                    2. 필요한 아이콘에 따라서 추가로 터미널에 명령어 입력하기
+                        ○ npm install @fortawesome/fontawesome-free
+                        ○ npm install @fortawesome/fontawesome-svg-core
+                        ○ npm install @fortawesome/free-brands-svg-icons
+                        ○ npm install @fortawesome/free-regular-svg-icons
+                        ○ npm install @fortawesome/free-solid-svg-icons
+                </pre>
+            </li>
+            <li>사용방법
+                <pre>
+                    1. "@fortawesome/react-fontawesome" 패키지에서 FontAwesomeIcon를 import 받는다.
+                            코드)
+                                import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+                    1. 필요한 패키지에서 필요한 기능을 import 받는다.
+                        예시)
+                            (1) import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+                            (2) import { faUser } from "@fortawesome/free-solid-svg-icons";
+                    2. &lt;FontAwesomeIcon/> 태그를 통해서 아이콘을 사용한다.
+                        예시)
+                            (1) &lt;FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" />
+                            (2) &lt;FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
+                </pre>
+            </li>
+        </ul>
+    </section>
+
     <div id="remote">
         <article id="remote_setcion">
             <select id="remote_menu">
@@ -373,6 +407,7 @@
                 <option value="navigation">네비게이션 (= 컨트롤러)</option>
                 <option value="env">환경변수</option>
                 <option value="path">경로설정</option>
+                <option value="fontAwesome">fontAwesome 사용하기</option>
             </select>
         </article>
     </div>
